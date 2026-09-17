@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leading Through the AI Shift</title>
+  <style>
+    /* ─── FONTS ─────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Avant Garde SF';
+      src: url('assets/fonts/AvantGardeForSalesforceW05-Dm.woff2') format('woff2'),
+           url('assets/fonts/AvantGardeForSalesforceW05-Dm.woff') format('woff');
+      font-weight: 600;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Salesforce Sans';
+      src: url('assets/fonts/SalesforceSans-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Salesforce Sans';
+      src: url('assets/fonts/SalesforceSans-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Salesforce Sans';
+      src: url('assets/fonts/SalesforceSans-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-display: swap;
+    }
+
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --eb-15:  #001E5B;
+      --eb-30:  #022AC0;
+      --eb-50:  #066AFE;
+      --cb-68:  #00B3FF;
+      --cb-80:  #90D0FE;
+      --cb-95:  #EAF5FE;
+      --teal:   #04E1CB;
+      --yellow: #FCC003;
+      --pink:   #FF538A;
+      --violet: #D17DFE;
+      --white:  #FFFFFF;
+      --display: 'Avant Garde SF', 'Century Gothic', sans-serif;
+      --body:    'Salesforce Sans', Arial, sans-serif;
+      --ease: cubic-bezier(.16,1,.3,1);
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      background: var(--eb-15);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── LANG TOGGLE ────────────────────────────────────────── */
+    #lang-bar {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 48px;
+      background: rgba(0,30,91,.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(144,208,254,.12);
+    }
+    .lang-btn {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid rgba(144,208,254,.3);
+      color: var(--cb-80);
+      border-radius: 999px;
+      padding: 6px 18px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .lang-btn:hover { background: rgba(144,208,254,.12); }
+    .lang-btn.active { background: var(--eb-50); color: var(--white); border-color: var(--eb-50); }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 40px; right: 0; left: 0;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(0,30,91,.6);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(144,208,254,.08);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .02em;
+    }
+    .nav-brand img { height: 24px; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--cb-80);
+      text-decoration: none;
+      opacity: .8;
+      transition: opacity .2s, color .2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--white); }
+
+    /* ─── SECTIONS base ──────────────────────────────────────── */
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 8vw 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ─── S1 CONTEXT ─────────────────────────────────────────── */
+    #s1 {
+      background: linear-gradient(155deg, #001E5B 0%, #022AC0 55%, #001E5B 100%);
+    }
+    .s1-eyebrow {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cb-68);
+      margin-bottom: 28px;
+    }
+    .s1-title {
+      font-family: var(--display);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 600;
+      line-height: 1.0;
+      letter-spacing: -.02em;
+      color: var(--white);
+      max-width: 840px;
+      margin-bottom: 56px;
+    }
+    .s1-title em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--cb-68), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .s1-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin-bottom: 64px;
+    }
+    .pillar-card {
+      background: rgba(6,106,254,.12);
+      border: 1px solid rgba(0,179,255,.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: border-color .3s, background .3s, transform .3s var(--ease);
+    }
+    .pillar-card:hover {
+      background: rgba(6,106,254,.22);
+      border-color: var(--cb-68);
+      transform: translateY(-4px);
+    }
+    .pillar-label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cb-68);
+      margin-bottom: 10px;
+    }
+    .pillar-title {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .pillar-body {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--cb-80);
+      line-height: 1.6;
+    }
+    .s1-question {
+      font-family: var(--display);
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      max-width: 720px;
+      border-left: 3px solid var(--teal);
+      padding-left: 24px;
+    }
+    .s1-astro {
+      position: absolute;
+      right: 6vw;
+      bottom: -20px;
+      height: clamp(280px, 28vw, 440px);
+      opacity: .9;
+      pointer-events: none;
+    }
+
+    /* ─── S2 POSITIONING ─────────────────────────────────────── */
+    #s2 {
+      background: linear-gradient(160deg, #022AC0 0%, #001E5B 60%, #004466 100%);
+    }
+    .section-eyebrow {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cb-68);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(36px, 4.5vw, 64px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -.015em;
+      color: var(--white);
+      margin-bottom: 56px;
+      max-width: 720px;
+    }
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1100px;
+      margin-bottom: 48px;
+    }
+    .level-col {
+      background: rgba(0,30,91,.5);
+      border: 1px solid rgba(0,179,255,.15);
+      padding: 36px 28px 40px;
+      transition: border-color .3s, background .3s;
+      position: relative;
+    }
+    .level-col:first-child { border-radius: 16px 0 0 16px; }
+    .level-col:last-child  { border-radius: 0 16px 16px 0; }
+    .level-col:hover { background: rgba(6,106,254,.18); border-color: rgba(0,179,255,.4); }
+    .level-badge {
+      display: inline-block;
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .badge-leader { background: rgba(4,225,203,.18); color: var(--teal); }
+    .badge-team   { background: rgba(6,106,254,.3);  color: var(--cb-68); }
+    .badge-org    { background: rgba(209,125,254,.18); color: var(--violet); }
+    .level-heading {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .level-question {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--cb-80);
+      margin-bottom: 24px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .level-tags {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .level-tags li {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--cb-80);
+      padding-left: 14px;
+      position: relative;
+    }
+    .level-tags li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--cb-68);
+      font-size: 11px;
+    }
+    .levels-tagline {
+      font-family: var(--display);
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: .02em;
+      text-align: center;
+      max-width: 1100px;
+      opacity: .7;
+    }
+
+    /* ─── S3 LEADER ──────────────────────────────────────────── */
+    #s3 {
+      background: linear-gradient(150deg, #001E5B 0%, #013a1a 100%);
+    }
+    #s3 .accent-line { background: var(--teal); }
+
+    /* ─── S4 TEAM ────────────────────────────────────────────── */
+    #s4 {
+      background: linear-gradient(150deg, #001040 0%, #022AC0 100%);
+    }
+    #s4 .accent-line { background: var(--eb-50); }
+
+    /* ─── S5 ORGANIZATION ────────────────────────────────────── */
+    #s5 {
+      background: linear-gradient(150deg, #1a0040 0%, #001E5B 100%);
+    }
+    #s5 .accent-line { background: var(--violet); }
+
+    /* ─── DETAIL SECTION shared ──────────────────────────────── */
+    .detail-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1200px;
+    }
+    .detail-left .level-num {
+      font-family: var(--display);
+      font-size: clamp(72px, 8vw, 120px);
+      font-weight: 600;
+      color: rgba(255,255,255,.06);
+      line-height: 1;
+      margin-bottom: -20px;
+    }
+    .detail-left .detail-tag {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .detail-left .detail-title {
+      font-family: var(--display);
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -.015em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .detail-left .detail-subtitle {
+      font-family: var(--display);
+      font-size: clamp(16px, 1.8vw, 22px);
+      font-weight: 600;
+      color: var(--cb-80);
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+    .situation-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .situation-list li {
+      border-left: 2px solid rgba(144,208,254,.25);
+      padding-left: 18px;
+    }
+    .situation-list li strong {
+      display: block;
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .situation-list li span {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--cb-80);
+      line-height: 1.5;
+    }
+    .accent-line {
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+    .what-box {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(144,208,254,.12);
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+    .what-box-title {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cb-68);
+      margin-bottom: 20px;
+    }
+    .what-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .what-tag {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(6,106,254,.2);
+      border: 1px solid rgba(0,179,255,.25);
+      color: var(--cb-80);
+    }
+    .detail-right-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .mini-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(144,208,254,.1);
+      border-radius: 12px;
+      padding: 22px 20px;
+      transition: border-color .3s, background .3s, transform .25s var(--ease);
+    }
+    .mini-card:hover {
+      border-color: rgba(0,179,255,.3);
+      background: rgba(6,106,254,.12);
+      transform: translateX(6px);
+    }
+    .mini-card-title {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .mini-card-body {
+      font-family: var(--body);
+      font-size: 13px;
+      color: var(--cb-80);
+      line-height: 1.55;
+    }
+
+    /* ─── S6 THREAD ──────────────────────────────────────────── */
+    #s6 {
+      background: linear-gradient(160deg, #022AC0 0%, #001E5B 100%);
+      align-items: center;
+      text-align: center;
+    }
+    .thread-eyebrow {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cb-68);
+      margin-bottom: 20px;
+    }
+    .thread-title {
+      font-family: var(--display);
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+      max-width: 800px;
+    }
+    .thread-subtitle {
+      font-family: var(--body);
+      font-size: clamp(16px, 1.8vw, 22px);
+      font-weight: 400;
+      color: var(--cb-80);
+      max-width: 560px;
+      line-height: 1.6;
+      margin-bottom: 72px;
+    }
+    .thread-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+    }
+    .thread-node {
+      background: rgba(6,106,254,.15);
+      border: 1px solid rgba(0,179,255,.25);
+      border-radius: 16px;
+      padding: 28px 36px;
+      text-align: center;
+      min-width: 200px;
+      transition: background .3s, border-color .3s, transform .3s var(--ease);
+    }
+    .thread-node:hover {
+      background: rgba(6,106,254,.3);
+      border-color: var(--cb-68);
+      transform: translateY(-6px);
+    }
+    .thread-node-label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cb-68);
+      margin-bottom: 8px;
+    }
+    .thread-node-title {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .thread-node-desc {
+      font-family: var(--body);
+      font-size: 13px;
+      color: var(--cb-80);
+    }
+    .thread-arrow {
+      font-size: 28px;
+      color: rgba(144,208,254,.3);
+      padding: 0 16px;
+      align-self: center;
+    }
+    .thread-tagline {
+      font-family: var(--display);
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .08em;
+    }
+    .thread-tagline span {
+      color: var(--white);
+      opacity: 1;
+    }
+
+    /* ─── SCROLL INDICATOR ───────────────────────────────────── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: .4;
+      animation: bounce 2s infinite;
+    }
+    .scroll-hint span {
+      font-family: var(--body);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .scroll-hint svg { width: 20px; height: 20px; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; }
+      #lang-bar { padding: 10px 28px; }
+      section { padding: 130px 6vw 60px; }
+      .s1-pillars, .levels-grid { grid-template-columns: 1fr; }
+      .level-col:first-child { border-radius: 16px 16px 0 0; }
+      .level-col:last-child  { border-radius: 0 0 16px 16px; }
+      .detail-inner { grid-template-columns: 1fr; gap: 40px; }
+      .s1-astro { display: none; }
+      .thread-flow { flex-direction: column; gap: 4px; }
+      .thread-arrow { transform: rotate(90deg); padding: 8px 0; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 120px 5vw 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div id="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+  <span style="color:rgba(144,208,254,.3);margin:0 8px">|</span>
+  <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <img src="salesforce-logo.svg" alt="Salesforce" />
+  </div>
+  <ul class="nav-links">
+    <li><a href="#s1" data-en="Context" data-fr="Contexte">Context</a></li>
+    <li><a href="#s2" data-en="Approach" data-fr="Approche">Approach</a></li>
+    <li><a href="#s3" data-en="Leader" data-fr="Leader">Leader</a></li>
+    <li><a href="#s4" data-en="Team" data-fr="Équipe">Team</a></li>
+    <li><a href="#s5" data-en="Organization" data-fr="Organisation">Organization</a></li>
+    <li><a href="#s6" data-en="The Thread" data-fr="Le Fil">The Thread</a></li>
+  </ul>
+</nav>
+
+<!-- ── S1 CONTEXT ─────────────────────────────────────────────── -->
+<section id="s1">
+  <p class="s1-eyebrow" data-en="THE AI SHIFT" data-fr="LE TOURNANT DE L'IA">THE AI SHIFT</p>
+  <h1 class="s1-title">
+    <span data-en="AI changes more than <em>what we do.</em>" data-fr="L'IA change bien plus que <em>ce que nous faisons.</em>">
+      AI changes more than <em>what we do.</em>
+    </span>
+  </h1>
+
+  <div class="s1-pillars">
+    <div class="pillar-card">
+      <p class="pillar-label" data-en="LEADERS" data-fr="LEADERS">LEADERS</p>
+      <p class="pillar-title" data-en="How we lead is changing." data-fr="La façon dont on dirige change.">How we lead is changing.</p>
+      <p class="pillar-body" data-en="AI changes the role of leaders — from producing answers to creating clarity, judgment and direction." data-fr="L'IA redéfinit le rôle du leader — de celui qui produit des réponses à celui qui crée de la clarté, du jugement et de la direction.">AI changes the role of leaders — from producing answers to creating clarity, judgment and direction.</p>
+    </div>
+    <div class="pillar-card">
+      <p class="pillar-label" data-en="TEAMS" data-fr="ÉQUIPES">TEAMS</p>
+      <p class="pillar-title" data-en="How teams work is changing." data-fr="La façon dont les équipes travaillent change.">How teams work is changing.</p>
+      <p class="pillar-body" data-en="AI changes collaboration, roles, decision-making and the distribution of cognitive work." data-fr="L'IA transforme la collaboration, les rôles, la prise de décision et la répartition du travail cognitif.">AI changes collaboration, roles, decision-making and the distribution of cognitive work.</p>
+    </div>
+    <div class="pillar-card">
+      <p class="pillar-label" data-en="ORGANIZATIONS" data-fr="ORGANISATIONS">ORGANIZATIONS</p>
+      <p class="pillar-title" data-en="How organizations transform is changing." data-fr="La façon dont les organisations se transforment change.">How organizations transform is changing.</p>
+      <p class="pillar-body" data-en="AI accelerates change — but adoption, culture and operating models determine whether transformation actually happens." data-fr="L'IA accélère le changement — mais l'adoption, la culture et les modèles opérationnels déterminent si la transformation se produit vraiment.">AI accelerates change — but adoption, culture and operating models determine whether transformation actually happens.</p>
+    </div>
+  </div>
+
+  <p class="s1-question">
+    <span data-en='The question is no longer "How do we adopt AI?" It is "How do we evolve with it?"' data-fr='La question n'est plus « Comment adopter l'IA ? » C'est « Comment évoluer avec elle ? »'>The question is no longer "How do we adopt AI?" It is "How do we evolve with it?"</span>
+  </p>
+
+  <img class="s1-astro" src="assets/characters/Astro 3D - 2.png" alt="" aria-hidden="true" />
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span data-en="scroll" data-fr="défiler">scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ── S2 POSITIONING ──────────────────────────────────────────── -->
+<section id="s2">
+  <p class="section-eyebrow" data-en="MY APPROACH" data-fr="MON APPROCHE">MY APPROACH</p>
+  <h2 class="section-title">
+    <span data-en="I work at three levels of transformation." data-fr="J'interviens à trois niveaux de transformation.">I work at three levels of transformation.</span>
+  </h2>
+
+  <div class="levels-grid">
+    <div class="level-col">
+      <span class="level-badge badge-leader" data-en="LEADER" data-fr="LEADER">LEADER</span>
+      <h3 class="level-heading" data-en="Individual" data-fr="Individuel">Individual</h3>
+      <p class="level-question" data-en="How do I evolve the way I lead?" data-fr="Comment est-ce que je fais évoluer ma façon de diriger ?">How do I evolve the way I lead?</p>
+      <ul class="level-tags">
+        <li data-en="Clarity" data-fr="Clarté">Clarity</li>
+        <li data-en="Leadership presence" data-fr="Présence de leadership">Leadership presence</li>
+        <li data-en="Decision making" data-fr="Prise de décision">Decision making</li>
+        <li data-en="Positioning" data-fr="Positionnement">Positioning</li>
+        <li data-en="Transitions" data-fr="Transitions">Transitions</li>
+      </ul>
+    </div>
+    <div class="level-col">
+      <span class="level-badge badge-team" data-en="TEAM" data-fr="ÉQUIPE">TEAM</span>
+      <h3 class="level-heading" data-en="Collective" data-fr="Collectif">Collective</h3>
+      <p class="level-question" data-en="How do we evolve the way we work together?" data-fr="Comment faisons-nous évoluer notre façon de travailler ensemble ?">How do we evolve the way we work together?</p>
+      <ul class="level-tags">
+        <li data-en="Trust" data-fr="Confiance">Trust</li>
+        <li data-en="Alignment" data-fr="Alignement">Alignment</li>
+        <li data-en="Collaboration" data-fr="Collaboration">Collaboration</li>
+        <li data-en="Collective intelligence" data-fr="Intelligence collective">Collective intelligence</li>
+        <li data-en="Performance" data-fr="Performance">Performance</li>
+      </ul>
+    </div>
+    <div class="level-col">
+      <span class="level-badge badge-org" data-en="ORGANIZATION" data-fr="ORGANISATION">ORGANIZATION</span>
+      <h3 class="level-heading" data-en="Systemic" data-fr="Systémique">Systemic</h3>
+      <p class="level-question" data-en="How do we evolve the way the organization works?" data-fr="Comment faisons-nous évoluer le fonctionnement de l'organisation ?">How do we evolve the way the organization works?</p>
+      <ul class="level-tags">
+        <li data-en="Transformation" data-fr="Transformation">Transformation</li>
+        <li data-en="Culture" data-fr="Culture">Culture</li>
+        <li data-en="Operating models" data-fr="Modèles opérationnels">Operating models</li>
+        <li data-en="AI adoption" data-fr="Adoption de l'IA">AI adoption</li>
+        <li data-en="Change at scale" data-fr="Changement à grande échelle">Change at scale</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="levels-tagline" data-en="One transformation. Three levels." data-fr="Une transformation. Trois niveaux.">One transformation. Three levels.</p>
+</section>
+
+<!-- ── S3 LEADER ───────────────────────────────────────────────── -->
+<section id="s3">
+  <div class="detail-inner">
+    <div class="detail-left">
+      <p class="detail-left level-num">01</p>
+      <div class="accent-line"></div>
+      <p class="detail-tag" style="color:var(--teal)" data-en="LEADER" data-fr="LEADER">LEADER</p>
+      <h2 class="detail-title" data-en="From expertise to leadership" data-fr="De l'expertise au leadership">From expertise to leadership</h2>
+      <p class="detail-subtitle" data-en="How can I make better use of what I know — and evolve the way I lead?" data-fr="Comment mieux valoriser ce que je sais — et faire évoluer ma façon de diriger ?">How can I make better use of what I know — and evolve the way I lead?</p>
+      <ul class="situation-list">
+        <li>
+          <strong data-en="When the role changes" data-fr="Quand le rôle évolue">When the role changes</strong>
+          <span data-en="New scope, new expectations, new leadership challenge." data-fr="Nouveau périmètre, nouvelles attentes, nouveau défi de leadership.">New scope, new expectations, new leadership challenge.</span>
+        </li>
+        <li>
+          <strong data-en="When expertise is no longer enough" data-fr="Quand l'expertise ne suffit plus">When expertise is no longer enough</strong>
+          <span data-en="Moving from knowing the answer to creating clarity and enabling others." data-fr="Passer de celui qui a la réponse à celui qui crée de la clarté et donne du pouvoir aux autres.">Moving from knowing the answer to creating clarity and enabling others.</span>
+        </li>
+        <li>
+          <strong data-en="When impact requires a different posture" data-fr="Quand l'impact exige une posture différente">When impact requires a different posture</strong>
+          <span data-en="Influence, presence, difficult conversations, decision-making." data-fr="Influence, présence, conversations difficiles, prise de décision.">Influence, presence, difficult conversations, decision-making.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="detail-right-grid">
+      <div class="what-box">
+        <p class="what-box-title" data-en="WHAT I DO" data-fr="CE QUE JE FAIS">WHAT I DO</p>
+        <div class="what-tags">
+          <span class="what-tag" data-en="Executive coaching" data-fr="Coaching exécutif">Executive coaching</span>
+          <span class="what-tag" data-en="Leadership transitions" data-fr="Transitions de leadership">Leadership transitions</span>
+          <span class="what-tag" data-en="Positioning & influence" data-fr="Positionnement & influence">Positioning & influence</span>
+          <span class="what-tag" data-en="Reflective practice" data-fr="Pratique réflexive">Reflective practice</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Clarity" data-fr="Clarté">Clarity</p>
+        <p class="mini-card-body" data-en="In complex environments, the leader's first job is not to have answers — it is to create conditions for better decisions." data-fr="Dans des environnements complexes, la première mission du leader n'est pas d'avoir les réponses — c'est de créer les conditions de meilleures décisions.">In complex environments, the leader's first job is not to have answers — it is to create conditions for better decisions.</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Presence" data-fr="Présence">Presence</p>
+        <p class="mini-card-body" data-en="How you show up — in a room, in a conversation, under pressure — determines what becomes possible for those around you." data-fr="La façon dont vous vous présentez — dans une salle, dans une conversation, sous pression — détermine ce qui devient possible pour ceux qui vous entourent.">How you show up — in a room, in a conversation, under pressure — determines what becomes possible for those around you.</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Positioning" data-fr="Positionnement">Positioning</p>
+        <p class="mini-card-body" data-en="How others see your value shapes what you're asked to do, what you're given access to, and what you can ultimately build." data-fr="La façon dont les autres perçoivent votre valeur détermine ce qu'on vous demande de faire, ce à quoi vous avez accès, et ce que vous pouvez construire.">How others see your value shapes what you're asked to do, what you're given access to, and what you can ultimately build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── S4 TEAM ─────────────────────────────────────────────────── -->
+<section id="s4">
+  <div class="detail-inner">
+    <div class="detail-left">
+      <p class="detail-left level-num">02</p>
+      <div class="accent-line"></div>
+      <p class="detail-tag" style="color:var(--eb-50)" data-en="TEAM" data-fr="ÉQUIPE">TEAM</p>
+      <h2 class="detail-title" data-en="From a group of experts to a high-performing team" data-fr="D'un groupe d'experts à une équipe haute performance">From a group of experts to a high-performing team</h2>
+      <p class="detail-subtitle" data-en="How can a team improve the way it connects, collaborates and performs together?" data-fr="Comment une équipe peut-elle améliorer sa façon de se connecter, collaborer et performer ensemble ?">How can a team improve the way it connects, collaborates and performs together?</p>
+      <ul class="situation-list">
+        <li>
+          <strong data-en="Create alignment" data-fr="Créer l'alignement">Create alignment</strong>
+          <span data-en="What are we really trying to achieve?" data-fr="Qu'est-ce qu'on cherche vraiment à accomplir ?">What are we really trying to achieve?</span>
+        </li>
+        <li>
+          <strong data-en="Surface what gets in the way" data-fr="Mettre au jour ce qui bloque">Surface what gets in the way</strong>
+          <span data-en="Trust, tensions, assumptions, ways of working." data-fr="Confiance, tensions, hypothèses, façons de travailler.">Trust, tensions, assumptions, ways of working.</span>
+        </li>
+        <li>
+          <strong data-en="Unlock collective intelligence" data-fr="Libérer l'intelligence collective">Unlock collective intelligence</strong>
+          <span data-en="Make better use of what the team already knows." data-fr="Mieux utiliser ce que l'équipe sait déjà.">Make better use of what the team already knows.</span>
+        </li>
+        <li>
+          <strong data-en="Build sustainable performance" data-fr="Construire une performance durable">Build sustainable performance</strong>
+          <span data-en="Not by pushing harder — by changing how the system works." data-fr="Pas en poussant davantage — en changeant le fonctionnement du système.">Not by pushing harder — by changing how the system works.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="detail-right-grid">
+      <div class="what-box">
+        <p class="what-box-title" data-en="WHAT I DO" data-fr="CE QUE JE FAIS">WHAT I DO</p>
+        <div class="what-tags">
+          <span class="what-tag" data-en="Team coaching" data-fr="Coaching d'équipe">Team coaching</span>
+          <span class="what-tag" data-en="Team effectiveness" data-fr="Efficacité d'équipe">Team effectiveness</span>
+          <span class="what-tag" data-en="Alignment & collaboration" data-fr="Alignement & collaboration">Alignment & collaboration</span>
+          <span class="what-tag" data-en="Collective leadership" data-fr="Leadership collectif">Collective leadership</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Trust" data-fr="Confiance">Trust</p>
+        <p class="mini-card-body" data-en="Performance is a by-product of safety. Teams that can disagree, surface tensions and recover fast consistently outperform." data-fr="La performance est un sous-produit de la sécurité. Les équipes capables de se confronter, de mettre au jour les tensions et de rebondir rapidement surperforment systématiquement.">Performance is a by-product of safety. Teams that can disagree, surface tensions and recover fast consistently outperform.</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Collective intelligence" data-fr="Intelligence collective">Collective intelligence</p>
+        <p class="mini-card-body" data-en="The answers are usually in the room. The work is creating the conditions for them to emerge — and be used." data-fr="Les réponses sont généralement dans la salle. Le travail consiste à créer les conditions pour qu'elles émergent — et soient utilisées.">The answers are usually in the room. The work is creating the conditions for them to emerge — and be used.</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Alignment" data-fr="Alignement">Alignment</p>
+        <p class="mini-card-body" data-en="Not just on what to do — on why it matters, who decides what, and what we're willing to trade off to get there." data-fr="Pas seulement sur ce qu'il faut faire — mais sur pourquoi c'est important, qui décide quoi, et ce qu'on est prêt à sacrifier pour y arriver.">Not just on what to do — on why it matters, who decides what, and what we're willing to trade off to get there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── S5 ORGANIZATION ─────────────────────────────────────────── -->
+<section id="s5">
+  <div class="detail-inner">
+    <div class="detail-left">
+      <p class="detail-left level-num">03</p>
+      <div class="accent-line"></div>
+      <p class="detail-tag" style="color:var(--violet)" data-en="ORGANIZATION" data-fr="ORGANISATION">ORGANIZATION</p>
+      <h2 class="detail-title" data-en="From transformation programs to transformation capability" data-fr="Des programmes de transformation à la capacité de transformation">From transformation programs to transformation capability</h2>
+      <p class="detail-subtitle" data-en="How can an organization evolve its ways of working, leading and building culture at scale?" data-fr="Comment une organisation peut-elle faire évoluer ses façons de travailler, de diriger et de construire une culture à grande échelle ?">How can an organization evolve its ways of working, leading and building culture at scale?</p>
+      <ul class="situation-list">
+        <li>
+          <strong data-en="Transform" data-fr="Transformer">Transform</strong>
+          <span data-en="Turn strategic intent into new behaviors and ways of working." data-fr="Transformer l'intention stratégique en nouveaux comportements et façons de travailler.">Turn strategic intent into new behaviors and ways of working.</span>
+        </li>
+        <li>
+          <strong data-en="Learn" data-fr="Apprendre">Learn</strong>
+          <span data-en="Create the conditions for people and teams to continuously adapt." data-fr="Créer les conditions permettant aux personnes et aux équipes de s'adapter en continu.">Create the conditions for people and teams to continuously adapt.</span>
+        </li>
+        <li>
+          <strong data-en="Scale" data-fr="Développer">Scale</strong>
+          <span data-en="Move from individual experiments to organizational change." data-fr="Passer des expériences individuelles au changement organisationnel.">Move from individual experiments to organizational change.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="detail-right-grid">
+      <div class="what-box">
+        <p class="what-box-title" data-en="WHAT I DO" data-fr="CE QUE JE FAIS">WHAT I DO</p>
+        <div class="what-tags">
+          <span class="what-tag" data-en="Organizational coaching" data-fr="Coaching organisationnel">Organizational coaching</span>
+          <span class="what-tag" data-en="Transformation journeys" data-fr="Parcours de transformation">Transformation journeys</span>
+          <span class="what-tag" data-en="AI leadership & adoption" data-fr="Leadership & adoption IA">AI leadership & adoption</span>
+          <span class="what-tag" data-en="Culture & ways of working" data-fr="Culture & façons de travailler">Culture & ways of working</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Transformation capability" data-fr="Capacité de transformation">Transformation capability</p>
+        <p class="mini-card-body" data-en="Organizations that transform well don't just run better programs. They build the muscle to continuously adapt — at every level." data-fr="Les organisations qui se transforment bien ne pilotent pas seulement de meilleurs programmes. Elles construisent la capacité à s'adapter en permanence — à chaque niveau.">Organizations that transform well don't just run better programs. They build the muscle to continuously adapt — at every level.</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="AI adoption" data-fr="Adoption de l'IA">AI adoption</p>
+        <p class="mini-card-body" data-en="The bottleneck is rarely the technology. It is leadership, culture and the ability to change how work actually gets done." data-fr="Le goulot d'étranglement est rarement la technologie. C'est le leadership, la culture et la capacité à changer la façon dont le travail se fait réellement.">The bottleneck is rarely the technology. It is leadership, culture and the ability to change how work actually gets done.</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-title" data-en="Scale" data-fr="Développement">Scale</p>
+        <p class="mini-card-body" data-en="Sustainable change requires more than senior sponsorship. It requires building local capacity — leaders and teams who own the change." data-fr="Un changement durable nécessite plus qu'un sponsorship senior. Il faut construire une capacité locale — des leaders et des équipes qui s'approprient le changement.">Sustainable change requires more than senior sponsorship. It requires building local capacity — leaders and teams who own the change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── S6 THREAD ───────────────────────────────────────────────── -->
+<section id="s6">
+  <p class="thread-eyebrow" data-en="THE COMMON THREAD" data-fr="LE FIL CONDUCTEUR">THE COMMON THREAD</p>
+  <h2 class="thread-title" data-en="I create the conditions for people and systems to evolve." data-fr="Je crée les conditions pour que les personnes et les systèmes évoluent.">I create the conditions for people and systems to evolve.</h2>
+  <p class="thread-subtitle" data-en="The work is always the same. The scale changes." data-fr="Le travail est toujours le même. L'échelle change.">The work is always the same. The scale changes.</p>
+
+  <div class="thread-flow">
+    <div class="thread-node">
+      <p class="thread-node-label" data-en="INDIVIDUAL" data-fr="INDIVIDUEL">INDIVIDUAL</p>
+      <p class="thread-node-title" data-en="Change how I lead" data-fr="Changer ma façon de diriger">Change how I lead</p>
+      <p class="thread-node-desc" data-en="Clarity" data-fr="Clarté">Clarity</p>
+    </div>
+    <div class="thread-arrow">↓</div>
+    <div class="thread-node">
+      <p class="thread-node-label" data-en="TEAM" data-fr="ÉQUIPE">TEAM</p>
+      <p class="thread-node-title" data-en="Change how we work" data-fr="Changer comment on travaille">Change how we work</p>
+      <p class="thread-node-desc" data-en="Alignment" data-fr="Alignement">Alignment</p>
+    </div>
+    <div class="thread-arrow">↓</div>
+    <div class="thread-node">
+      <p class="thread-node-label" data-en="ORGANIZATION" data-fr="ORGANISATION">ORGANIZATION</p>
+      <p class="thread-node-title" data-en="Change how we transform" data-fr="Changer comment on se transforme">Change how we transform</p>
+      <p class="thread-node-desc" data-en="Transformation" data-fr="Transformation">Transformation</p>
+    </div>
+  </div>
+
+  <p class="thread-tagline">
+    <span data-en="Clarity" data-fr="Clarté">Clarity</span>
+    <span style="color:rgba(144,208,254,.3);margin:0 16px">→</span>
+    <span data-en="Alignment" data-fr="Alignement">Alignment</span>
+    <span style="color:rgba(144,208,254,.3);margin:0 16px">→</span>
+    <span data-en="Transformation" data-fr="Transformation">Transformation</span>
+  </p>
+</section>
+
+<!-- ── JS ─────────────────────────────────────────────────────── -->
+<script>
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (!val) return;
+      // Handle innerHTML (elements with <em> etc)
+      if (val.includes('<')) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+  }
+
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.pillar-card, .level-col, .mini-card, .thread-node, .situation-list li, .what-box').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity .6s ${i * 0.07}s var(--ease), transform .6s ${i * 0.07}s var(--ease)`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
