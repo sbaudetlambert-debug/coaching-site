@@ -1227,14 +1227,17 @@
   }
 
   if (practiceZone && practiceNav) {
-    const stickyIo = new IntersectionObserver(entries => {
-      const e = entries[0];
-      const above = !e.isIntersecting && e.boundingClientRect.top < 0;
-      const below = !e.isIntersecting && e.boundingClientRect.top > 0;
-      // sticky seulement pendant que la zone est visible ou en train d'arriver
-      setSticky(!above && !below);
-    }, { threshold: [0] });
-    stickyIo.observe(practiceZone);
+    // Sticky = actif quand le TOP de #practice-zone remonte jusqu'à top:86px
+    // et inactif quand le BOTTOM dépasse vers le haut (zone terminée).
+    // On écoute le scroll directement pour un contrôle précis.
+    function updateSticky() {
+      const rect = practiceZone.getBoundingClientRect();
+      const headerH = 86;
+      const active = rect.top <= headerH && rect.bottom > headerH;
+      setSticky(active);
+    }
+    window.addEventListener('scroll', updateSticky, { passive: true });
+    updateSticky(); // état initial correct dès le load
   }
 
   // ── ACTIVE STATE (section visible) ──────────────────────────────
