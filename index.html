@@ -432,9 +432,19 @@
     }
     .pb-sub {
       font-family: var(--font-body); font-size: 15px; font-weight: 400;
-      font-style: italic;
       color: var(--section-text-secondary);
-      line-height: 1.6; margin-bottom: 36px;
+      line-height: 1.6; margin-bottom: 20px;
+    }
+    .pb-sub:last-of-type { margin-bottom: 36px; }
+    .pb-right .pb-concept-title {
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--section-text-muted);
+      margin-bottom: 16px;
+    }
+    .pb-right .pb-moments li span {
+      font-size: 14px;
+      color: var(--section-text-primary);
     }
     .pb-moments { list-style: none; display: flex; flex-direction: column; gap: 18px; }
     .pb-moments li {
@@ -596,9 +606,9 @@
 <nav aria-label="Site navigation">
   <div class="nav-logo"><img src="salesforce-logo.svg" alt="Salesforce" /></div>
   <ul class="nav-links" role="list">
-    <li><a href="#s1" data-en="The Shift" data-fr="Le Tournant">The Shift</a></li>
-    <li><a href="#s2" data-en="The Belief" data-fr="La Conviction">The Belief</a></li>
-    <li><a href="#s3" data-en="The Practice" data-fr="La Pratique">The Practice</a></li>
+    <li><a href="#s1" data-en="The Shift" data-fr="Le constat">The Shift</a></li>
+    <li><a href="#s2" data-en="Who I am" data-fr="Qui suis-je ?">Who I am</a></li>
+    <li><a href="#s3" data-en="The Practice" data-fr="Ma pratique">The Practice</a></li>
     <li><a href="#s5" data-en="Contact" data-fr="Contact">Contact</a></li>
   </ul>
 </nav>
@@ -606,18 +616,18 @@
 <!-- ══ S1 — THE SHIFT ════════════════════════════════════════════ -->
 <section id="s1" class="dark-section" aria-labelledby="s1-heading">
   <h1 class="s1-h1 fade" id="s1-heading">
-    <span data-en="AI is changing faster <em>than we can adapt.</em>" data-fr="L'IA évolue plus vite <em>que nous ne pouvons nous y adapter.</em>">
+    <span data-en="AI is changing faster <em>than we can adapt.</em>" data-fr="L&#8217;IA ne change pas seulement ce que nous faisons.<br><em>Elle change la façon dont nous dirigeons, travaillons et nous transformons.</em>">
       AI is changing faster <em>than we can adapt.</em>
     </span>
   </h1>
   <p class="s1-thesis fade">
-    <span data-en="More intelligence does not automatically create more <strong>clarity</strong>. That is where leadership matters." data-fr="Plus d'intelligence ne crée pas automatiquement plus de <strong>clarté</strong>. C'est là que le leadership compte.">
+    <span data-en="More intelligence does not automatically create more <strong>clarity</strong>. That is where leadership matters." data-fr="La question n&#8217;est plus seulement : comment adopter l&#8217;IA ?<br>Mais : <strong>comment évoluer avec elle ?</strong>">
       More intelligence does not automatically create more <strong>clarity</strong>. That is where leadership matters.
     </span>
   </p>
   <div class="s1-rule fade" aria-hidden="true"></div>
   <p class="s1-belief fade">
-    <span data-en="AI gives us more intelligence. Leadership turns it into clarity." data-fr="L'IA nous donne plus d'intelligence. Le leadership la transforme en clarté.">
+    <span data-en="AI gives us more intelligence. Leadership turns it into clarity." data-fr="L&#8217;IA rend les réponses plus accessibles. Le leadership, lui, devient une question de clarté, de jugement et de direction.">
       AI gives us more intelligence.<br>Leadership turns it into clarity.
     </span>
   </p>
@@ -632,14 +642,14 @@
 <section id="s2" class="light-section" aria-labelledby="s2-heading">
   <div class="s2-grid">
     <div>
-      <span class="eyebrow fade" data-en="Who I am" data-fr="Qui je suis">Who I am</span>
+      <span class="eyebrow fade" data-en="Who I am" data-fr="Qui suis-je ?">Who I am</span>
       <h2 class="s2-h2 fade" id="s2-heading">
-        <span data-en="A transformation practitioner with a coaching mindset." data-fr="Un praticien de la transformation avec un état d'esprit de coach.">
+        <span data-en="A transformation practitioner with a coaching mindset." data-fr="Mon parcours m&#8217;a amené à regarder ensemble trois dimensions que l&#8217;on sépare souvent.">
           A transformation practitioner with a coaching mindset.
         </span>
       </h2>
       <p class="s2-intro fade">
-        <span data-en="I work at the intersection of <strong>business pressure</strong>, <strong>organizational complexity</strong> and <strong>human dynamics</strong> — three perspectives that most practitioners keep separate." data-fr="J'interviens à l'intersection de la <strong>pression business</strong>, de la <strong>complexité organisationnelle</strong> et de la <strong>dynamique humaine</strong> — trois perspectives que la plupart des praticiens gardent séparées.">
+        <span data-en="I work at the intersection of <strong>business pressure</strong>, <strong>organizational complexity</strong> and <strong>human dynamics</strong> — three perspectives that most practitioners keep separate." data-fr="Avant d&#8217;intervenir comme coach, j&#8217;ai exercé des responsabilités commerciales, puis conduit des transformations complexes. Ce n&#8217;est pas une trajectoire linéaire — c&#8217;est ce qui me permet aujourd&#8217;hui de regarder les organisations à plusieurs niveaux en même temps.">
           I work at the intersection of <strong>business pressure</strong>, <strong>organizational complexity</strong> and <strong>human dynamics</strong> — three perspectives that most practitioners keep separate.
         </span>
       </p>
@@ -648,42 +658,42 @@
           <div class="s2-pillar-badge badge-biz" aria-hidden="true">B</div>
           <div>
             <p class="s2-pillar-title" data-en="Business" data-fr="Business">Business</p>
-            <p class="s2-pillar-body" data-en="6+ years in Sales & Marketing. I understand commercial reality, revenue pressure and what it means to be accountable for results." data-fr="6+ ans en Sales & Marketing. Je comprends la réalité commerciale, la pression revenue et ce que signifie être responsable de résultats.">6+ years in Sales & Marketing. I understand commercial reality, revenue pressure and what it means to be accountable for results.</p>
+            <p class="s2-pillar-body" data-en="6+ years in Sales & Marketing. I understand commercial reality, revenue pressure and what it means to be accountable for results." data-fr="Six ans dans des fonctions Sales & Marketing. Je comprends ce que signifie être responsable d&#8217;un résultat, dans un environnement où la pression est réelle et les marges de manœuvre réduites.">6+ years in Sales & Marketing. I understand commercial reality, revenue pressure and what it means to be accountable for results.</p>
           </div>
         </div>
         <div class="s2-pillar">
           <div class="s2-pillar-badge badge-tr" aria-hidden="true">T</div>
           <div>
             <p class="s2-pillar-title" data-en="Transformation" data-fr="Transformation">Transformation</p>
-            <p class="s2-pillar-body" data-en="10+ years in strategic transformation delivery. I have seen what makes complex organizations move — and what makes them stall." data-fr="10+ ans en conduite de transformation stratégique. J'ai vu ce qui fait avancer les organisations complexes — et ce qui les bloque.">10+ years in strategic transformation delivery. I have seen what makes complex organizations move — and what makes them stall.</p>
+            <p class="s2-pillar-body" data-en="10+ years in strategic transformation delivery. I have seen what makes complex organizations move — and what makes them stall." data-fr="Dix ans à conduire des transformations stratégiques. J&#8217;ai vu ce qui fait avancer les organisations complexes — et ce qui les fige, souvent malgré les meilleures intentions.">10+ years in strategic transformation delivery. I have seen what makes complex organizations move — and what makes them stall.</p>
           </div>
         </div>
         <div class="s2-pillar">
           <div class="s2-pillar-badge badge-ppl" aria-hidden="true">P</div>
           <div>
             <p class="s2-pillar-title" data-en="People" data-fr="Personnes">People</p>
-            <p class="s2-pillar-body" data-en="Certified in Collective Performance & Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="Certifié en Performance & Transformation Collective. Une pratique de coaching construite sur le leadership, l'intelligence collective et les conditions d'une performance durable.">Certified in Collective Performance & Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance.</p>
+            <p class="s2-pillar-body" data-en="Certified in Collective Performance & Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="Certifié en Performance & Transformation Collective. Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps.">Certified in Collective Performance & Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance.</p>
           </div>
         </div>
       </div>
     </div>
 
     <div>
-      <span class="eyebrow fade" data-en="The philosophy" data-fr="La philosophie">The philosophy</span>
+      <span class="eyebrow fade" data-en="The philosophy" data-fr="Ma conviction">The philosophy</span>
       <p class="s2-quote fade">
-        <span data-en="I don&rsquo;t provide the answers. I create the conditions for better answers to emerge." data-fr="Je ne fournis pas les réponses. Je crée les conditions pour que de meilleures réponses émergent.">
+        <span data-en="I don&rsquo;t provide the answers. I create the conditions for better answers to emerge." data-fr="Je ne cherche pas à apporter les réponses. Je cherche à créer les conditions pour que de meilleures réponses émergent.">
           I don&rsquo;t provide the answers. I create the conditions for better answers to emerge.
         </span>
       </p>
-      <p class="s2-quote-sub fade" data-en="This is not a method. It is a belief about how change actually happens — in a person, in a team, in an organization." data-fr="Ce n'est pas une méthode. C'est une conviction sur la façon dont le changement se produit réellement — chez une personne, dans une équipe, dans une organisation.">
+      <p class="s2-quote-sub fade" data-en="This is not a method. It is a belief about how change actually happens — in a person, in a team, in an organization." data-fr="Ce n&#8217;est pas une posture. C&#8217;est ce que j&#8217;ai observé, dans les transformations comme dans le coaching : les bonnes décisions émergent rarement de la pression ou de l&#8217;expertise seule. Elles émergent quand les conditions sont réunies.">
         This is not a method. It is a belief about how change actually happens — in a person, in a team, in an organization.
       </p>
       <blockquote class="s2-blockquote fade">
-        <p class="s2-blockquote-text" data-en="&ldquo;People who are questioned well find within themselves the right answers.&rdquo;" data-fr="&laquo;&nbsp;Les personnes bien questionnées trouvent en elles-mêmes les bonnes réponses.&nbsp;&raquo;">&ldquo;People who are questioned well find within themselves the right answers.&rdquo;</p>
-        <cite class="s2-blockquote-attr">— Socrates</cite>
+        <p class="s2-blockquote-text" data-en="&ldquo;People who are questioned well find within themselves the right answers.&rdquo;" data-fr="&laquo;&nbsp;Les personnes interrogées, pourvu qu&#8217;on les interroge bien, trouvent en elles-mêmes les bonnes réponses.&nbsp;&raquo;">&ldquo;People who are questioned well find within themselves the right answers.&rdquo;</p>
+        <cite class="s2-blockquote-attr" data-en="— Socrates" data-fr="— Socrate">— Socrates</cite>
       </blockquote>
       <p class="s2-bio fade">
-        <span data-en="Today I bring these three perspectives together as <strong>Sales Leaders Excellence Coach at Salesforce</strong> — working with leaders and teams navigating commercial complexity, AI adoption and organizational transformation." data-fr="Aujourd'hui je réunis ces trois perspectives en tant que <strong>Sales Leaders Excellence Coach chez Salesforce</strong> — travaillant avec des leaders et des équipes naviguant dans la complexité commerciale, l'adoption de l'IA et la transformation organisationnelle.">
+        <span data-en="Today I bring these three perspectives together as <strong>Sales Leaders Excellence Coach at Salesforce</strong> — working with leaders and teams navigating commercial complexity, AI adoption and organizational transformation." data-fr="Aujourd&#8217;hui, je réunis ces trois dimensions en tant que <strong>Sales Leaders Excellence Coach chez Salesforce</strong> — avec des leaders et des équipes qui naviguent dans la complexité commerciale, l&#8217;adoption de l&#8217;IA et la transformation organisationnelle.">
           Today I bring these three perspectives together as <strong>Sales Leaders Excellence Coach at Salesforce</strong> — working with leaders and teams navigating commercial complexity, AI adoption and organizational transformation.
         </span>
       </p>
@@ -693,12 +703,12 @@
 
 <!-- ══ S3 — WHERE I WORK ═════════════════════════════════════════ -->
 <section id="s3" class="dark-section" aria-labelledby="s3-heading">
-  <span class="eyebrow fade" data-en="Where I work" data-fr="Où j'interviens">Where I work</span>
+  <span class="eyebrow fade" data-en="Where I work" data-fr="Ma pratique">Where I work</span>
   <h2 class="s3-h2 fade" id="s3-heading">
-    <span data-en="One practice. Three levels." data-fr="Une pratique. Trois niveaux.">One practice. Three levels.</span>
+    <span data-en="One practice. Three levels." data-fr="Une pratique. Trois niveaux d&#8217;intervention.">One practice. Three levels.</span>
   </h2>
   <p class="s3-sub fade">
-    <span data-en="The same transformation — at different scales of complexity." data-fr="La même transformation — à différentes échelles de complexité.">
+    <span data-en="The same transformation — at different scales of complexity." data-fr="La même transformation — à des échelles différentes de complexité.">
       The same transformation — at different scales of complexity.
     </span>
   </p>
@@ -706,66 +716,56 @@
     <div class="s3-level" role="listitem">
       <span class="s3-level-tag tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
       <p class="s3-level-q" data-en="How do I evolve the way I lead?" data-fr="Comment est-ce que je fais évoluer ma façon de diriger ?">How do I evolve the way I lead?</p>
-      <p class="s3-level-from" data-en="From producing answers to creating clarity, judgment and direction." data-fr="De celui qui produit des réponses à celui qui crée de la clarté, du jugement et de la direction.">From producing answers to creating clarity, judgment and direction.</p>
+      <p class="s3-level-from" data-en="From producing answers to creating clarity, judgment and direction." data-fr="Du leader qui produit les réponses à celui qui crée de la clarté, exerce son jugement et donne une direction.">From producing answers to creating clarity, judgment and direction.</p>
       <p class="s3-level-out tag-teal" data-en="Clarity" data-fr="Clarté">Clarity</p>
     </div>
     <div class="s3-level" role="listitem">
       <span class="s3-level-tag tag-sky" data-en="Team" data-fr="Équipe">Team</span>
       <p class="s3-level-q" data-en="How do we evolve the way we work together?" data-fr="Comment faisons-nous évoluer notre façon de travailler ensemble ?">How do we evolve the way we work together?</p>
-      <p class="s3-level-from" data-en="From a group of experts to a system that creates collective intelligence." data-fr="D'un groupe d'experts à un système qui crée de l'intelligence collective.">From a group of experts to a system that creates collective intelligence.</p>
+      <p class="s3-level-from" data-en="From a group of experts to a system that creates collective intelligence." data-fr="D&#8217;un groupe de personnes compétentes à une équipe qui pense et décide ensemble.">From a group of experts to a system that creates collective intelligence.</p>
       <p class="s3-level-out tag-sky" data-en="Alignment" data-fr="Alignement">Alignment</p>
     </div>
     <div class="s3-level" role="listitem">
       <span class="s3-level-tag tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
-      <p class="s3-level-q" data-en="How do we evolve the way the organization transforms?" data-fr="Comment faisons-nous évoluer la façon dont l'organisation se transforme ?">How do we evolve the way the organization transforms?</p>
-      <p class="s3-level-from" data-en="From transformation programs to transformation capability." data-fr="Des programmes de transformation à la capacité de transformation.">From transformation programs to transformation capability.</p>
+      <p class="s3-level-q" data-en="How do we evolve the way the organization transforms?" data-fr="Comment faisons-nous évoluer notre façon de nous transformer ?">How do we evolve the way the organization transforms?</p>
+      <p class="s3-level-from" data-en="From transformation programs to transformation capability." data-fr="Des programmes de transformation à la capacité réelle de changer.">From transformation programs to transformation capability.</p>
       <p class="s3-level-out tag-violet" data-en="Transformation" data-fr="Transformation">Transformation</p>
     </div>
   </div>
-  <p class="s3-footnote fade" data-en="One underlying objective: helping people and systems evolve." data-fr="Un objectif sous-jacent : aider les personnes et les systèmes à évoluer.">One underlying objective: helping people and systems evolve.</p>
+  <p class="s3-footnote fade" data-en="One underlying objective: helping people and systems evolve." data-fr="Un seul fil : aider les personnes et les systèmes à évoluer.">One underlying objective: helping people and systems evolve.</p>
 </section>
 
 <!-- ══ P1 — LEADER ════════════════════════════════════════════════ -->
 <div class="practice-block light-section" id="p1" aria-labelledby="p1-heading">
   <div>
     <div class="pb-accent-rule fade accent-teal-rule" aria-hidden="true"></div>
-    <span class="eyebrow fade accent-teal-light" data-en="Leader" data-fr="Leader">Leader</span>
-    <h3 class="pb-h3 fade" id="p1-heading" data-en="The leader's first job is not to have answers." data-fr="La première mission du leader n'est pas d'avoir les réponses.">The leader&rsquo;s first job is not to have answers.</h3>
-    <p class="pb-sub fade" data-en="It is to create the conditions for better decisions." data-fr="C'est de créer les conditions de meilleures décisions.">It is to create the conditions for better decisions.</p>
-    <ul class="pb-moments fade">
-      <li>
-        <strong data-en="When the role changes" data-fr="Quand le rôle évolue">When the role changes</strong>
-        <span data-en="New scope, new expectations, new leadership challenge." data-fr="Nouveau périmètre, nouvelles attentes, nouveau défi de leadership.">New scope, new expectations, new leadership challenge.</span>
-      </li>
-      <li>
-        <strong data-en="When expertise is no longer enough" data-fr="Quand l'expertise ne suffit plus">When expertise is no longer enough</strong>
-        <span data-en="Moving from knowing the answer to enabling others to find theirs." data-fr="Passer de celui qui a la réponse à celui qui aide les autres à trouver les leurs.">Moving from knowing the answer to enabling others to find theirs.</span>
-      </li>
-      <li>
-        <strong data-en="When the environment changes" data-fr="Quand l'environnement change">When the environment changes</strong>
-        <span data-en="AI, transformation, uncertainty — and new expectations of leadership." data-fr="IA, transformation, incertitude — et nouvelles attentes envers le leadership.">AI, transformation, uncertainty — and new expectations of leadership.</span>
-      </li>
-      <li>
-        <strong data-en="When impact requires a different posture" data-fr="Quand l'impact exige une posture différente">When impact requires a different posture</strong>
-        <span data-en="Influence, presence, difficult conversations, decision-making." data-fr="Influence, présence, conversations difficiles, prise de décision.">Influence, presence, difficult conversations, decision-making.</span>
-      </li>
-    </ul>
+    <span class="eyebrow fade accent-teal-light" data-en="01 — Leader" data-fr="01 — Leader">01 — Leader</span>
+    <h3 class="pb-h3 fade" id="p1-heading" data-en="The leader's role is shifting." data-fr="Le rôle du leader évolue.">The leader&rsquo;s role is shifting.</h3>
+    <p class="pb-sub fade" data-en="When intelligence and answers become more accessible, the leader's value no longer rests on expertise alone." data-fr="Lorsque l&#8217;information, l&#8217;intelligence et les réponses deviennent plus accessibles, la valeur du leader ne repose plus uniquement sur son expertise.">When intelligence and answers become more accessible, the leader's value no longer rests on expertise alone.</p>
+    <p class="pb-sub fade" data-en="What I observe is a shift: the leader is less and less the one who knows, more and more the one who clarifies, orients, and enables others to contribute fully." data-fr="Ce que j&#8217;observe, c&#8217;est un déplacement : le leader est de moins en moins celui qui sait, de plus en plus celui qui clarifie, oriente et permet aux autres de contribuer pleinement.">What I observe is a shift: the leader is less and less the one who knows, more and more the one who clarifies, orients, and enables others to contribute fully.</p>
+    <p class="pb-sub fade" data-en="This is a profound shift in posture. And it doesn&rsquo;t happen on its own." data-fr="C&#8217;est un changement de posture profond. Et il ne va pas de soi.">This is a profound shift in posture. And it doesn&rsquo;t happen on its own.</p>
   </div>
   <div class="pb-right fade">
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Clarity" data-fr="Clarté">Clarity</p>
-      <p class="pb-concept-body" data-en="In a world of accelerating complexity, clarity is the scarcest leadership asset. It is not about simplifying reality — it is about making sense of it well enough to act." data-fr="Dans un monde de complexité croissante, la clarté est la ressource de leadership la plus rare. Il ne s'agit pas de simplifier la réalité — il s'agit d'en donner suffisamment de sens pour agir.">In a world of accelerating complexity, clarity is the scarcest leadership asset. It is not about simplifying reality — it is about making sense of it well enough to act.</p>
-    </div>
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Presence" data-fr="Présence">Presence</p>
-      <p class="pb-concept-body" data-en="How you show up — in a room, in a conversation, under pressure — determines what becomes possible for those around you." data-fr="La façon dont vous vous manifestez — dans une salle, dans une conversation, sous pression — détermine ce qui devient possible pour ceux qui vous entourent.">How you show up — in a room, in a conversation, under pressure — determines what becomes possible for those around you.</p>
-    </div>
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Positioning" data-fr="Positionnement">Positioning</p>
-      <p class="pb-concept-body" data-en="How others perceive your value determines what you are asked to do, what you have access to, and what you can ultimately build." data-fr="La façon dont les autres perçoivent votre valeur détermine ce qu'on vous demande de faire, ce à quoi vous avez accès, et ce que vous pouvez finalement construire.">How others perceive your value determines what you are asked to do, what you have access to, and what you can ultimately build.</p>
-    </div>
+    <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
+    <ul class="pb-moments">
+      <li>
+        <span data-en="Step back and clarify thinking" data-fr="Prendre du recul et clarifier sa pensée">Step back and clarify thinking</span>
+      </li>
+      <li>
+        <span data-en="Evolve posture and presence" data-fr="Faire évoluer sa posture et sa présence">Evolve posture and presence</span>
+      </li>
+      <li>
+        <span data-en="Develop influence and positioning" data-fr="Développer son influence et son positionnement">Develop influence and positioning</span>
+      </li>
+      <li>
+        <span data-en="Decide under uncertainty" data-fr="Décider dans l&#8217;incertitude">Decide under uncertainty</span>
+      </li>
+      <li>
+        <span data-en="Navigate a role transition" data-fr="Traverser une transition de rôle">Navigate a role transition</span>
+      </li>
+    </ul>
     <div class="pb-formats">
-      <p class="pb-formats-text" data-en="<strong>Formats:</strong> Executive coaching · Leadership transitions · Positioning & influence · Reflective practice" data-fr="<strong>Formats :</strong> Coaching exécutif · Transitions de leadership · Positionnement & influence · Pratique réflexive"><strong>Formats:</strong> Executive coaching · Leadership transitions · Positioning & influence · Reflective practice</p>
+      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> Clarity" data-fr="<strong>Résultat :</strong> Clarté"><strong>Outcome:</strong> Clarity</p>
     </div>
   </div>
 </div>
@@ -774,39 +774,32 @@
 <div class="practice-block dark-section" id="p2" aria-labelledby="p2-heading">
   <div>
     <div class="pb-accent-rule fade accent-sky-rule" aria-hidden="true"></div>
-    <span class="eyebrow fade accent-sky-dark" data-en="Team" data-fr="Équipe">Team</span>
-    <h3 class="pb-h3 fade" id="p2-heading" data-en="The answers are usually in the room." data-fr="Les réponses sont généralement dans la salle.">The answers are usually in the room.</h3>
-    <p class="pb-sub fade" data-en="The work is creating the conditions for them to emerge — and be used." data-fr="Le travail consiste à créer les conditions pour qu'elles émergent — et soient utilisées.">The work is creating the conditions for them to emerge — and be used.</p>
-    <ul class="pb-moments fade">
-      <li>
-        <strong data-en="Create alignment" data-fr="Créer l'alignement">Create alignment</strong>
-        <span data-en="What are we really trying to achieve — and are we all answering the same question?" data-fr="Qu'essayons-nous vraiment d'accomplir — et répondons-nous tous à la même question ?">What are we really trying to achieve — and are we all answering the same question?</span>
-      </li>
-      <li>
-        <strong data-en="Surface what gets in the way" data-fr="Mettre au jour ce qui bloque">Surface what gets in the way</strong>
-        <span data-en="Trust, tensions, assumptions, unspoken ways of working." data-fr="Confiance, tensions, hypothèses, façons de travailler non exprimées.">Trust, tensions, assumptions, unspoken ways of working.</span>
-      </li>
-      <li>
-        <strong data-en="Build sustainable performance" data-fr="Construire une performance durable">Build sustainable performance</strong>
-        <span data-en="Not by pushing harder — by changing how the system works." data-fr="Pas en poussant davantage — en changeant le fonctionnement du système.">Not by pushing harder — by changing how the system works.</span>
-      </li>
-    </ul>
+    <span class="eyebrow fade accent-sky-dark" data-en="02 — Team" data-fr="02 — Équipe">02 — Team</span>
+    <h3 class="pb-h3 fade" id="p2-heading" data-en="A team of skilled people is not automatically a high-performing team." data-fr="Une équipe de personnes compétentes n&#8217;est pas automatiquement une équipe performante.">A team of skilled people is not automatically a high-performing team.</h3>
+    <p class="pb-sub fade" data-en="What I observe is that collective performance rarely depends on individual skills. It depends on the quality of conversations, the ability to voice disagreement, trust — and how intelligence circulates in the group." data-fr="Ce que j&#8217;observe, c&#8217;est que la performance collective dépend rarement des compétences individuelles. Elle dépend de la qualité des conversations, de la capacité à exprimer les désaccords, de la confiance — et de la façon dont l&#8217;intelligence circule dans le groupe.">What I observe is that collective performance rarely depends on individual skills. It depends on the quality of conversations, the ability to voice disagreement, trust — and how intelligence circulates in the group.</p>
+    <p class="pb-sub fade" data-en="These conditions are not imposed. They are built." data-fr="Ces conditions ne s&#8217;imposent pas. Elles se construisent.">These conditions are not imposed. They are built.</p>
   </div>
   <div class="pb-right fade">
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Trust" data-fr="Confiance">Trust</p>
-      <p class="pb-concept-body" data-en="Performance is a by-product of safety. Teams that can disagree openly, surface tensions early and recover fast consistently outperform those that cannot." data-fr="La performance est un sous-produit de la sécurité. Les équipes capables d'être en désaccord ouvertement, de faire remonter les tensions tôt et de rebondir vite surperforment systématiquement celles qui n'en sont pas capables.">Performance is a by-product of safety. Teams that can disagree openly, surface tensions early and recover fast consistently outperform those that cannot.</p>
-    </div>
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Collective intelligence" data-fr="Intelligence collective">Collective intelligence</p>
-      <p class="pb-concept-body" data-en="A team's collective intelligence is not the sum of individual intelligences. It is what emerges when the right conditions exist — shared attention, genuine dialogue, distributed thinking." data-fr="L'intelligence collective d'une équipe n'est pas la somme des intelligences individuelles. C'est ce qui émerge quand les bonnes conditions existent — attention partagée, dialogue authentique, pensée distribuée.">A team&rsquo;s collective intelligence is not the sum of individual intelligences. It is what emerges when the right conditions exist — shared attention, genuine dialogue, distributed thinking.</p>
-    </div>
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Alignment" data-fr="Alignement">Alignment</p>
-      <p class="pb-concept-body" data-en="Not just on what to do — on why it matters, who decides what, and what the team is willing to trade off to get there." data-fr="Pas seulement sur ce qu'il faut faire — sur pourquoi c'est important, qui décide quoi, et ce que l'équipe est prête à sacrifier pour y arriver.">Not just on what to do — on why it matters, who decides what, and what the team is willing to trade off to get there.</p>
-    </div>
+    <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
+    <ul class="pb-moments">
+      <li>
+        <span data-en="Create alignment on what really matters" data-fr="Créer de l&#8217;alignement sur ce qui compte vraiment">Create alignment on what really matters</span>
+      </li>
+      <li>
+        <span data-en="Surface and work with productive tensions" data-fr="Faire émerger et travailler les tensions utiles">Surface and work with productive tensions</span>
+      </li>
+      <li>
+        <span data-en="Strengthen trust and psychological safety" data-fr="Renforcer la confiance et la sécurité dans le groupe">Strengthen trust and psychological safety</span>
+      </li>
+      <li>
+        <span data-en="Improve the quality of collective decisions" data-fr="Améliorer la qualité des décisions collectives">Improve the quality of collective decisions</span>
+      </li>
+      <li>
+        <span data-en="Evolve ways of working together" data-fr="Faire évoluer les modes de collaboration">Evolve ways of working together</span>
+      </li>
+    </ul>
     <div class="pb-formats">
-      <p class="pb-formats-text" data-en="<strong>Formats:</strong> Team coaching · Team effectiveness · Alignment & collaboration · Collective leadership" data-fr="<strong>Formats :</strong> Coaching d'équipe · Efficacité d'équipe · Alignement & collaboration · Leadership collectif"><strong>Formats:</strong> Team coaching · Team effectiveness · Alignment & collaboration · Collective leadership</p>
+      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> Alignment" data-fr="<strong>Résultat :</strong> Alignement"><strong>Outcome:</strong> Alignment</p>
     </div>
   </div>
 </div>
@@ -815,39 +808,32 @@
 <div class="practice-block light-section" id="p3" aria-labelledby="p3-heading">
   <div>
     <div class="pb-accent-rule fade accent-violet-rule" aria-hidden="true"></div>
-    <span class="eyebrow fade accent-violet-light" data-en="Organization" data-fr="Organisation">Organization</span>
-    <h3 class="pb-h3 fade" id="p3-heading" data-en="The bottleneck is rarely the technology." data-fr="Le goulot d'étranglement est rarement la technologie.">The bottleneck is rarely the technology.</h3>
-    <p class="pb-sub fade" data-en="It is leadership, culture and the ability to change how work actually gets done." data-fr="C'est le leadership, la culture et la capacité à changer la façon dont le travail se fait réellement.">It is leadership, culture and the ability to change how work actually gets done.</p>
-    <ul class="pb-moments fade">
-      <li>
-        <strong data-en="Transform" data-fr="Transformer">Transform</strong>
-        <span data-en="Turn strategic intent into new behaviors and ways of working." data-fr="Transformer l'intention stratégique en nouveaux comportements et façons de travailler.">Turn strategic intent into new behaviors and ways of working.</span>
-      </li>
-      <li>
-        <strong data-en="Learn" data-fr="Apprendre">Learn</strong>
-        <span data-en="Create the conditions for people and teams to continuously adapt — not just once." data-fr="Créer les conditions permettant aux personnes et aux équipes de s'adapter en continu — pas seulement une fois.">Create the conditions for people and teams to continuously adapt — not just once.</span>
-      </li>
-      <li>
-        <strong data-en="Scale" data-fr="Développer">Scale</strong>
-        <span data-en="Move from isolated experiments to organizational change. Build local capacity — leaders who own the transformation." data-fr="Passer des expériences isolées au changement organisationnel. Construire une capacité locale — des leaders qui s'approprient la transformation.">Move from isolated experiments to organizational change. Build local capacity — leaders who own the transformation.</span>
-      </li>
-    </ul>
+    <span class="eyebrow fade accent-violet-light" data-en="03 — Organization" data-fr="03 — Organisation">03 — Organization</span>
+    <h3 class="pb-h3 fade" id="p3-heading" data-en="AI accelerates change. It doesn&rsquo;t create the capacity to change." data-fr="L&#8217;IA accélère le changement. Elle ne crée pas à elle seule la capacité à changer.">AI accelerates change. It doesn&rsquo;t create the capacity to change.</h3>
+    <p class="pb-sub fade" data-en="What I observe is that organizations that transform durably don't just evolve their plans. They develop their capacity to change — at every level, not just at the top." data-fr="Ce que j&#8217;observe, c&#8217;est que les organisations qui se transforment durablement ne se contentent pas de faire évoluer leurs plans. Elles développent leur capacité à changer — à chaque niveau, pas seulement au sommet.">What I observe is that organizations that transform durably don't just evolve their plans. They develop their capacity to change — at every level, not just at the top.</p>
+    <p class="pb-sub fade" data-en="The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally." data-fr="Le goulot d&#8217;étranglement n&#8217;est presque jamais la technologie. C&#8217;est le leadership, la culture et la façon dont le changement est porté localement.">The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally.</p>
   </div>
   <div class="pb-right fade">
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Transformation capability" data-fr="Capacité de transformation">Transformation capability</p>
-      <p class="pb-concept-body" data-en="Organizations that transform well don't just run better programs. They build the capacity to continuously adapt — at every level, not just at the top." data-fr="Les organisations qui se transforment bien ne pilotent pas seulement de meilleurs programmes. Elles construisent la capacité à s'adapter en permanence — à chaque niveau, pas seulement au sommet.">Organizations that transform well don&rsquo;t just run better programs. They build the capacity to continuously adapt — at every level, not just at the top.</p>
-    </div>
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="AI adoption" data-fr="Adoption de l'IA">AI adoption</p>
-      <p class="pb-concept-body" data-en="AI changes what is possible. But whether organizations actually benefit depends on whether leaders can create clarity, teams can adapt, and cultures can absorb the change." data-fr="L'IA change ce qui est possible. Mais si les organisations en bénéficient réellement dépend de la capacité des leaders à créer de la clarté, des équipes à s'adapter, et des cultures à absorber le changement.">AI changes what is possible. But whether organizations actually benefit depends on whether leaders can create clarity, teams can adapt, and cultures can absorb the change.</p>
-    </div>
-    <div class="pb-concept">
-      <p class="pb-concept-title" data-en="Ways of working" data-fr="Façons de travailler">Ways of working</p>
-      <p class="pb-concept-body" data-en="Sustainable change requires more than senior sponsorship. It requires building local capacity — people who understand why the change matters and can make it real in their own context." data-fr="Un changement durable nécessite plus qu'un sponsorship senior. Il faut construire une capacité locale — des personnes qui comprennent pourquoi le changement compte et peuvent le rendre réel dans leur propre contexte.">Sustainable change requires more than senior sponsorship. It requires building local capacity — people who understand why the change matters and can make it real in their own context.</p>
-    </div>
+    <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
+    <ul class="pb-moments">
+      <li>
+        <span data-en="Support a strategic transformation" data-fr="Accompagner une transformation stratégique">Support a strategic transformation</span>
+      </li>
+      <li>
+        <span data-en="Develop change leadership" data-fr="Développer le leadership du changement">Develop change leadership</span>
+      </li>
+      <li>
+        <span data-en="Create the conditions for AI adoption" data-fr="Créer les conditions d&#8217;adoption de l&#8217;IA">Create the conditions for AI adoption</span>
+      </li>
+      <li>
+        <span data-en="Evolve ways of working" data-fr="Faire évoluer les modes de fonctionnement">Evolve ways of working</span>
+      </li>
+      <li>
+        <span data-en="Move from pilot to scale" data-fr="Passer de l&#8217;expérimentation à l&#8217;échelle">Move from pilot to scale</span>
+      </li>
+    </ul>
     <div class="pb-formats">
-      <p class="pb-formats-text" data-en="<strong>Formats:</strong> Organizational coaching · Transformation journeys · AI leadership & adoption · Culture & ways of working" data-fr="<strong>Formats :</strong> Coaching organisationnel · Parcours de transformation · Leadership & adoption IA · Culture & façons de travailler"><strong>Formats:</strong> Organizational coaching · Transformation journeys · AI leadership & adoption · Culture & ways of working</p>
+      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> Transformation" data-fr="<strong>Résultat :</strong> Transformation"><strong>Outcome:</strong> Transformation</p>
     </div>
   </div>
 </div>
@@ -856,12 +842,12 @@
 <section id="s5" class="dark-section" aria-labelledby="s5-heading">
   <span class="eyebrow fade" data-en="The common thread" data-fr="Le fil conducteur">The common thread</span>
   <h2 class="s5-h2 fade" id="s5-heading">
-    <span data-en="I don&rsquo;t provide the answers.<br>I create the conditions for <em>better answers to emerge.</em>" data-fr="Je ne fournis pas les réponses.<br>Je crée les conditions pour que <em>de meilleures réponses émergent.</em>">
+    <span data-en="I don&rsquo;t provide the answers.<br>I create the conditions for <em>better answers to emerge.</em>" data-fr="Je ne cherche pas à apporter les réponses.<br>Je cherche à créer les conditions pour que <em>de meilleures réponses émergent.</em>">
       I don&rsquo;t provide the answers.<br>I create the conditions for <em>better answers to emerge.</em>
     </span>
   </h2>
   <p class="s5-sub fade">
-    <span data-en="The work is always the same. The scale changes." data-fr="Le travail est toujours le même. L'échelle change.">The work is always the same. The scale changes.</span>
+    <span data-en="The work is always the same. The scale changes." data-fr="Le travail est toujours le même. L&#8217;échelle change.">The work is always the same. The scale changes.</span>
   </p>
   <div class="s5-triad fade" role="list">
     <div class="s5-node" role="listitem">
@@ -878,7 +864,7 @@
     </div>
   </div>
   <p class="s5-closing fade">
-    <span data-en="<em>AI gives us more intelligence.</em> Leadership turns it into clarity." data-fr="<em>L&#8217;IA nous donne plus d&#8217;intelligence.</em> Le leadership la transforme en clarté.">
+    <span data-en="<em>AI gives us more intelligence.</em> Leadership turns it into clarity." data-fr="<em>L&#8217;IA rend les réponses plus accessibles.</em> Le leadership, lui, reste une question de clarté.">
       <em>AI gives us more intelligence.</em> Leadership turns it into clarity.
     </span>
   </p>
