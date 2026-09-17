@@ -232,7 +232,7 @@
       display: flex; flex-direction: column; justify-content: center;
       padding: 130px var(--section-pad-h) 80px;
       background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, #001640 100%);
-      overflow: hidden;
+      overflow: clip; /* clip sans BFC — permet position:sticky dans les enfants */
     }
 
     .s1-h1 {
@@ -716,12 +716,13 @@
        z-index header: lang-bar=100, nav=90 → barre=80 (toujours dessous)
        top sticky = 86px (30px lang-bar + 56px nav) ───────────────── */
     .s1-nav {
-      /* PAS de position déclarée → computed: static */
+      /* sticky bottom:0 dans le hero = colle au bas de la section pendant le scroll */
+      position: sticky; bottom: 0; z-index: 80;
       display: grid; grid-template-columns: repeat(3, 1fr);
       background: rgba(0, 30, 91, .97);
       border-top: 1px solid var(--border-dark);
       border-bottom: 1px solid var(--border-dark);
-      margin-top: auto; /* pousse vers le bas dans le flex hero */
+      margin-top: auto;
     }
     .s1-nav.sticky-active {
       position: fixed; top: 86px; left: 0; right: 0; z-index: 80;
