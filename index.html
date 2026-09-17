@@ -721,6 +721,7 @@
       background: rgba(0, 30, 91, .97);
       border-top: 1px solid var(--border-dark);
       border-bottom: 1px solid var(--border-dark);
+      margin-top: auto; /* pousse vers le bas dans le flex hero */
     }
     .s1-nav.sticky-active {
       position: fixed; top: 86px; left: 0; right: 0; z-index: 80;
@@ -1231,7 +1232,7 @@
       const below = !e.isIntersecting && e.boundingClientRect.top > 0;
       // sticky seulement pendant que la zone est visible ou en train d'arriver
       setSticky(!above && !below);
-    }, { threshold: [0], rootMargin: '-86px 0px 0px 0px' });
+    }, { threshold: [0] });
     stickyIo.observe(practiceZone);
   }
 
