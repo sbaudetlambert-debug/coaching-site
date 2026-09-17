@@ -228,7 +228,7 @@
        S1 — THE SHIFT (hero) — DARK
     ───────────────────────────────────────────────────────────── */
     #s1 {
-      min-height: 100vh;
+      min-height: auto;
       display: flex; flex-direction: column; justify-content: center;
       padding: 130px var(--section-pad-h) 80px;
       background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, #001640 100%);
@@ -282,7 +282,7 @@
     }
     .s1-cta:hover { background: #0558d9; box-shadow: 0 0 0 3px rgba(6,106,254,.3); }
     .s1-cta:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
-    .s1-cta svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .s1-cta img { width: 16px; height: 16px; flex-shrink: 0; display: block; }
 
     .scroll-cue {
       position: absolute; bottom: 28px; left: var(--section-pad-h);
@@ -315,19 +315,15 @@
     }
     #p2 .pb-cta:hover { background: rgba(255,255,255,.05); }
     .pb-cta:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
-    .pb-cta svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .pb-cta img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
 
-    /* Note externe dans S2 */
+    /* Note externe dans S2 — même style que .s2-bio, aucun traitement spécial */
     .s2-external {
-      margin-top: 24px;
-      padding: 16px 20px;
-      background: rgba(0,30,91,.04);
-      border-left: 3px solid var(--teal-on-light);
-      border-radius: 0 6px 6px 0;
-      font-family: var(--font-body); font-size: var(--type-body-sm); font-weight: 400;
-      color: var(--section-text-muted); line-height: 1.65;
+      margin-top: 16px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 400;
+      color: var(--section-text-muted); line-height: 1.7;
     }
-    .s2-external strong { color: var(--section-text-secondary); font-weight: 700; }
+    .s2-external strong { color: var(--section-text-primary); font-weight: 700; }
 
     /* ─────────────────────────────────────────────────────────────
        S2 — THE BELIEF — LIGHT
@@ -689,7 +685,6 @@
     <li><a href="#s1" data-en="The Shift" data-fr="Le constat">The Shift</a></li>
     <li><a href="#s2" data-en="Who I am" data-fr="Qui suis-je ?">Who I am</a></li>
     <li><a href="#s3" data-en="The Practice" data-fr="Ma pratique">The Practice</a></li>
-    <li><a href="#s5" data-en="Contact" data-fr="Contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -711,10 +706,12 @@
       AI gives us more intelligence.<br>Leadership turns it into clarity.
     </span>
   </p>
+  <!-- BEGIN: SLACK CTA - HERO -->
   <a class="s1-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <img src="slack-logo.svg" width="16" height="16" alt="" aria-hidden="true" />
     <span data-en="Let&rsquo;s talk — message me on Slack" data-fr="Parlons-en — écrivez-moi sur Slack">Let&rsquo;s talk — message me on Slack</span>
   </a>
+  <!-- END: SLACK CTA - HERO -->
   <img class="s1-astro" src="assets/characters/Astro 3D - 2.png" alt="" aria-hidden="true" />
   <div class="scroll-cue" aria-hidden="true">
     <span data-en="scroll" data-fr="défiler">scroll</span>
@@ -836,10 +833,12 @@
     <p class="pb-sub fade" data-en="When intelligence and answers become more accessible, the leader's value no longer rests on expertise alone. What I observe is a shift: less and less the one who knows, more and more the one who clarifies, orients, and enables others to contribute fully." data-fr="Lorsque l&#8217;information et les réponses deviennent plus accessibles, la valeur du leader ne repose plus uniquement sur son expertise. Ce que j&#8217;observe, c&#8217;est un déplacement : de moins en moins celui qui sait, de plus en plus celui qui clarifie, oriente et permet aux autres de contribuer pleinement.">When intelligence and answers become more accessible, the leader's value no longer rests on expertise alone. What I observe is a shift: less and less the one who knows, more and more the one who clarifies, orients, and enables others to contribute fully.</p>
     <p class="pb-sub fade" data-en="This is a profound shift in posture. And it doesn&rsquo;t happen on its own." data-fr="C&#8217;est un changement de posture profond. Et il ne va pas de soi.">This is a profound shift in posture. And it doesn&rsquo;t happen on its own.</p>
     <p class="pb-sub fade" data-en="In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with first-, second- and third-line leaders on pipeline inspection, deal coaching, clarity of judgment and decision-making under uncertainty." data-fr="Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders de 1re, 2e et 3e ligne sur l&#8217;inspection de pipeline, le coaching de deals, la clarté de jugement et la prise de décision sous incertitude.">In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with first-, second- and third-line leaders on pipeline inspection, deal coaching, clarity of judgment and decision-making under uncertainty.</p>
+    <!-- BEGIN: SLACK CTA - P1 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
       <span data-en="You recognise yourself in this? Let&rsquo;s talk on Slack." data-fr="Vous vous reconnaissez dans ce constat ? Parlons-en — écrivez-moi sur Slack.">You recognise yourself in this? Let&rsquo;s talk on Slack.</span>
     </a>
+    <!-- END: SLACK CTA - P1 -->
   </div>
   <div class="pb-right fade">
     <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
@@ -875,10 +874,12 @@
     <p class="pb-sub fade" data-en="A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group." data-fr="Un groupe de personnes compétentes n&#8217;est pas automatiquement une équipe performante. La performance collective dépend rarement des compétences individuelles. Elle dépend de la qualité des conversations, de la capacité à exprimer les désaccords, de la confiance — et de la façon dont l&#8217;intelligence circule dans le groupe.">A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group.</p>
     <p class="pb-sub fade" data-en="These conditions are not imposed. They are built." data-fr="Ces conditions ne s&#8217;imposent pas. Elles se construisent.">These conditions are not imposed. They are built.</p>
     <p class="pb-sub fade" data-en="I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation." data-fr="Je facilite des sessions de développement d&#8217;équipe et de communication du changement pour des équipes de direction — de la constellation systémique à la préparation de briefings hebdomadaires — pour aligner une équipe autour d&#8217;une transformation.">I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation.</p>
+    <!-- BEGIN: SLACK CTA - P2 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
       <span data-en="Your team is going through a transformation? Let&rsquo;s talk on Slack." data-fr="Votre équipe traverse une transformation ? Échangeons — un message Slack suffit.">Your team is going through a transformation? Let&rsquo;s talk on Slack.</span>
     </a>
+    <!-- END: SLACK CTA - P2 -->
   </div>
   <div class="pb-right fade">
     <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
@@ -914,10 +915,12 @@
     <p class="pb-sub fade" data-en="AI accelerates change. It doesn't create the capacity to change. Organizations that transform durably don't just evolve their plans — they develop their capacity to change at every level, not just at the top." data-fr="L&#8217;IA accélère le changement. Elle ne crée pas à elle seule la capacité à changer. Les organisations qui se transforment durablement ne font pas qu&#8217;évoluer leurs plans — elles développent leur capacité à changer, à chaque niveau, pas seulement au sommet.">AI accelerates change. It doesn't create the capacity to change. Organizations that transform durably don't just evolve their plans — they develop their capacity to change at every level, not just at the top.</p>
     <p class="pb-sub fade" data-en="The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally." data-fr="Le goulot d&#8217;étranglement n&#8217;est presque jamais la technologie. C&#8217;est le leadership, la culture et la façon dont le changement est porté localement.">The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally.</p>
     <p class="pb-sub fade" data-en="I work on large-scale transformation topics, including AI skills development (LEAD AI programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division." data-fr="J&#8217;interviens sur des sujets de transformation à l&#8217;échelle organisationnelle, notamment sur l&#8217;évolution des compétences liées à l&#8217;IA (programme LEAD AI), en évaluant et en construisant des trajectoires de montée en compétence pour les leaders. Je suis par ailleurs <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga Bivwak!">I work on large-scale transformation topics, including AI skills development (LEAD AI programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division.</p>
+    <!-- BEGIN: SLACK CTA - P3 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
       <span data-en="An organisation-level question? Contact me directly on Slack." data-fr="Une réflexion à l&#8217;échelle de votre organisation ? Contactez-moi directement sur Slack.">An organisation-level question? Contact me directly on Slack.</span>
     </a>
+    <!-- END: SLACK CTA - P3 -->
   </div>
   <div class="pb-right fade">
     <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
