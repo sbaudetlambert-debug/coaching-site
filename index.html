@@ -712,19 +712,21 @@
       color: var(--section-text-muted); margin-top: 16px;
     }
 
-    /* 3 entrées nav — dans le flux après hero, sticky pendant la zone de pratique */
+    /* ── PRACTICE NAV — static au chargement, fixed en sticky
+       z-index header: lang-bar=100, nav=90 → barre=80 (toujours dessous)
+       top sticky = 86px (30px lang-bar + 56px nav) ───────────────── */
     .s1-nav {
+      /* PAS de position déclarée → computed: static */
       display: grid; grid-template-columns: repeat(3, 1fr);
-      background: rgba(0, 30, 91, .95);
+      background: rgba(0, 30, 91, .97);
       border-top: 1px solid var(--border-dark);
       border-bottom: 1px solid var(--border-dark);
-      z-index: 80;
     }
     .s1-nav.sticky-active {
-      position: fixed; top: 86px; left: 0; right: 0;
+      position: fixed; top: 86px; left: 0; right: 0; z-index: 80;
     }
-    .s1-nav-placeholder { display: none; height: 0; }
-    .s1-nav-placeholder.visible { display: block; }
+    #practice-nav-placeholder { display: none; }
+    #practice-nav-placeholder.visible { display: block; }
     .s1-nav-item {
       padding: 14px var(--section-pad-h);
       border-right: 1px solid var(--border-dark);
@@ -766,7 +768,6 @@
     @media (max-width: 640px) {
       .s1-nav-item { padding: 10px 12px; }
       .s1-nav-word { font-size: 12px; }
-      .s1-nav.sticky-active { top: 86px; }
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -859,25 +860,24 @@
     <span data-en="scroll" data-fr="défiler">scroll</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
+  <!-- BARRE NAV PRATIQUE — dernier enfant de #s1, position: static au chargement -->
+  <nav class="s1-nav" id="practice-nav" aria-label="Practice sections">
+    <a class="s1-nav-item" href="#p1">
+      <span class="s1-nav-num" aria-hidden="true">01</span>
+      <span class="s1-nav-word tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
+    </a>
+    <a class="s1-nav-item" href="#p2">
+      <span class="s1-nav-num" aria-hidden="true">02</span>
+      <span class="s1-nav-word tag-sky" data-en="Team" data-fr="Équipe">Team</span>
+    </a>
+    <a class="s1-nav-item" href="#p3">
+      <span class="s1-nav-num" aria-hidden="true">03</span>
+      <span class="s1-nav-word tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
+    </a>
+  </nav>
+  <!-- Placeholder — prend la hauteur de la barre quand elle passe en fixed -->
+  <div id="practice-nav-placeholder" aria-hidden="true"></div>
 </section>
-
-<!-- BARRE DE NAVIGATION PRATIQUE — dans le flux après hero, sticky pendant #practice-zone -->
-<nav class="s1-nav" id="practice-nav" aria-label="Practice sections">
-  <a class="s1-nav-item" href="#p1">
-    <span class="s1-nav-num" aria-hidden="true">01</span>
-    <span class="s1-nav-word tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
-  </a>
-  <a class="s1-nav-item" href="#p2">
-    <span class="s1-nav-num" aria-hidden="true">02</span>
-    <span class="s1-nav-word tag-sky" data-en="Team" data-fr="Équipe">Team</span>
-  </a>
-  <a class="s1-nav-item" href="#p3">
-    <span class="s1-nav-num" aria-hidden="true">03</span>
-    <span class="s1-nav-word tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
-  </a>
-</nav>
-<!-- Placeholder invisible — prend la place de la barre quand elle passe en fixed -->
-<div class="s1-nav-placeholder" id="practice-nav-placeholder" aria-hidden="true"></div>
 
 <!-- ══ S2 — THE BELIEF ═══════════════════════════════════════════ -->
 <section id="s2" class="light-section" aria-labelledby="s2-heading">
@@ -1203,46 +1203,41 @@
     io.observe(el);
   });
 
-  // Sticky nav + active state
-  const practiceNav = document.getElementById('practice-nav');
-  const practiceNavPlaceholder = document.getElementById('practice-nav-placeholder');
-  const practiceZone = document.getElementById('practice-zone');
-  const navItems = practiceNav ? practiceNav.querySelectorAll('.s1-nav-item') : [];
+  // ── STICKY NAV ──────────────────────────────────────────────────
+  // La barre est statique dans #s1. Elle passe en position:fixed
+  // (top:86px) dès que #practice-zone entre dans le viewport.
+  // Elle repasse statique quand #practice-zone est dépassée (bottom ≤ 0).
+  const practiceNav    = document.getElementById('practice-nav');
+  const navPlaceholder = document.getElementById('practice-nav-placeholder');
+  const practiceZone   = document.getElementById('practice-zone');
 
-  function getNavHeight() { return practiceNav ? practiceNav.offsetHeight : 0; }
+  function setSticky(on) {
+    if (!practiceNav || !navPlaceholder) return;
+    if (on) {
+      navPlaceholder.style.height = practiceNav.offsetHeight + 'px';
+      navPlaceholder.classList.add('visible');
+      practiceNav.classList.add('sticky-active');
+    } else {
+      practiceNav.classList.remove('sticky-active');
+      navPlaceholder.classList.remove('visible');
+      navPlaceholder.style.height = '0';
+    }
+  }
 
-  // Sticky : active quand #practice-zone entre dans le viewport
   if (practiceZone && practiceNav) {
     const stickyIo = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        const isSticky = !e.isIntersecting && e.boundingClientRect.top < 0
-          ? false  // zone dépassée vers le haut
-          : e.isIntersecting || e.boundingClientRect.top < window.innerHeight;
-        // Logique : sticky tant que la zone est dans ou sous le viewport
-        const h = getNavHeight();
-        if (!e.isIntersecting && e.boundingClientRect.top > 0) {
-          // Zone pas encore atteinte — pas sticky
-          practiceNav.classList.remove('sticky-active');
-          practiceNavPlaceholder.classList.remove('visible');
-          practiceNavPlaceholder.style.height = '0';
-        } else if (!e.isIntersecting && e.boundingClientRect.bottom <= 0) {
-          // Zone dépassée — pas sticky
-          practiceNav.classList.remove('sticky-active');
-          practiceNavPlaceholder.classList.remove('visible');
-          practiceNavPlaceholder.style.height = '0';
-        } else {
-          // Dans la zone — sticky
-          practiceNav.classList.add('sticky-active');
-          practiceNavPlaceholder.style.height = h + 'px';
-          practiceNavPlaceholder.classList.add('visible');
-        }
-      });
-    }, { threshold: 0, rootMargin: '-86px 0px 0px 0px' });
+      const e = entries[0];
+      const above = !e.isIntersecting && e.boundingClientRect.top < 0;
+      const below = !e.isIntersecting && e.boundingClientRect.top > 0;
+      // sticky seulement pendant que la zone est visible ou en train d'arriver
+      setSticky(!above && !below);
+    }, { threshold: [0], rootMargin: '-86px 0px 0px 0px' });
     stickyIo.observe(practiceZone);
   }
 
-  // Active state : section actuellement visible
-  const navMap = { p1: 0, p2: 1, p3: 2 };
+  // ── ACTIVE STATE (section visible) ──────────────────────────────
+  const navItems = practiceNav ? practiceNav.querySelectorAll('.s1-nav-item') : [];
+  const navMap   = { p1: 0, p2: 1, p3: 2 };
   const activeIo = new IntersectionObserver(entries => {
     entries.forEach(e => {
       const idx = navMap[e.target.id];
