@@ -230,9 +230,9 @@
     #s1 {
       min-height: auto;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 130px var(--section-pad-h) 140px;
+      padding: 130px var(--section-pad-h) 80px;
       background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, #001640 100%);
-      position: relative;
+      overflow: hidden;
     }
 
     .s1-h1 {
@@ -712,29 +712,39 @@
       color: var(--section-text-muted); margin-top: 16px;
     }
 
-    /* 3 entrées nav dans le hero — ancrées en pied de section, pleine largeur */
+    /* 3 entrées nav — dans le flux après hero, sticky pendant la zone de pratique */
     .s1-nav {
-      position: absolute; bottom: 0; left: 0; right: 0;
       display: grid; grid-template-columns: repeat(3, 1fr);
+      background: rgba(0, 30, 91, .95);
       border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      z-index: 80;
     }
+    .s1-nav.sticky-active {
+      position: fixed; top: 86px; left: 0; right: 0;
+    }
+    .s1-nav-placeholder { display: none; height: 0; }
+    .s1-nav-placeholder.visible { display: block; }
     .s1-nav-item {
-      padding: 18px var(--section-pad-h);
+      padding: 14px var(--section-pad-h);
       border-right: 1px solid var(--border-dark);
       text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 4px;
+      display: flex; flex-direction: column; gap: 3px;
       transition: background .2s;
     }
     .s1-nav-item:last-child { border-right: none; }
     .s1-nav-item:hover { background: rgba(6,106,254,.08); }
-    .s1-nav-item.active { background: rgba(6,106,254,.12); }
+    .s1-nav-item.active {
+      background: rgba(6,106,254,.12);
+      box-shadow: inset 0 -2px 0 var(--eb-50);
+    }
     .s1-nav-item:focus-visible { outline: 2px solid var(--eb-50); outline-offset: -2px; }
     .s1-nav-num {
       font-family: var(--font-body); font-size: var(--type-eyebrow); font-weight: 700;
       letter-spacing: .06em; color: var(--text-on-dark-muted);
     }
     .s1-nav-word {
-      font-family: var(--font-display); font-size: clamp(14px, 1.2vw, 18px); font-weight: 600;
+      font-family: var(--font-display); font-size: clamp(13px, 1.1vw, 17px); font-weight: 600;
     }
 
     /* CTA Slack dans la nav */
@@ -754,8 +764,9 @@
     .nav-slack img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
 
     @media (max-width: 640px) {
-      .s1-nav-item { padding: 14px 16px; }
-      .s1-nav-word { font-size: 13px; }
+      .s1-nav-item { padding: 10px 12px; }
+      .s1-nav-word { font-size: 12px; }
+      .s1-nav.sticky-active { top: 86px; }
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -843,26 +854,30 @@
       I work on this question at three levels: your leaders individually, your teams, and the transformation of the Salesforce France organization.
     </span>
   </p>
-  <nav class="s1-nav fade" aria-label="Practice sections">
-    <a class="s1-nav-item" href="#p1">
-      <span class="s1-nav-num" aria-hidden="true">01</span>
-      <span class="s1-nav-word tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
-    </a>
-    <a class="s1-nav-item" href="#p2">
-      <span class="s1-nav-num" aria-hidden="true">02</span>
-      <span class="s1-nav-word tag-sky" data-en="Team" data-fr="Équipe">Team</span>
-    </a>
-    <a class="s1-nav-item" href="#p3">
-      <span class="s1-nav-num" aria-hidden="true">03</span>
-      <span class="s1-nav-word tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
-    </a>
-  </nav>
   <img class="s1-astro" src="assets/characters/Astro 3D - 2.png" alt="" aria-hidden="true" />
   <div class="scroll-cue" aria-hidden="true">
     <span data-en="scroll" data-fr="défiler">scroll</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
+
+<!-- BARRE DE NAVIGATION PRATIQUE — dans le flux après hero, sticky pendant #practice-zone -->
+<nav class="s1-nav" id="practice-nav" aria-label="Practice sections">
+  <a class="s1-nav-item" href="#p1">
+    <span class="s1-nav-num" aria-hidden="true">01</span>
+    <span class="s1-nav-word tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
+  </a>
+  <a class="s1-nav-item" href="#p2">
+    <span class="s1-nav-num" aria-hidden="true">02</span>
+    <span class="s1-nav-word tag-sky" data-en="Team" data-fr="Équipe">Team</span>
+  </a>
+  <a class="s1-nav-item" href="#p3">
+    <span class="s1-nav-num" aria-hidden="true">03</span>
+    <span class="s1-nav-word tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
+  </a>
+</nav>
+<!-- Placeholder invisible — prend la place de la barre quand elle passe en fixed -->
+<div class="s1-nav-placeholder" id="practice-nav-placeholder" aria-hidden="true"></div>
 
 <!-- ══ S2 — THE BELIEF ═══════════════════════════════════════════ -->
 <section id="s2" class="light-section" aria-labelledby="s2-heading">
@@ -968,6 +983,9 @@
   </div>
   <p class="s3-footnote fade" data-en="One underlying objective: helping people and systems evolve." data-fr="Un seul fil : aider les personnes et les systèmes à évoluer.">One underlying objective: helping people and systems evolve.</p>
 </section>
+
+<!-- ZONE DE PRATIQUE — sentinel pour sticky nav -->
+<div id="practice-zone">
 
 <!-- ══ P1 — LEADER ════════════════════════════════════════════════ -->
 <div class="practice-block light-section" id="p1" aria-labelledby="p1-heading">
@@ -1113,6 +1131,8 @@
   <!-- END: PROOF VIDEOS - P3 -->
 </div>
 
+</div><!-- end #practice-zone -->
+
 <!-- ══ S5 — CLOSING ═══════════════════════════════════════════════ -->
 <section id="s5" class="dark-section" aria-labelledby="s5-heading">
   <span class="eyebrow fade" data-en="THE COMMON THREAD" data-fr="LE FIL CONDUCTEUR">THE COMMON THREAD</span>
@@ -1183,19 +1203,56 @@
     io.observe(el);
   });
 
-  // Active state on s1-nav based on visible practice section
+  // Sticky nav + active state
+  const practiceNav = document.getElementById('practice-nav');
+  const practiceNavPlaceholder = document.getElementById('practice-nav-placeholder');
+  const practiceZone = document.getElementById('practice-zone');
+  const navItems = practiceNav ? practiceNav.querySelectorAll('.s1-nav-item') : [];
+
+  function getNavHeight() { return practiceNav ? practiceNav.offsetHeight : 0; }
+
+  // Sticky : active quand #practice-zone entre dans le viewport
+  if (practiceZone && practiceNav) {
+    const stickyIo = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const isSticky = !e.isIntersecting && e.boundingClientRect.top < 0
+          ? false  // zone dépassée vers le haut
+          : e.isIntersecting || e.boundingClientRect.top < window.innerHeight;
+        // Logique : sticky tant que la zone est dans ou sous le viewport
+        const h = getNavHeight();
+        if (!e.isIntersecting && e.boundingClientRect.top > 0) {
+          // Zone pas encore atteinte — pas sticky
+          practiceNav.classList.remove('sticky-active');
+          practiceNavPlaceholder.classList.remove('visible');
+          practiceNavPlaceholder.style.height = '0';
+        } else if (!e.isIntersecting && e.boundingClientRect.bottom <= 0) {
+          // Zone dépassée — pas sticky
+          practiceNav.classList.remove('sticky-active');
+          practiceNavPlaceholder.classList.remove('visible');
+          practiceNavPlaceholder.style.height = '0';
+        } else {
+          // Dans la zone — sticky
+          practiceNav.classList.add('sticky-active');
+          practiceNavPlaceholder.style.height = h + 'px';
+          practiceNavPlaceholder.classList.add('visible');
+        }
+      });
+    }, { threshold: 0, rootMargin: '-86px 0px 0px 0px' });
+    stickyIo.observe(practiceZone);
+  }
+
+  // Active state : section actuellement visible
   const navMap = { p1: 0, p2: 1, p3: 2 };
-  const navItems = document.querySelectorAll('.s1-nav-item');
-  const practiceIo = new IntersectionObserver(entries => {
+  const activeIo = new IntersectionObserver(entries => {
     entries.forEach(e => {
       const idx = navMap[e.target.id];
-      if (idx === undefined) return;
+      if (idx === undefined || !navItems[idx]) return;
       navItems[idx].classList.toggle('active', e.isIntersecting);
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2, rootMargin: '-86px 0px -30% 0px' });
   ['p1', 'p2', 'p3'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) practiceIo.observe(el);
+    if (el) activeIo.observe(el);
   });
 </script>
 </body>
