@@ -629,7 +629,7 @@
       color: var(--section-text-muted); margin-bottom: 10px;
     }
     .proof-videos iframe {
-      width: 100%; height: 280px; border: none; border-radius: 8px; display: block;
+      width: 100%; height: 480px; border: none; border-radius: 8px; display: block;
     }
     @media (max-width: 1024px) {
       .proof-videos-grid { grid-template-columns: 1fr; }
@@ -691,6 +691,75 @@
     }
     .s5-closing em { font-style: normal; color: var(--section-text-primary); font-weight: 700; }
 
+    /* CTA final S5 — reprend .s1-cta mais avec margin-top */
+    .s5-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 48px;
+      padding: 12px 24px;
+      background: var(--eb-50);
+      color: var(--white);
+      font-family: var(--font-body); font-size: var(--type-label); font-weight: 700;
+      letter-spacing: .02em;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .15s, box-shadow .15s;
+    }
+    .s5-cta:hover { background: #0558d9; box-shadow: 0 0 0 3px rgba(6,106,254,.3); }
+    .s5-cta:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+    .s5-cta img { width: 16px; height: 16px; flex-shrink: 0; display: block; }
+    .s5-cta-label {
+      font-family: var(--font-body); font-size: var(--type-body-sm); font-weight: 400;
+      color: var(--section-text-muted); margin-top: 16px;
+    }
+
+    /* 3 entrées nav dans le hero — réutilise le traitement .s3-level */
+    .s1-nav {
+      display: flex; gap: 0;
+      border: 1px solid var(--border-dark);
+      border-radius: 10px; overflow: hidden;
+      margin-top: 48px;
+      align-self: flex-start;
+    }
+    .s1-nav-item {
+      padding: 16px 28px;
+      border-right: 1px solid var(--border-dark);
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 4px;
+      transition: background .2s;
+    }
+    .s1-nav-item:last-child { border-right: none; }
+    .s1-nav-item:hover { background: rgba(6,106,254,.08); }
+    .s1-nav-item:focus-visible { outline: 2px solid var(--eb-50); outline-offset: -2px; }
+    .s1-nav-num {
+      font-family: var(--font-body); font-size: var(--type-eyebrow); font-weight: 700;
+      letter-spacing: .06em; color: var(--text-on-dark-muted);
+    }
+    .s1-nav-word {
+      font-family: var(--font-display); font-size: clamp(14px, 1.2vw, 18px); font-weight: 600;
+    }
+
+    /* CTA Slack dans la nav */
+    .nav-slack {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-body); font-size: 13px; font-weight: 700;
+      letter-spacing: .02em;
+      color: var(--text-on-dark-secondary);
+      border: 1px solid rgba(144,208,254,.3);
+      border-radius: 4px; padding: 5px 14px;
+      text-decoration: none;
+      transition: color .15s, border-color .15s, background .15s;
+      white-space: nowrap;
+    }
+    .nav-slack:hover { color: var(--text-on-dark); border-color: var(--cb-80); }
+    .nav-slack:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
+    .nav-slack img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
+
+    @media (max-width: 1024px) {
+      .s1-nav { flex-direction: column; }
+      .s1-nav-item { border-right: none; border-bottom: 1px solid var(--border-dark); padding: 14px 20px; }
+      .s1-nav-item:last-child { border-bottom: none; }
+    }
+
     /* ─────────────────────────────────────────────────────────────
        FADE-IN ANIMATION
     ───────────────────────────────────────────────────────────── */
@@ -734,6 +803,10 @@
 
 <!-- LANG -->
 <div id="lang-bar" role="navigation" aria-label="Language selector">
+  <a class="nav-slack" href="https://salesforce.slack.com/team/U01GME5HDU1" target="_blank" rel="noopener" style="margin-right: 16px;">
+    <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
+    <span data-en="Let&rsquo;s talk" data-fr="Parlons-en">Let&rsquo;s talk</span>
+  </a>
   <button class="lb on" onclick="setLang('en')" id="btn-en" aria-pressed="true" aria-label="Switch to English">EN</button>
   <span class="sep" aria-hidden="true">|</span>
   <button class="lb" onclick="setLang('fr')" id="btn-fr" aria-pressed="false" aria-label="Passer en français">FR</button>
@@ -752,27 +825,40 @@
 <!-- ══ S1 — THE SHIFT ════════════════════════════════════════════ -->
 <section id="s1" class="dark-section" aria-labelledby="s1-heading">
   <h1 class="s1-h1 fade" id="s1-heading">
-    <span data-en="AI is changing everything." data-fr="L&#8217;IA change tout.">
-      AI is changing everything.
+    <span data-en="The Salesforce AI Paradox." data-fr="The Salesforce AI Paradox.">
+      The Salesforce AI Paradox.
     </span>
   </h1>
   <p class="s1-thesis fade">
-    <span data-en="More intelligence does not automatically create more <strong>clarity</strong>. That is where leadership matters." data-fr="La vraie question n&#8217;est pas : comment adopter l&#8217;IA ?<br>C&#8217;est : <strong>comment évoluer avec elle ?</strong>">
-      More intelligence does not automatically create more <strong>clarity</strong>. That is where leadership matters.
+    <span data-en="Who&rsquo;s helping you lead through it?" data-fr="Qui vous aide à le traverser ?">
+      Who&rsquo;s helping you lead through it?
     </span>
   </p>
   <div class="s1-rule fade" aria-hidden="true"></div>
   <p class="s1-belief fade">
-    <span data-en="AI gives us more intelligence. Leadership turns it into clarity." data-fr="L&#8217;IA rend les réponses plus accessibles. Le leadership, lui, devient une question de clarté, de jugement et de direction.">
-      AI gives us more intelligence.<br>Leadership turns it into clarity.
+    <span data-en="Your teams are absorbing a pace of change the market itself struggles to keep up with. The question is no longer competence. It&rsquo;s where to find the energy and the judgment — for you, for them." data-fr="Vos équipes absorbent un rythme de changement que le marché lui-même peine à suivre. La question n&rsquo;est plus la compétence. C&rsquo;est où trouver l&rsquo;énergie et le discernement — pour vous, pour eux.">
+      Your teams are absorbing a pace of change the market itself struggles to keep up with. The question is no longer competence. It&rsquo;s where to find the energy and the judgment — for you, for them.
     </span>
   </p>
-  <!-- BEGIN: SLACK CTA - HERO -->
-  <a class="s1-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-    <img src="slack-logo.svg" width="16" height="16" alt="" aria-hidden="true" />
-    <span data-en="Let&rsquo;s talk — message me on Slack" data-fr="Parlons-en — écrivez-moi sur Slack">Let&rsquo;s talk — message me on Slack</span>
-  </a>
-  <!-- END: SLACK CTA - HERO -->
+  <p class="s1-belief fade" style="margin-top: 20px;">
+    <span data-en="I work on this question at three levels: your leaders individually, your teams, and the transformation of the Salesforce France organization." data-fr="Je travaille cette question à trois niveaux : vos leaders individuellement, vos équipes et la transformation à l&rsquo;échelle de l&rsquo;organisation Salesforce France.">
+      I work on this question at three levels: your leaders individually, your teams, and the transformation of the Salesforce France organization.
+    </span>
+  </p>
+  <nav class="s1-nav fade" aria-label="Practice sections">
+    <a class="s1-nav-item" href="#p1">
+      <span class="s1-nav-num" aria-hidden="true">01</span>
+      <span class="s1-nav-word tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
+    </a>
+    <a class="s1-nav-item" href="#p2">
+      <span class="s1-nav-num" aria-hidden="true">02</span>
+      <span class="s1-nav-word tag-sky" data-en="Team" data-fr="Équipe">Team</span>
+    </a>
+    <a class="s1-nav-item" href="#p3">
+      <span class="s1-nav-num" aria-hidden="true">03</span>
+      <span class="s1-nav-word tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
+    </a>
+  </nav>
   <img class="s1-astro" src="assets/characters/Astro 3D - 2.png" alt="" aria-hidden="true" />
   <div class="scroll-cue" aria-hidden="true">
     <span data-en="scroll" data-fr="défiler">scroll</span>
@@ -903,12 +989,6 @@
       <cite class="proof-quote-attr" data-en="— A coachee" data-fr="— Un coaché">— A coachee</cite>
     </blockquote>
     <!-- END: PROOF - P1 -->
-    <!-- BEGIN: SLACK CTA - P1 -->
-    <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
-      <span data-en="You recognise yourself in this? Let&rsquo;s talk on Slack." data-fr="Vous vous reconnaissez dans ce constat ? Parlons-en — écrivez-moi sur Slack.">You recognise yourself in this? Let&rsquo;s talk on Slack.</span>
-    </a>
-    <!-- END: SLACK CTA - P1 -->
   </div>
   <div class="pb-right fade">
     <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
@@ -954,12 +1034,6 @@
       <cite class="proof-quote-attr" data-en="— A leader, after a team cohesion session" data-fr="— Un leader, à l&rsquo;issue d&rsquo;une session de cohésion">— A leader, after a team cohesion session</cite>
     </blockquote>
     <!-- END: PROOF - P2 -->
-    <!-- BEGIN: SLACK CTA - P2 -->
-    <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
-      <span data-en="Your team is going through a transformation? Let&rsquo;s talk on Slack." data-fr="Votre équipe traverse une transformation ? Échangeons — un message Slack suffit.">Your team is going through a transformation? Let&rsquo;s talk on Slack.</span>
-    </a>
-    <!-- END: SLACK CTA - P2 -->
   </div>
   <div class="pb-right fade">
     <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
@@ -1001,12 +1075,6 @@
       <p class="proof-fact" data-en="Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era." data-fr="Contribution avec Sales Leaders &amp; Employee Services sur l&rsquo;app LEAD AI — pose les bases de l&rsquo;accompagnement des leaders à l&rsquo;ère de l&rsquo;IA.">Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era.</p>
     </div>
     <!-- END: PROOF - P3 -->
-    <!-- BEGIN: SLACK CTA - P3 -->
-    <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
-      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
-      <span data-en="An organisation-level question? Contact me directly on Slack." data-fr="Une réflexion à l&#8217;échelle de votre organisation ? Contactez-moi directement sur Slack.">An organisation-level question? Contact me directly on Slack.</span>
-    </a>
-    <!-- END: SLACK CTA - P3 -->
   </div>
   <div class="pb-right fade">
     <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
@@ -1049,14 +1117,14 @@
 
 <!-- ══ S5 — CLOSING ═══════════════════════════════════════════════ -->
 <section id="s5" class="dark-section" aria-labelledby="s5-heading">
-  <span class="eyebrow fade" data-en="The common thread" data-fr="Le fil conducteur">The common thread</span>
+  <span class="eyebrow fade" data-en="THE COMMON THREAD" data-fr="LE FIL CONDUCTEUR">THE COMMON THREAD</span>
   <h2 class="s5-h2 fade" id="s5-heading">
-    <span data-en="I create the conditions for <em>better answers to emerge.</em>" data-fr="Créer les conditions pour que <em>de meilleures réponses émergent.</em>">
-      I create the conditions for <em>better answers to emerge.</em>
+    <span data-en="Not more answers. Better conditions to decide." data-fr="Pas plus de réponses. De meilleures conditions pour décider.">
+      Not more answers. Better conditions to decide.
     </span>
   </h2>
   <p class="s5-sub fade">
-    <span data-en="Not by providing answers — by creating the conditions for better ones. The work is always the same. The scale changes." data-fr="Pas en apportant les réponses — en créant les conditions pour que de meilleures réponses émergent. Le travail est toujours le même. L&#8217;échelle change.">Not by providing answers — by creating the conditions for better ones. The work is always the same. The scale changes.</span>
+    <span data-en="I don&rsquo;t provide the solution — I create the space where judgment, individual or collective, can operate. The work is the same at every scale. Only the context changes." data-fr="Je n&rsquo;apporte pas la solution — je crée l&rsquo;espace où le jugement, individuel ou collectif, peut se déployer. Le travail est le même à chaque échelle. Seul le contexte change.">I don&rsquo;t provide the solution — I create the space where judgment, individual or collective, can operate. The work is the same at every scale. Only the context changes.</span>
   </p>
   <div class="s5-triad fade" role="list">
     <div class="s5-node" role="listitem">
@@ -1073,10 +1141,15 @@
     </div>
   </div>
   <p class="s5-closing fade">
-    <span data-en="<em>AI gives us more intelligence.</em> Leadership turns it into clarity." data-fr="<em>L&#8217;IA rend les réponses plus accessibles.</em> Le leadership, lui, reste une question de clarté.">
-      <em>AI gives us more intelligence.</em> Leadership turns it into clarity.
+    <span data-en="AI accelerates access to answers. It doesn&rsquo;t excuse you from judging which ones matter." data-fr="L&rsquo;IA accélère l&rsquo;accès aux réponses. Elle ne dispense pas de juger lesquelles retenir.">
+      AI accelerates access to answers. It doesn&rsquo;t excuse you from judging which ones matter.
     </span>
   </p>
+  <p class="s5-cta-label fade" data-en="Does this paradox sound familiar?" data-fr="Vous vous reconnaissez dans ce paradoxe ?">Does this paradox sound familiar?</p>
+  <a class="s5-cta fade" href="https://salesforce.slack.com/team/U01GME5HDU1" target="_blank" rel="noopener">
+    <img src="slack-logo.svg" width="16" height="16" alt="" aria-hidden="true" />
+    <span data-en="Let&rsquo;s talk — message me on Slack" data-fr="Parlons-en — écrivez-moi sur Slack">Let&rsquo;s talk — message me on Slack</span>
+  </a>
 </section>
 
 <script>
