@@ -579,6 +579,65 @@
     .accent-violet-rule { background: var(--violet-on-light); }
 
     /* ─────────────────────────────────────────────────────────────
+       PROOF BLOCKS — chiffres + verbatims terrain
+    ───────────────────────────────────────────────────────────── */
+    /* BEGIN: PROOF BLOCKS */
+    .proof-fact {
+      padding-left: 14px;
+      border-left: 2px solid var(--section-border);
+      font-family: var(--font-body); font-size: 14px; font-weight: 400;
+      color: var(--section-text-secondary); line-height: 1.55;
+      margin-bottom: 10px;
+    }
+    .proof-facts { margin-top: 28px; margin-bottom: 0; }
+    .proof-quote {
+      margin-top: 20px;
+      border-left: 3px solid var(--section-border);
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+    }
+    .proof-quote-text {
+      font-family: var(--font-body); font-size: 14px; font-weight: 400;
+      font-style: italic;
+      color: var(--section-text-secondary); line-height: 1.55; margin-bottom: 6px;
+    }
+    .proof-quote-attr {
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--section-text-muted);
+    }
+    .proof-stat-wrap { margin-top: 28px; }
+    .proof-stat {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 600; line-height: 1; letter-spacing: -.02em;
+      color: var(--section-text-primary);
+    }
+    .proof-stat-label {
+      font-family: var(--font-body); font-size: 12px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--section-text-muted); margin-top: 6px;
+    }
+    .proof-videos { margin-top: 28px; }
+    .proof-videos-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .proof-video-item {}
+    .proof-video-title {
+      font-family: var(--font-body); font-size: 12px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--section-text-muted); margin-bottom: 10px;
+    }
+    .proof-video-title span { color: var(--section-text-secondary); font-weight: 400; text-transform: none; letter-spacing: 0; }
+    .proof-videos iframe {
+      width: 100%; height: 280px; border: none; border-radius: 8px; display: block;
+    }
+    @media (max-width: 1024px) {
+      .proof-videos-grid { grid-template-columns: 1fr; }
+    }
+    /* END: PROOF BLOCKS */
+
+    /* ─────────────────────────────────────────────────────────────
        S5 — CLOSING — DARK
     ───────────────────────────────────────────────────────────── */
     #s5 {
@@ -835,6 +894,15 @@
     <p class="pb-sub fade" data-en="When intelligence and answers become more accessible, the leader's value no longer rests on expertise alone. What I observe is a shift: less and less the one who knows, more and more the one who clarifies, orients, and enables others to contribute fully." data-fr="Lorsque l&#8217;information et les réponses deviennent plus accessibles, la valeur du leader ne repose plus uniquement sur son expertise. Ce que j&#8217;observe, c&#8217;est un déplacement : de moins en moins celui qui sait, de plus en plus celui qui clarifie, oriente et permet aux autres de contribuer pleinement.">When intelligence and answers become more accessible, the leader's value no longer rests on expertise alone. What I observe is a shift: less and less the one who knows, more and more the one who clarifies, orients, and enables others to contribute fully.</p>
     <p class="pb-sub fade" data-en="This is a profound shift in posture. And it doesn&rsquo;t happen on its own." data-fr="C&#8217;est un changement de posture profond. Et il ne va pas de soi.">This is a profound shift in posture. And it doesn&rsquo;t happen on its own.</p>
     <p class="pb-sub fade" data-en="In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with first-, second- and third-line leaders on pipeline inspection, deal coaching, clarity of judgment and decision-making under uncertainty." data-fr="Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders de 1re, 2e et 3e ligne sur l&#8217;inspection de pipeline, le coaching de deals, la clarté de jugement et la prise de décision sous incertitude.">In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with first-, second- and third-line leaders on pipeline inspection, deal coaching, clarity of judgment and decision-making under uncertainty.</p>
+    <!-- BEGIN: PROOF - P1 -->
+    <div class="proof-facts fade">
+      <p class="proof-fact" data-en="11 leaders currently in coaching — FY26." data-fr="Accompagnement en cours de 11 leaders sur FY26.">11 leaders currently in coaching — FY26.</p>
+    </div>
+    <blockquote class="proof-quote fade">
+      <p class="proof-quote-text" data-en="&ldquo;You ask unexpected questions that help me move forward — thank you.&rdquo;" data-fr="&laquo;&nbsp;Tu poses des questions inattendues qui m&rsquo;aident à avancer, merci.&nbsp;&raquo;">&ldquo;You ask unexpected questions that help me move forward — thank you.&rdquo;</p>
+      <cite class="proof-quote-attr" data-en="— A coachee" data-fr="— Un coaché">— A coachee</cite>
+    </blockquote>
+    <!-- END: PROOF - P1 -->
     <!-- BEGIN: SLACK CTA - P1 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
       <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
@@ -876,6 +944,16 @@
     <p class="pb-sub fade" data-en="A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group." data-fr="Un groupe de personnes compétentes n&#8217;est pas automatiquement une équipe performante. La performance collective dépend rarement des compétences individuelles. Elle dépend de la qualité des conversations, de la capacité à exprimer les désaccords, de la confiance — et de la façon dont l&#8217;intelligence circule dans le groupe.">A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group.</p>
     <p class="pb-sub fade" data-en="These conditions are not imposed. They are built." data-fr="Ces conditions ne s&#8217;imposent pas. Elles se construisent.">These conditions are not imposed. They are built.</p>
     <p class="pb-sub fade" data-en="I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation." data-fr="Je facilite des sessions de développement d&#8217;équipe et de communication du changement pour des équipes de direction — de la constellation systémique à la préparation de briefings hebdomadaires — pour aligner une équipe autour d&#8217;une transformation.">I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation.</p>
+    <!-- BEGIN: PROOF - P2 -->
+    <div class="proof-stat-wrap fade">
+      <p class="proof-stat" data-en="9.2/10" data-fr="9,2/10">9.2/10</p>
+      <p class="proof-stat-label" data-en="Average CSAT — 5 sessions since May" data-fr="CSAT moyen — 5 sessions depuis mai">Average CSAT — 5 sessions since May</p>
+    </div>
+    <blockquote class="proof-quote fade">
+      <p class="proof-quote-text" data-en="&ldquo;I wanted to thank you for yesterday&rsquo;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution.&rdquo;" data-fr="&laquo;&nbsp;Je voulais te remercier pour la session d&rsquo;hier&nbsp;! J&rsquo;ai adoré à la fois le format, les exercices, le fond, l&rsquo;ambiance et surtout je suis ressortie remplie d&rsquo;énergie. C&rsquo;était super, et franchement bravo pour l&rsquo;organisation et l&rsquo;exécution.&nbsp;&raquo;">&ldquo;I wanted to thank you for yesterday&rsquo;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution.&rdquo;</p>
+      <cite class="proof-quote-attr" data-en="— A leader, after a team cohesion session" data-fr="— Un leader, à l&rsquo;issue d&rsquo;une session de cohésion">— A leader, after a team cohesion session</cite>
+    </blockquote>
+    <!-- END: PROOF - P2 -->
     <!-- BEGIN: SLACK CTA - P2 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
       <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
@@ -917,6 +995,28 @@
     <p class="pb-sub fade" data-en="AI accelerates change. It doesn't create the capacity to change. Organizations that transform durably don't just evolve their plans — they develop their capacity to change at every level, not just at the top." data-fr="L&#8217;IA accélère le changement. Elle ne crée pas à elle seule la capacité à changer. Les organisations qui se transforment durablement ne font pas qu&#8217;évoluer leurs plans — elles développent leur capacité à changer, à chaque niveau, pas seulement au sommet.">AI accelerates change. It doesn't create the capacity to change. Organizations that transform durably don't just evolve their plans — they develop their capacity to change at every level, not just at the top.</p>
     <p class="pb-sub fade" data-en="The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally." data-fr="Le goulot d&#8217;étranglement n&#8217;est presque jamais la technologie. C&#8217;est le leadership, la culture et la façon dont le changement est porté localement.">The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally.</p>
     <p class="pb-sub fade" data-en="I work on large-scale transformation topics, including AI skills development (LEAD AI programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division." data-fr="J&#8217;interviens sur des sujets de transformation à l&#8217;échelle organisationnelle, notamment sur l&#8217;évolution des compétences liées à l&#8217;IA (programme LEAD AI), en évaluant et en construisant des trajectoires de montée en compétence pour les leaders. Je suis par ailleurs <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga Bivwak!">I work on large-scale transformation topics, including AI skills development (LEAD AI programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division.</p>
+    <!-- BEGIN: PROOF - P3 -->
+    <div class="proof-facts fade">
+      <p class="proof-fact" data-en="Support for the BDR of the Future strategic programme — recommendations validated by sponsor leaders." data-fr="Accompagnement du programme stratégique BDR of the Future, recommandations validées par les leaders sponsors.">Support for the BDR of the Future strategic programme — recommendations validated by sponsor leaders.</p>
+      <p class="proof-fact" data-en="Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era." data-fr="Contribution avec Sales Leaders &amp; Employee Services sur l&rsquo;app LEAD AI — pose les bases de l&rsquo;accompagnement des leaders à l&rsquo;ère de l&rsquo;IA.">Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era.</p>
+    </div>
+    <div class="proof-videos fade">
+      <div class="proof-videos-grid">
+        <div class="proof-video-item">
+          <p class="proof-video-title">
+            <span data-en="LEAD AI demo — leader view" data-fr="Démo LEAD AI — vue leader">LEAD AI demo — leader view</span>
+          </p>
+          <iframe src="https://drive.google.com/file/d/1an52DdGHVY7vnFpqRzwWA2A4mhePEaKS/preview" allow="autoplay" title="LEAD AI demo — leader view"></iframe>
+        </div>
+        <div class="proof-video-item">
+          <p class="proof-video-title">
+            <span data-en="LEAD AI demo — coaching view" data-fr="Démo LEAD AI — vue coaching">LEAD AI demo — coaching view</span>
+          </p>
+          <iframe src="https://drive.google.com/file/d/1aiabtL0izCr9YE58OnNsBVKaKdHRcrRj/preview" allow="autoplay" title="LEAD AI demo — coaching view"></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- END: PROOF - P3 -->
     <!-- BEGIN: SLACK CTA - P3 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
       <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
