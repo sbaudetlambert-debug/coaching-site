@@ -230,9 +230,9 @@
     #s1 {
       min-height: auto;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 130px var(--section-pad-h) 80px;
+      padding: 130px var(--section-pad-h) 140px;
       background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, #001640 100%);
-      overflow: hidden;
+      position: relative;
     }
 
     .s1-h1 {
@@ -712,16 +712,14 @@
       color: var(--section-text-muted); margin-top: 16px;
     }
 
-    /* 3 entrées nav dans le hero — réutilise le traitement .s3-level */
+    /* 3 entrées nav dans le hero — ancrées en pied de section, pleine largeur */
     .s1-nav {
-      display: flex; gap: 0;
-      border: 1px solid var(--border-dark);
-      border-radius: 10px; overflow: hidden;
-      margin-top: 48px;
-      align-self: flex-start;
+      position: absolute; bottom: 0; left: 0; right: 0;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border-dark);
     }
     .s1-nav-item {
-      padding: 16px 28px;
+      padding: 18px var(--section-pad-h);
       border-right: 1px solid var(--border-dark);
       text-decoration: none; color: inherit;
       display: flex; flex-direction: column; gap: 4px;
@@ -729,6 +727,7 @@
     }
     .s1-nav-item:last-child { border-right: none; }
     .s1-nav-item:hover { background: rgba(6,106,254,.08); }
+    .s1-nav-item.active { background: rgba(6,106,254,.12); }
     .s1-nav-item:focus-visible { outline: 2px solid var(--eb-50); outline-offset: -2px; }
     .s1-nav-num {
       font-family: var(--font-body); font-size: var(--type-eyebrow); font-weight: 700;
@@ -754,10 +753,9 @@
     .nav-slack:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
     .nav-slack img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
 
-    @media (max-width: 1024px) {
-      .s1-nav { flex-direction: column; }
-      .s1-nav-item { border-right: none; border-bottom: 1px solid var(--border-dark); padding: 14px 20px; }
-      .s1-nav-item:last-child { border-bottom: none; }
+    @media (max-width: 640px) {
+      .s1-nav-item { padding: 14px 16px; }
+      .s1-nav-word { font-size: 13px; }
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -1183,6 +1181,21 @@
     const siblings = Array.from(el.parentElement.querySelectorAll(':scope > .fade'));
     el.dataset.delay = siblings.indexOf(el) * 70;
     io.observe(el);
+  });
+
+  // Active state on s1-nav based on visible practice section
+  const navMap = { p1: 0, p2: 1, p3: 2 };
+  const navItems = document.querySelectorAll('.s1-nav-item');
+  const practiceIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const idx = navMap[e.target.id];
+      if (idx === undefined) return;
+      navItems[idx].classList.toggle('active', e.isIntersecting);
+    });
+  }, { threshold: 0.3 });
+  ['p1', 'p2', 'p3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) practiceIo.observe(el);
   });
 </script>
 </body>
