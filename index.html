@@ -138,13 +138,44 @@
     /* ─────────────────────────────────────────────────────────────
        LANG BAR
     ───────────────────────────────────────────────────────────── */
-    #lang-bar {
+    /* ─────────────────────────────────────────────────────────────
+       HEADER — une seule ligne fixe, z-index 100
+       Logo | liens de section | FR EN | Let's talk
+    ───────────────────────────────────────────────────────────── */
+    #site-header {
       position: fixed; top: 0; right: 0; left: 0; z-index: 100;
-      display: flex; justify-content: flex-end; align-items: center;
-      padding: 7px 48px;
-      background: rgba(0, 30, 91, .92);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 56px;
+      background: rgba(0, 30, 91, .95);
       border-bottom: 1px solid var(--border-dark);
+      gap: 24px;
     }
+    .nav-logo img { height: 32px; display: block; flex-shrink: 0; }
+    .nav-links {
+      display: flex; align-items: center; gap: 0; list-style: none;
+      flex: 1; justify-content: center;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 400;
+      color: var(--text-on-dark-secondary);
+      text-decoration: none;
+      transition: color .15s;
+      padding: 6px 14px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover { color: var(--text-on-dark); }
+    .nav-links a.active {
+      color: var(--text-on-dark);
+      border-bottom-color: var(--eb-50);
+    }
+    .nav-links .sep-dot {
+      width: 1px; height: 14px;
+      background: var(--border-dark);
+      align-self: center; flex-shrink: 0;
+    }
+    /* Boutons FR / EN */
     .lb {
       font-family: var(--font-body);
       font-size: 11px; font-weight: 700;
@@ -152,34 +183,14 @@
       background: none;
       border: 1px solid rgba(144,208,254,.3);
       color: var(--text-on-dark-secondary);
-      border-radius: 4px; padding: 3px 12px;
+      border-radius: 4px; padding: 3px 10px;
       cursor: pointer; transition: color .15s, border-color .15s, background .15s;
+      flex-shrink: 0;
     }
     .lb:hover { color: var(--text-on-dark); border-color: var(--cb-80); }
     .lb.on { background: var(--eb-50); color: var(--white); border-color: var(--eb-50); }
-    #lang-bar .sep { color: var(--border-dark); margin: 0 6px; font-size: 12px; user-select: none; }
-
-    /* ─────────────────────────────────────────────────────────────
-       NAV
-    ───────────────────────────────────────────────────────────── */
-    nav {
-      position: fixed; top: 30px; right: 0; left: 0; z-index: 90;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 56px;
-      background: rgba(0, 30, 91, .88);
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .nav-logo img { height: 20px; display: block; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-family: var(--font-body);
-      font-size: 13px; font-weight: 400;
-      color: var(--text-on-dark-secondary);
-      text-decoration: none;
-      transition: color .15s;
-      padding: 4px 0;
-    }
-    .nav-links a:hover { color: var(--text-on-dark); }
+    .lang-sep { color: var(--border-dark); margin: 0 4px; font-size: 12px; user-select: none; flex-shrink: 0; }
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
     /* ─────────────────────────────────────────────────────────────
        SECTION BASE
@@ -230,7 +241,7 @@
     #s1 {
       min-height: auto;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 130px var(--section-pad-h) 80px;
+      padding: 100px var(--section-pad-h) 80px;
       background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, #001640 100%);
       overflow: clip; /* clip sans BFC — permet position:sticky dans les enfants */
     }
@@ -712,46 +723,7 @@
       color: var(--section-text-muted); margin-top: 16px;
     }
 
-    /* ── PRACTICE NAV — static au chargement, fixed en sticky
-       z-index header: lang-bar=100, nav=90 → barre=80 (toujours dessous)
-       top sticky = 86px (30px lang-bar + 56px nav) ───────────────── */
-    .s1-nav {
-      /* sticky bottom:0 dans le hero = colle au bas de la section pendant le scroll */
-      position: sticky; bottom: 0; z-index: 80;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      background: rgba(0, 30, 91, .97);
-      border-top: 1px solid var(--border-dark);
-      border-bottom: 1px solid var(--border-dark);
-      margin-top: auto;
-    }
-    .s1-nav.sticky-active {
-      position: fixed; top: 86px; left: 0; right: 0; z-index: 80;
-    }
-    #practice-nav-placeholder { display: none; }
-    #practice-nav-placeholder.visible { display: block; }
-    .s1-nav-item {
-      padding: 14px var(--section-pad-h);
-      border-right: 1px solid var(--border-dark);
-      text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 3px;
-      transition: background .2s;
-    }
-    .s1-nav-item:last-child { border-right: none; }
-    .s1-nav-item:hover { background: rgba(6,106,254,.08); }
-    .s1-nav-item.active {
-      background: rgba(6,106,254,.12);
-      box-shadow: inset 0 -2px 0 var(--eb-50);
-    }
-    .s1-nav-item:focus-visible { outline: 2px solid var(--eb-50); outline-offset: -2px; }
-    .s1-nav-num {
-      font-family: var(--font-body); font-size: var(--type-eyebrow); font-weight: 700;
-      letter-spacing: .06em; color: var(--text-on-dark-muted);
-    }
-    .s1-nav-word {
-      font-family: var(--font-display); font-size: clamp(13px, 1.1vw, 17px); font-weight: 600;
-    }
-
-    /* CTA Slack dans la nav */
+    /* CTA Slack dans le header */
     .nav-slack {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: var(--font-body); font-size: 13px; font-weight: 700;
@@ -761,16 +733,11 @@
       border-radius: 4px; padding: 5px 14px;
       text-decoration: none;
       transition: color .15s, border-color .15s, background .15s;
-      white-space: nowrap;
+      white-space: nowrap; flex-shrink: 0;
     }
     .nav-slack:hover { color: var(--text-on-dark); border-color: var(--cb-80); }
     .nav-slack:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
     .nav-slack img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
-
-    @media (max-width: 640px) {
-      .s1-nav-item { padding: 10px 12px; }
-      .s1-nav-word { font-size: 12px; }
-    }
 
     /* ─────────────────────────────────────────────────────────────
        FADE-IN ANIMATION
@@ -788,8 +755,7 @@
        RESPONSIVE
     ───────────────────────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      nav { padding: 0 24px; }
-      #lang-bar { padding: 7px 24px; }
+      #site-header { padding: 0 24px; }
       .nav-links { display: none; }
       .s1-astro { display: none; }
       .s2-grid { grid-template-columns: 1fr; gap: 52px; }
@@ -806,33 +772,35 @@
       .s1-h1 { line-height: 1.05; }
     }
     @media (max-width: 375px) {
-      nav { padding: 0 16px; }
-      #lang-bar { padding: 7px 16px; }
+      #site-header { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
 
-<!-- LANG -->
-<div id="lang-bar" role="navigation" aria-label="Language selector">
-  <a class="nav-slack" href="https://salesforce.slack.com/team/U01GME5HDU1" target="_blank" rel="noopener" style="margin-right: 16px;">
-    <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
-    <span data-en="Let&rsquo;s talk" data-fr="Parlons-en">Let&rsquo;s talk</span>
-  </a>
-  <button class="lb on" onclick="setLang('en')" id="btn-en" aria-pressed="true" aria-label="Switch to English">EN</button>
-  <span class="sep" aria-hidden="true">|</span>
-  <button class="lb" onclick="setLang('fr')" id="btn-fr" aria-pressed="false" aria-label="Passer en français">FR</button>
-</div>
-
-<!-- NAV -->
-<nav aria-label="Site navigation">
+<!-- HEADER unique — logo | liens | FR EN | Let's talk -->
+<header id="site-header" aria-label="Site navigation">
   <div class="nav-logo"><img src="salesforce-logo.svg" alt="Salesforce" /></div>
   <ul class="nav-links" role="list">
     <li><a href="#s1" data-en="The Shift" data-fr="Le constat">The Shift</a></li>
     <li><a href="#s2" data-en="Who I am" data-fr="Qui suis-je ?">Who I am</a></li>
-    <li><a href="#s3" data-en="The Practice" data-fr="Ma pratique">The Practice</a></li>
+    <li class="sep-dot" aria-hidden="true"></li>
+    <li><a href="#p1" data-en="Your Leaders" data-fr="Vos Leaders">Your Leaders</a></li>
+    <li><a href="#p2" data-en="Your Teams" data-fr="Vos Équipes">Your Teams</a></li>
+    <li><a href="#p3" data-en="Our Organization" data-fr="Notre Organisation">Our Organization</a></li>
+    <li class="sep-dot" aria-hidden="true"></li>
+    <li><a href="#s3" data-en="My Practice" data-fr="Ma pratique">My Practice</a></li>
   </ul>
-</nav>
+  <div class="nav-right">
+    <button class="lb" onclick="setLang('fr')" id="btn-fr" aria-pressed="false" aria-label="Passer en français">FR</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lb on" onclick="setLang('en')" id="btn-en" aria-pressed="true" aria-label="Switch to English">EN</button>
+    <a class="nav-slack" href="https://salesforce.slack.com/team/U01GME5HDU1" target="_blank" rel="noopener">
+      <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
+      <span data-en="Let&rsquo;s talk" data-fr="Parlons-en">Let&rsquo;s talk</span>
+    </a>
+  </div>
+</header>
 
 <!-- ══ S1 — THE SHIFT ════════════════════════════════════════════ -->
 <section id="s1" class="dark-section" aria-labelledby="s1-heading">
@@ -862,23 +830,6 @@
     <span data-en="scroll" data-fr="défiler">scroll</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
-  <!-- BARRE NAV PRATIQUE — dernier enfant de #s1, position: static au chargement -->
-  <nav class="s1-nav" id="practice-nav" aria-label="Practice sections">
-    <a class="s1-nav-item" href="#p1">
-      <span class="s1-nav-num" aria-hidden="true">01</span>
-      <span class="s1-nav-word tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
-    </a>
-    <a class="s1-nav-item" href="#p2">
-      <span class="s1-nav-num" aria-hidden="true">02</span>
-      <span class="s1-nav-word tag-sky" data-en="Team" data-fr="Équipe">Team</span>
-    </a>
-    <a class="s1-nav-item" href="#p3">
-      <span class="s1-nav-num" aria-hidden="true">03</span>
-      <span class="s1-nav-word tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
-    </a>
-  </nav>
-  <!-- Placeholder — prend la hauteur de la barre quand elle passe en fixed -->
-  <div id="practice-nav-placeholder" aria-hidden="true"></div>
 </section>
 
 <!-- ══ S2 — THE BELIEF ═══════════════════════════════════════════ -->
@@ -1205,52 +1156,19 @@
     io.observe(el);
   });
 
-  // ── STICKY NAV ──────────────────────────────────────────────────
-  // La barre est statique dans #s1. Elle passe en position:fixed
-  // (top:86px) dès que #practice-zone entre dans le viewport.
-  // Elle repasse statique quand #practice-zone est dépassée (bottom ≤ 0).
-  const practiceNav    = document.getElementById('practice-nav');
-  const navPlaceholder = document.getElementById('practice-nav-placeholder');
-  const practiceZone   = document.getElementById('practice-zone');
+  // ── ACTIVE STATE nav header ──────────────────────────────────────
+  // Met la classe .active sur le lien correspondant à la section visible.
+  const headerLinks = document.querySelectorAll('#site-header .nav-links a[href^="#"]');
+  const sectionIds  = Array.from(headerLinks).map(a => a.getAttribute('href').slice(1));
 
-  function setSticky(on) {
-    if (!practiceNav || !navPlaceholder) return;
-    if (on) {
-      navPlaceholder.style.height = practiceNav.offsetHeight + 'px';
-      navPlaceholder.classList.add('visible');
-      practiceNav.classList.add('sticky-active');
-    } else {
-      practiceNav.classList.remove('sticky-active');
-      navPlaceholder.classList.remove('visible');
-      navPlaceholder.style.height = '0';
-    }
-  }
-
-  if (practiceZone && practiceNav) {
-    // Sticky = actif quand le TOP de #practice-zone remonte jusqu'à top:86px
-    // et inactif quand le BOTTOM dépasse vers le haut (zone terminée).
-    // On écoute le scroll directement pour un contrôle précis.
-    function updateSticky() {
-      const rect = practiceZone.getBoundingClientRect();
-      const headerH = 86;
-      const active = rect.top <= headerH && rect.bottom > headerH;
-      setSticky(active);
-    }
-    window.addEventListener('scroll', updateSticky, { passive: true });
-    updateSticky(); // état initial correct dès le load
-  }
-
-  // ── ACTIVE STATE (section visible) ──────────────────────────────
-  const navItems = practiceNav ? practiceNav.querySelectorAll('.s1-nav-item') : [];
-  const navMap   = { p1: 0, p2: 1, p3: 2 };
   const activeIo = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      const idx = navMap[e.target.id];
-      if (idx === undefined || !navItems[idx]) return;
-      navItems[idx].classList.toggle('active', e.isIntersecting);
+      const link = document.querySelector(`#site-header .nav-links a[href="#${e.target.id}"]`);
+      if (link) link.classList.toggle('active', e.isIntersecting);
     });
-  }, { threshold: 0.2, rootMargin: '-86px 0px -30% 0px' });
-  ['p1', 'p2', 'p3'].forEach(id => {
+  }, { threshold: 0.2, rootMargin: '-56px 0px -30% 0px' });
+
+  sectionIds.forEach(id => {
     const el = document.getElementById(id);
     if (el) activeIo.observe(el);
   });
