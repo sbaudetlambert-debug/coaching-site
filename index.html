@@ -117,7 +117,7 @@
        RESET & BASE
     ───────────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
     body {
       font-family: var(--font-body);
       background: var(--bg-hero);
@@ -513,7 +513,7 @@
       color: var(--section-text-secondary);
       line-height: 1.6; margin-bottom: 20px;
     }
-    .pb-sub:last-of-type { margin-bottom: 36px; }
+    .pb-sub { margin-bottom: 20px; }
     .pb-right .pb-concept-title {
       font-family: var(--font-body); font-size: 11px; font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
@@ -595,7 +595,9 @@
       border-left: 3px solid var(--section-border);
       padding: 14px 18px;
       border-radius: 0 6px 6px 0;
+      background: rgba(0,30,91,.04);
     }
+    #p2 .proof-quote { background: rgba(255,255,255,.04); }
     .proof-quote-text {
       font-family: var(--font-body); font-size: 14px; font-weight: 400;
       font-style: italic;
@@ -618,17 +620,15 @@
       letter-spacing: .06em; text-transform: uppercase;
       color: var(--section-text-muted); margin-top: 6px;
     }
-    .proof-videos { margin-top: 28px; }
+    .proof-videos { padding-top: 0; }
     .proof-videos-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
     }
-    .proof-video-item {}
     .proof-video-title {
-      font-family: var(--font-body); font-size: 12px; font-weight: 700;
+      font-family: var(--font-body); font-size: var(--type-eyebrow); font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
       color: var(--section-text-muted); margin-bottom: 10px;
     }
-    .proof-video-title span { color: var(--section-text-secondary); font-weight: 400; text-transform: none; letter-spacing: 0; }
     .proof-videos iframe {
       width: 100%; height: 280px; border: none; border-radius: 8px; display: block;
     }
@@ -1000,22 +1000,6 @@
       <p class="proof-fact" data-en="Support for the BDR of the Future strategic programme — recommendations validated by sponsor leaders." data-fr="Accompagnement du programme stratégique BDR of the Future, recommandations validées par les leaders sponsors.">Support for the BDR of the Future strategic programme — recommendations validated by sponsor leaders.</p>
       <p class="proof-fact" data-en="Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era." data-fr="Contribution avec Sales Leaders &amp; Employee Services sur l&rsquo;app LEAD AI — pose les bases de l&rsquo;accompagnement des leaders à l&rsquo;ère de l&rsquo;IA.">Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era.</p>
     </div>
-    <div class="proof-videos fade">
-      <div class="proof-videos-grid">
-        <div class="proof-video-item">
-          <p class="proof-video-title">
-            <span data-en="LEAD AI demo — leader view" data-fr="Démo LEAD AI — vue leader">LEAD AI demo — leader view</span>
-          </p>
-          <iframe src="https://drive.google.com/file/d/1an52DdGHVY7vnFpqRzwWA2A4mhePEaKS/preview" allow="autoplay" title="LEAD AI demo — leader view"></iframe>
-        </div>
-        <div class="proof-video-item">
-          <p class="proof-video-title">
-            <span data-en="LEAD AI demo — coaching view" data-fr="Démo LEAD AI — vue coaching">LEAD AI demo — coaching view</span>
-          </p>
-          <iframe src="https://drive.google.com/file/d/1aiabtL0izCr9YE58OnNsBVKaKdHRcrRj/preview" allow="autoplay" title="LEAD AI demo — coaching view"></iframe>
-        </div>
-      </div>
-    </div>
     <!-- END: PROOF - P3 -->
     <!-- BEGIN: SLACK CTA - P3 -->
     <a class="pb-cta fade" href="https://salesforce.slack.com/team/MON_ID" target="_blank" rel="noopener">
@@ -1047,6 +1031,20 @@
       <p class="pb-formats-text" data-en="<strong>Outcome:</strong> Transformation" data-fr="<strong>Résultat :</strong> Transformation"><strong>Outcome:</strong> Transformation</p>
     </div>
   </div>
+  <!-- BEGIN: PROOF VIDEOS - P3 -->
+  <div class="proof-videos fade" style="grid-column: 1 / -1;">
+    <div class="proof-videos-grid">
+      <div class="proof-video-item">
+        <p class="proof-video-title" data-en="LEAD AI demo — leader view" data-fr="Démo LEAD AI — vue leader">LEAD AI demo — leader view</p>
+        <iframe src="https://drive.google.com/file/d/1an52DdGHVY7vnFpqRzwWA2A4mhePEaKS/preview" allow="autoplay" title="LEAD AI demo — leader view"></iframe>
+      </div>
+      <div class="proof-video-item">
+        <p class="proof-video-title" data-en="LEAD AI demo — coaching view" data-fr="Démo LEAD AI — vue coaching">LEAD AI demo — coaching view</p>
+        <iframe src="https://drive.google.com/file/d/1aiabtL0izCr9YE58OnNsBVKaKdHRcrRj/preview" allow="autoplay" title="LEAD AI demo — coaching view"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- END: PROOF VIDEOS - P3 -->
 </div>
 
 <!-- ══ S5 — CLOSING ═══════════════════════════════════════════════ -->
