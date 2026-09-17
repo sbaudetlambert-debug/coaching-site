@@ -82,6 +82,30 @@
       --font-display: 'AG', 'Century Gothic', sans-serif;
       --font-body:    'SF', Arial, sans-serif;
 
+      /* ── TYPOGRAPHIC SCALE — one decision per level ──────────── */
+      /* H1  : page title — hero only                              */
+      --type-h1:      clamp(40px, 5vw, 72px);
+      --type-h1-line: 1.06;
+      --type-h1-ls:   -.022em;
+      /* H2  : section title                                       */
+      --type-h2:      clamp(28px, 3vw, 44px);
+      --type-h2-line: 1.1;
+      --type-h2-ls:   -.018em;
+      /* H3  : subsection / block title                            */
+      --type-h3:      clamp(22px, 2vw, 32px);
+      --type-h3-line: 1.15;
+      --type-h3-ls:   -.012em;
+      /* Body large                                                */
+      --type-body-lg: clamp(15px, 1.4vw, 18px);
+      /* Body default                                              */
+      --type-body:    15px;
+      /* Body small                                                */
+      --type-body-sm: 14px;
+      /* Label / metadata                                          */
+      --type-label:   13px;
+      /* Eyebrow                                                   */
+      --type-eyebrow: 11px;
+
       /* Spacing */
       --section-pad-v: clamp(80px, 9vw, 128px);
       --section-pad-h: clamp(24px, 8vw, 120px);
@@ -213,16 +237,14 @@
 
     .s1-h1 {
       font-family: var(--font-display);
-      font-size: clamp(48px, 6.5vw, 96px);
-      font-weight: 600; line-height: 1.02; letter-spacing: -.022em;
+      font-size: var(--type-h1);
+      font-weight: 600; line-height: var(--type-h1-line); letter-spacing: var(--type-h1-ls);
       color: var(--text-on-dark);
-      max-width: 840px; margin-bottom: 40px;
+      max-width: 760px; margin-bottom: 32px;
     }
-    /* Gradient on large display text — OK for decorative, high contrast */
     .s1-h1 em {
       font-style: normal;
-      background: linear-gradient(90deg, var(--cb-68) 0%, var(--teal) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      color: var(--text-teal-dark);
     }
     .s1-thesis {
       font-family: var(--font-body);
@@ -237,10 +259,10 @@
       margin-bottom: 28px;
     }
     .s1-belief {
-      font-family: var(--font-display);
-      font-size: clamp(18px, 1.9vw, 26px);
-      font-weight: 600; color: var(--text-on-dark);
-      line-height: 1.35; max-width: 560px;
+      font-family: var(--font-body);
+      font-size: var(--type-body-lg);
+      font-weight: 400; color: var(--text-on-dark-secondary);
+      line-height: 1.65; max-width: 520px;
     }
     .s1-astro {
       position: absolute; right: 5vw; top: 50%;
@@ -275,8 +297,8 @@
     }
     .s2-h2 {
       font-family: var(--font-display);
-      font-size: clamp(30px, 3.2vw, 48px);
-      font-weight: 600; line-height: 1.1; letter-spacing: -.018em;
+      font-size: var(--type-h2);
+      font-weight: 600; line-height: var(--type-h2-line); letter-spacing: var(--type-h2-ls);
       color: var(--section-text-primary);
       max-width: 460px; margin-bottom: 24px;
     }
@@ -313,11 +335,11 @@
       color: var(--section-text-muted); line-height: 1.6;
     }
 
-    /* Right col */
+    /* Right col — conviction statement treated as H3 */
     .s2-quote {
       font-family: var(--font-display);
-      font-size: clamp(20px, 2vw, 28px);
-      font-weight: 600; line-height: 1.3;
+      font-size: var(--type-h3);
+      font-weight: 600; line-height: var(--type-h3-line); letter-spacing: var(--type-h3-ls);
       color: var(--section-text-primary);
       margin-bottom: 12px;
     }
@@ -359,8 +381,8 @@
     }
     .s3-h2 {
       font-family: var(--font-display);
-      font-size: clamp(32px, 4vw, 56px);
-      font-weight: 600; line-height: 1.06; letter-spacing: -.02em;
+      font-size: var(--type-h2);
+      font-weight: 600; line-height: var(--type-h2-line); letter-spacing: var(--type-h2-ls);
       color: var(--section-text-primary);
       max-width: 720px; margin-bottom: 12px;
     }
@@ -378,10 +400,23 @@
     .s3-level {
       padding: 40px 32px 44px;
       border-right: 1px solid var(--section-border);
-      transition: background .25s;
+      text-decoration: none; color: inherit;
+      display: block;
+      transition: background .2s;
     }
     .s3-level:last-child { border-right: none; }
-    .s3-level:hover { background: rgba(6,106,254,.1); }
+    .s3-level:hover { background: rgba(6,106,254,.08); }
+    .s3-level:focus-visible {
+      outline: 2px solid var(--eb-50);
+      outline-offset: -2px;
+    }
+    .s3-level-num {
+      font-family: var(--font-body);
+      font-size: var(--type-eyebrow);
+      font-weight: 700; letter-spacing: .06em;
+      color: var(--section-text-muted);
+      display: block; margin-bottom: 4px;
+    }
     .s3-level-tag {
       font-family: var(--font-body); font-size: 11px; font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
@@ -391,10 +426,10 @@
     .tag-sky    { color: var(--text-on-dark-accent); }
     .tag-violet { color: var(--violet); }  /* large decorative text — contrast OK at this size */
     .s3-level-q {
-      font-family: var(--font-display);
-      font-size: clamp(17px, 1.5vw, 22px);
-      font-weight: 600; color: var(--section-text-primary);
-      line-height: 1.25; margin-bottom: 14px;
+      font-family: var(--font-body);
+      font-size: var(--type-body-lg);
+      font-weight: 700; color: var(--section-text-primary);
+      line-height: 1.35; margin-bottom: 14px;
     }
     .s3-level-from {
       font-family: var(--font-body); font-size: 13px; font-weight: 400;
@@ -425,8 +460,8 @@
     .pb-accent-rule { width: 32px; height: 2px; border-radius: 2px; margin-bottom: 20px; }
     .pb-h3 {
       font-family: var(--font-display);
-      font-size: clamp(26px, 2.6vw, 40px);
-      font-weight: 600; line-height: 1.12; letter-spacing: -.015em;
+      font-size: var(--type-h3);
+      font-weight: 600; line-height: var(--type-h3-line); letter-spacing: var(--type-h3-ls);
       color: var(--section-text-primary);
       margin-bottom: 12px;
     }
@@ -513,10 +548,10 @@
     }
     .s5-h2 {
       font-family: var(--font-display);
-      font-size: clamp(32px, 4.5vw, 64px);
-      font-weight: 600; line-height: 1.08; letter-spacing: -.022em;
+      font-size: var(--type-h2);
+      font-weight: 600; line-height: var(--type-h2-line); letter-spacing: var(--type-h2-ls);
       color: var(--section-text-primary);
-      max-width: 800px; margin-bottom: 20px;
+      max-width: 640px; margin-bottom: 20px;
     }
     .s5-h2 em { font-style: normal; color: var(--text-teal-dark); }
     .s5-sub {
@@ -547,12 +582,12 @@
       font-weight: 600;
     }
     .s5-closing {
-      font-family: var(--font-display);
-      font-size: clamp(16px, 1.6vw, 22px);
-      font-weight: 600; color: var(--section-text-secondary);
-      line-height: 1.5; max-width: 560px;
+      font-family: var(--font-body);
+      font-size: var(--type-body-lg);
+      font-weight: 400; color: var(--section-text-secondary);
+      line-height: 1.65; max-width: 520px;
     }
-    .s5-closing em { font-style: normal; color: var(--section-text-primary); }
+    .s5-closing em { font-style: normal; color: var(--section-text-primary); font-weight: 700; }
 
     /* ─────────────────────────────────────────────────────────────
        FADE-IN ANIMATION
@@ -713,24 +748,27 @@
     </span>
   </p>
   <div class="s3-levels fade" role="list">
-    <div class="s3-level" role="listitem">
+    <a class="s3-level" href="#p1" role="listitem">
+      <span class="s3-level-num" aria-hidden="true">01</span>
       <span class="s3-level-tag tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
       <p class="s3-level-q" data-en="How do I evolve the way I lead?" data-fr="Comment est-ce que je fais évoluer ma façon de diriger ?">How do I evolve the way I lead?</p>
       <p class="s3-level-from" data-en="From producing answers to creating clarity, judgment and direction." data-fr="Du leader qui produit les réponses à celui qui crée de la clarté, exerce son jugement et donne une direction.">From producing answers to creating clarity, judgment and direction.</p>
       <p class="s3-level-out tag-teal" data-en="Clarity" data-fr="Clarté">Clarity</p>
-    </div>
-    <div class="s3-level" role="listitem">
+    </a>
+    <a class="s3-level" href="#p2" role="listitem">
+      <span class="s3-level-num" aria-hidden="true">02</span>
       <span class="s3-level-tag tag-sky" data-en="Team" data-fr="Équipe">Team</span>
       <p class="s3-level-q" data-en="How do we evolve the way we work together?" data-fr="Comment faisons-nous évoluer notre façon de travailler ensemble ?">How do we evolve the way we work together?</p>
       <p class="s3-level-from" data-en="From a group of experts to a system that creates collective intelligence." data-fr="D&#8217;un groupe de personnes compétentes à une équipe qui pense et décide ensemble.">From a group of experts to a system that creates collective intelligence.</p>
       <p class="s3-level-out tag-sky" data-en="Alignment" data-fr="Alignement">Alignment</p>
-    </div>
-    <div class="s3-level" role="listitem">
+    </a>
+    <a class="s3-level" href="#p3" role="listitem">
+      <span class="s3-level-num" aria-hidden="true">03</span>
       <span class="s3-level-tag tag-violet" data-en="Organization" data-fr="Organisation">Organization</span>
       <p class="s3-level-q" data-en="How do we evolve the way the organization transforms?" data-fr="Comment faisons-nous évoluer notre façon de nous transformer ?">How do we evolve the way the organization transforms?</p>
       <p class="s3-level-from" data-en="From transformation programs to transformation capability." data-fr="Des programmes de transformation à la capacité réelle de changer.">From transformation programs to transformation capability.</p>
       <p class="s3-level-out tag-violet" data-en="Transformation" data-fr="Transformation">Transformation</p>
-    </div>
+    </a>
   </div>
   <p class="s3-footnote fade" data-en="One underlying objective: helping people and systems evolve." data-fr="Un seul fil : aider les personnes et les systèmes à évoluer.">One underlying objective: helping people and systems evolve.</p>
 </section>
