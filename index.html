@@ -151,24 +151,24 @@
       border-bottom: 1px solid rgba(0,30,91,.12);
       gap: 24px;
     }
-    .nav-logo img { height: 32px; display: block; flex-shrink: 0; }
+    .nav-logo img { height: 36px; display: block; flex-shrink: 0; }
     .nav-links {
       display: flex; align-items: center; gap: 0; list-style: none;
-      flex: 1; justify-content: center;
+      flex: 1; justify-content: flex-start;
     }
     .nav-links a {
       font-family: var(--font-body);
-      font-size: 14px; font-weight: 700;
+      font-size: 15px; font-weight: 700;
       color: #032D60;
       text-decoration: none;
       transition: color .15s;
-      padding: 8px 16px;
+      padding: 8px 12px;
       white-space: nowrap;
       border-bottom: 2px solid transparent;
     }
     .nav-links a:hover { color: var(--eb-50); }
     .nav-links a.active {
-      color: var(--eb-50);
+      color: #032D60;
       border-bottom-color: var(--eb-50);
     }
     .nav-links .sep-dot {
