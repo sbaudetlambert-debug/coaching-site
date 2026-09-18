@@ -443,22 +443,33 @@
       margin-bottom: 40px;
     }
     .s2-blockquote {
-      border-left: 3px solid var(--eb-50);
-      padding: 18px 22px;
+      position: relative;
+      padding: 28px 28px 24px;
       margin-bottom: 36px;
-      background: var(--cb-95);
-      border-radius: 0;
+      background: var(--white);
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,30,91,.08), 0 0 0 1px rgba(0,30,91,.06);
+    }
+    .s2-blockquote::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 56px; font-weight: 600; line-height: 1;
+      color: var(--eb-50);
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 0;
     }
     .s2-blockquote-text {
-      font-family: var(--font-body); font-size: 15px; font-weight: 400;
-      font-style: italic;
-      color: var(--section-text-secondary);
-      line-height: 1.55; margin-bottom: 8px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 700;
+      font-style: normal;
+      color: #032D60;
+      line-height: 1.6; margin-bottom: 16px;
     }
     .s2-blockquote-attr {
-      font-family: var(--font-body); font-size: 11px; font-weight: 700;
-      letter-spacing: .06em; text-transform: uppercase;
-      color: var(--eb-30);
+      font-family: var(--font-body); font-size: 13px; font-weight: 700;
+      letter-spacing: 0; text-transform: none;
+      color: #032D60;
     }
     .s2-bio {
       font-family: var(--font-body); font-size: 15px; font-weight: 400;
@@ -962,7 +973,7 @@
       </p>
       <blockquote class="s2-blockquote fade">
         <p class="s2-blockquote-text" data-en="&ldquo;People who are questioned well find within themselves the right answers.&rdquo;" data-fr="&laquo;&nbsp;Les personnes interrogées, pourvu qu&#8217;on les interroge bien, trouvent en elles-mêmes les bonnes réponses.&nbsp;&raquo;">&ldquo;People who are questioned well find within themselves the right answers.&rdquo;</p>
-        <cite class="s2-blockquote-attr" data-en="— Socrates" data-fr="— Socrate">— Socrates</cite>
+        <cite class="s2-blockquote-attr" data-en="Socrates" data-fr="Socrate">Socrates</cite>
       </blockquote>
       <p class="s2-bio fade">
         <span data-en="Today I bring these three perspectives together as <strong>Sales Leaders Excellence Coach at Salesforce</strong> — working with leaders and teams navigating commercial complexity, AI adoption and organizational transformation." data-fr="Aujourd&#8217;hui, je réunis ces trois dimensions en tant que <strong>Sales Leaders Excellence Coach chez Salesforce</strong> — avec des leaders et des équipes qui naviguent dans la complexité commerciale, l&#8217;adoption de l&#8217;IA et la transformation organisationnelle.">
