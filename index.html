@@ -370,112 +370,99 @@
     .pb-cta:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
     .pb-cta img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
 
-    /* Note externe dans S2 — même style que .s2-bio, aucun traitement spécial */
-    .s2-external {
-      margin-top: 16px;
-      font-family: var(--font-body); font-size: 15px; font-weight: 400;
-      color: var(--section-text-muted); line-height: 1.7;
-    }
-    .s2-external strong { color: var(--section-text-primary); font-weight: 700; }
-
     /* ─────────────────────────────────────────────────────────────
-       S2 — THE BELIEF — LIGHT
+       S2 — WHO I AM — LIGHT — 3 blocs verticaux
     ───────────────────────────────────────────────────────────── */
-    #s2 {
-      padding: var(--section-pad-v) var(--section-pad-h);
-      background: var(--bg-canvas);
-    }
-    .s2-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: start;
-    }
+    #s2 { padding: var(--section-pad-v) var(--section-pad-h); background: var(--bg-canvas); }
+    .s2-header { margin-bottom: 52px; }
     .s2-h2 {
-      font-family: var(--font-display);
-      font-size: var(--type-h2);
+      font-family: var(--font-display); font-size: var(--type-h2);
       font-weight: 600; line-height: var(--type-h2-line); letter-spacing: var(--type-h2-ls);
-      color: var(--section-text-primary);
-      max-width: min(600px, 100%); margin-bottom: 24px;
+      color: var(--section-text-primary); max-width: min(600px,100%); margin-bottom: 16px;
     }
     .s2-intro {
-      font-family: var(--font-body);
-      font-size: clamp(15px, 1.2vw, 22px); font-weight: 400;
-      color: var(--section-text-secondary);
-      line-height: 1.7; max-width: min(560px, 100%); margin-bottom: 44px;
+      font-family: var(--font-body); font-size: clamp(15px,1.2vw,20px); font-weight: 400;
+      color: var(--section-text-secondary); line-height: 1.7; max-width: min(680px,100%);
     }
-    .s2-intro strong { color: var(--section-text-primary); font-weight: 700; }
-
-    .s2-pillars { display: flex; flex-direction: column; }
-    .s2-pillar {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--section-border);
+    /* Bloc 1 : 3 cartes parcours */
+    .s2-parcours {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: stretch;
+      margin-bottom: 64px;
     }
-    .s2-pillar:first-child { border-top: 1px solid var(--section-border); }
+    .s2-card {
+      background: var(--white); border-radius: 10px;
+      border: 1px solid rgba(0,30,91,.08);
+      box-shadow: 0 2px 8px rgba(0,30,91,.06);
+      padding: 24px; display: flex; flex-direction: column;
+    }
+    .s2-card-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+    }
+    .s2-card-badge-row { display: flex; align-items: center; gap: 10px; }
     .s2-pillar-badge {
       width: 32px; height: 32px; border-radius: 4px;
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 12px; font-weight: 600;
-      flex-shrink: 0; margin-top: 1px;
+      font-family: var(--font-display); font-size: 12px; font-weight: 600; flex-shrink: 0;
     }
-    .badge-biz  { background: var(--eb-30); color: var(--white); }
-    .badge-tr   { background: var(--eb-15); color: var(--white); }
-    .badge-ppl  { background: #032D60;      color: var(--white); }
-    .s2-pillar-title {
-      font-family: var(--font-body); font-size: 14px; font-weight: 700;
-      color: var(--section-text-primary); margin-bottom: 3px;
+    .badge-biz { background: var(--eb-30); color: var(--white); }
+    .badge-tr  { background: var(--eb-15); color: var(--white); }
+    .badge-ppl { background: #032D60;      color: var(--white); }
+    .s2-card-title {
+      font-family: var(--font-body); font-size: 13px; font-weight: 700;
+      color: var(--section-text-primary); text-transform: uppercase; letter-spacing: .05em;
     }
-    .s2-pillar-body {
+    .s2-card-rncp {
+      width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+    }
+    .s2-card-body {
       font-family: var(--font-body); font-size: 13px; font-weight: 400;
-      color: var(--section-text-muted); line-height: 1.6;
+      color: var(--section-text-muted); line-height: 1.65; flex: 1;
     }
-
-    /* Right col — conviction statement treated as H3 */
+    /* Bloc 2 : conviction centrée */
+    .s2-conviction { max-width: 720px; margin: 0 auto 64px; text-align: center; }
     .s2-quote {
-      font-family: var(--font-display);
-      font-size: var(--type-h3);
+      font-family: var(--font-display); font-size: var(--type-h3);
       font-weight: 600; line-height: var(--type-h3-line); letter-spacing: var(--type-h3-ls);
-      color: var(--section-text-primary);
-      margin-bottom: 12px;
+      color: var(--section-text-primary); margin-bottom: 16px;
     }
     .s2-quote-sub {
-      font-family: var(--font-body); font-size: 14px; font-weight: 400;
-      color: var(--section-text-muted); line-height: 1.65;
-      margin-bottom: 40px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 400;
+      color: var(--section-text-muted); line-height: 1.7; margin-bottom: 32px;
     }
     .s2-blockquote {
-      position: relative;
-      padding: 20px 24px 20px;
-      margin-bottom: 36px;
-      background: var(--white);
-      border-radius: 12px;
-      border: none;
+      position: relative; padding: 20px 24px;
+      background: var(--white); border-radius: 12px; border: none; text-align: left;
       box-shadow: 0 2px 8px rgba(0,30,91,.08), 0 0 0 1px rgba(0,30,91,.06);
     }
     .s2-blockquote::before {
-      content: '\201C';
-      font-family: var(--font-display);
+      content: '\201C'; font-family: var(--font-display);
       font-size: 40px; font-weight: 600; line-height: 1;
-      color: var(--eb-50);
-      display: block;
-      margin-bottom: 4px;
-      letter-spacing: 0;
+      color: var(--eb-50); display: block; margin-bottom: 4px;
     }
     .s2-blockquote-text {
       font-family: var(--font-body); font-size: 15px; font-weight: 700;
-      font-style: normal;
-      color: #032D60;
-      line-height: 1.6; margin-bottom: 12px;
+      font-style: normal; color: #032D60; line-height: 1.6; margin-bottom: 12px;
     }
     .s2-blockquote-attr {
-      font-family: var(--font-body); font-size: 13px; font-weight: 700;
-      letter-spacing: 0; text-transform: none;
-      color: #032D60;
+      font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #032D60;
     }
-    .s2-bio {
-      font-family: var(--font-body); font-size: 15px; font-weight: 400;
-      color: var(--section-text-muted); line-height: 1.7;
+    /* Bloc 3 : 2 cartes interventions */
+    .s2-interventions { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+    .s2-int-card {
+      background: var(--white); border-radius: 10px;
+      border: 1px solid rgba(0,30,91,.08);
+      box-shadow: 0 2px 8px rgba(0,30,91,.06);
+      padding: 28px 24px; display: flex; flex-direction: column;
     }
-    .s2-bio strong { color: var(--section-text-primary); font-weight: 700; }
+    .s2-int-logo { height: 28px; width: auto; object-fit: contain; object-position: left center; margin-bottom: 16px; display: block; }
+    .s2-int-title {
+      font-family: var(--font-body); font-size: 15px; font-weight: 700;
+      color: var(--section-text-primary); margin-bottom: 8px; line-height: 1.4;
+    }
+    .s2-int-body {
+      font-family: var(--font-body); font-size: 13px; font-weight: 400;
+      color: var(--section-text-muted); line-height: 1.65; flex: 1;
+    }
 
     /* ─────────────────────────────────────────────────────────────
        S3 — WHERE I WORK — DARK
@@ -921,72 +908,102 @@
   </div>
 </section>
 
-<!-- ══ S2 — THE BELIEF ═══════════════════════════════════════════ -->
+<!-- ══ S2 — QUI SUIS-JE ══════════════════════════════════════════ -->
 <section id="s2" class="light-section" aria-labelledby="s2-heading">
-  <div class="s2-grid">
-    <div>
-      <span class="eyebrow fade" data-en="Who I am" data-fr="Qui suis-je ?">Who I am</span>
-      <h2 class="s2-h2 fade" id="s2-heading">
-        <span data-en="A transformation practitioner with a coaching mindset." data-fr="Business. Transformation. Leadership.">
-          A transformation practitioner with a coaching mindset.
-        </span>
-      </h2>
-      <p class="s2-intro fade">
-        <span data-en="I work at the intersection of <strong>business pressure</strong>, <strong>organizational complexity</strong> and <strong>human dynamics</strong> — three perspectives that most practitioners keep separate." data-fr="Trois dimensions que la plupart des praticiens gardent séparées. Mon parcours m&#8217;a amené à les relier — et c&#8217;est ce qui me permet aujourd&#8217;hui de regarder les organisations à plusieurs niveaux en même temps.">
-          I work at the intersection of <strong>business pressure</strong>, <strong>organizational complexity</strong> and <strong>human dynamics</strong> — three perspectives that most practitioners keep separate.
-        </span>
-      </p>
-      <div class="s2-pillars fade">
-        <div class="s2-pillar">
+
+  <!-- En-tête -->
+  <div class="s2-header fade">
+    <span class="eyebrow" data-en="Who I am" data-fr="Qui suis-je ?">Qui suis-je ?</span>
+    <h2 class="s2-h2" id="s2-heading">
+      <span data-en="A transformation practitioner with a coaching mindset." data-fr="Un praticien de la transformation avec un état d&#8217;esprit de coach.">Un praticien de la transformation avec un état d&#8217;esprit de coach.</span>
+    </h2>
+    <p class="s2-intro">
+      <span data-en="Business experience, transformation delivery, coaching practice — three lenses that most practitioners keep separate. My path brought me to combine them, and this is what allows me to read organizations at several levels at once." data-fr="Expérience business, conduite de transformations, pratique du coaching — trois dimensions que la plupart des praticiens gardent séparées. Mon parcours m&#8217;a amené à les combiner, et c&#8217;est ce qui me permet de lire les organisations à plusieurs niveaux à la fois.">Expérience business, conduite de transformations, pratique du coaching — trois dimensions que la plupart des praticiens gardent séparées. Mon parcours m&#8217;a amené à les combiner, et c&#8217;est ce qui me permet de lire les organisations à plusieurs niveaux à la fois.</span>
+    </p>
+  </div>
+
+  <!-- Bloc 1 : 3 cartes parcours -->
+  <div class="s2-parcours">
+
+    <!-- Carte Business -->
+    <div class="s2-card fade">
+      <div class="s2-card-header">
+        <div class="s2-card-badge-row">
           <div class="s2-pillar-badge badge-biz" aria-hidden="true">B</div>
-          <div>
-            <p class="s2-pillar-title" data-en="Business" data-fr="Business">Business</p>
-            <p class="s2-pillar-body" data-en="6+ years in Sales & Marketing. I understand commercial reality, revenue pressure and what it means to be accountable for results." data-fr="Six ans dans des fonctions Sales & Marketing. Je comprends ce que signifie être responsable d&#8217;un résultat, dans un environnement où la pression est réelle et les marges de manœuvre réduites.">6+ years in Sales & Marketing. I understand commercial reality, revenue pressure and what it means to be accountable for results.</p>
-          </div>
-        </div>
-        <div class="s2-pillar">
-          <div class="s2-pillar-badge badge-tr" aria-hidden="true">T</div>
-          <div>
-            <p class="s2-pillar-title" data-en="Transformation" data-fr="Transformation">Transformation</p>
-            <p class="s2-pillar-body" data-en="10+ years in strategic transformation delivery. I have seen what makes complex organizations move — and what makes them stall." data-fr="Dix ans à conduire des transformations stratégiques. J&#8217;ai vu ce qui fait avancer les organisations complexes — et ce qui les fige, souvent malgré les meilleures intentions.">10+ years in strategic transformation delivery. I have seen what makes complex organizations move — and what makes them stall.</p>
-          </div>
-        </div>
-        <div class="s2-pillar">
-          <div class="s2-pillar-badge badge-ppl" aria-hidden="true">P</div>
-          <div>
-            <p class="s2-pillar-title" data-en="People" data-fr="Personnes">People</p>
-            <p class="s2-pillar-body" data-en="<span class='prog-badge prog-badge-teal'>Certified</span> in Collective Performance &amp; Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="<span class='prog-badge prog-badge-teal'>Certifié</span> en Performance &amp; Transformation Collective. Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps."><span class="prog-badge prog-badge-teal">Certified</span> in Collective Performance &amp; Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance.</p>
-          </div>
+          <span class="s2-card-title" data-en="Business" data-fr="Business">Business</span>
         </div>
       </div>
+      <p class="s2-card-body">
+        <span data-en="6+ years in Sales &amp; Marketing roles. I understand commercial reality, revenue pressure and what it means to be accountable for results — with Danone, Nutrixo, AXA and others." data-fr="6 ans dans des fonctions Sales &amp; Marketing. Je comprends la réalité commerciale, la pression du chiffre et ce que signifie être responsable d&#8217;un résultat — chez Danone, Nutrixo, AXA et d&#8217;autres.">6 ans dans des fonctions Sales &amp; Marketing. Je comprends la réalité commerciale, la pression du chiffre et ce que signifie être responsable d&#8217;un résultat — chez Danone, Nutrixo, AXA et d&#8217;autres.</span>
+      </p>
     </div>
 
-    <div>
-      <span class="eyebrow fade" data-en="The philosophy" data-fr="Ma conviction">The philosophy</span>
-      <p class="s2-quote fade">
-        <span data-en="I don&rsquo;t provide the answers. I create the conditions for better answers to emerge." data-fr="Je ne cherche pas à apporter les réponses. Je cherche à créer les conditions pour que de meilleures réponses émergent.">
-          I don&rsquo;t provide the answers. I create the conditions for better answers to emerge.
-        </span>
-      </p>
-      <p class="s2-quote-sub fade" data-en="This is not a method. It is a belief about how change actually happens — in a person, in a team, in an organization." data-fr="Ce n&#8217;est pas une posture. C&#8217;est ce que j&#8217;ai observé, dans les transformations comme dans le coaching : les bonnes décisions émergent rarement de la pression ou de l&#8217;expertise seule. Elles émergent quand les conditions sont réunies.">
-        This is not a method. It is a belief about how change actually happens — in a person, in a team, in an organization.
-      </p>
-      <blockquote class="s2-blockquote fade">
-        <p class="s2-blockquote-text" data-en="&ldquo;People who are questioned well find within themselves the right answers.&rdquo;" data-fr="&laquo;&nbsp;Les personnes interrogées, pourvu qu&#8217;on les interroge bien, trouvent en elles-mêmes les bonnes réponses.&nbsp;&raquo;">&ldquo;People who are questioned well find within themselves the right answers.&rdquo;</p>
-        <cite class="s2-blockquote-attr" data-en="Socrates" data-fr="Socrate">Socrates</cite>
-      </blockquote>
-      <p class="s2-bio fade">
-        <span data-en="Today I bring these three perspectives together as <strong>Sales Leaders Excellence Coach at Salesforce</strong> — working with leaders and teams navigating commercial complexity, AI adoption and organizational transformation." data-fr="Aujourd&#8217;hui, je réunis ces trois dimensions en tant que <strong>Sales Leaders Excellence Coach chez Salesforce</strong> — avec des leaders et des équipes qui naviguent dans la complexité commerciale, l&#8217;adoption de l&#8217;IA et la transformation organisationnelle.">
-          Today I bring these three perspectives together as <strong>Sales Leaders Excellence Coach at Salesforce</strong> — working with leaders and teams navigating commercial complexity, AI adoption and organizational transformation.
-        </span>
-      </p>
-      <p class="s2-external fade">
-        <span data-en="Beyond my role at Salesforce, I also work as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga <span class='prog-badge prog-badge-ext'>Bivwak!</span> division — a practice that broadens my understanding of transformation dynamics beyond a single corporate context." data-fr="Au-delà de mon rôle chez Salesforce, j&#8217;interviens également comme <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga <span class='prog-badge prog-badge-ext'>Bivwak!</span> — une pratique qui nourrit et élargit ma compréhension des dynamiques de transformation, au-delà d&#8217;un seul contexte d&#8217;entreprise.">
-          Beyond my role at Salesforce, I also work as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga <span class="prog-badge prog-badge-ext">Bivwak!</span> division — a practice that broadens my understanding of transformation dynamics beyond a single corporate context.
-        </span>
+    <!-- Carte Transformation -->
+    <div class="s2-card fade">
+      <div class="s2-card-header">
+        <div class="s2-card-badge-row">
+          <div class="s2-pillar-badge badge-tr" aria-hidden="true">T</div>
+          <span class="s2-card-title" data-en="Transformation" data-fr="Transformation">Transformation</span>
+        </div>
+      </div>
+      <p class="s2-card-body">
+        <span data-en="10+ years leading strategic transformation programs. I have seen what makes complex organizations move — and what makes them stall, often despite the best intentions." data-fr="10 ans à conduire des programmes de transformation stratégique. J&#8217;ai vu ce qui fait avancer les organisations complexes — et ce qui les fige, souvent malgré les meilleures intentions.">10 ans à conduire des programmes de transformation stratégique. J&#8217;ai vu ce qui fait avancer les organisations complexes — et ce qui les fige, souvent malgré les meilleures intentions.</span>
       </p>
     </div>
+
+    <!-- Carte Personnes -->
+    <div class="s2-card fade">
+      <div class="s2-card-header">
+        <div class="s2-card-badge-row">
+          <div class="s2-pillar-badge badge-ppl" aria-hidden="true">P</div>
+          <span class="s2-card-title" data-en="People" data-fr="Personnes">Personnes</span>
+        </div>
+        <img src="Assets/titre-rncp.jpg" alt="Titre RNCP" class="s2-card-rncp" />
+      </div>
+      <p class="s2-card-body">
+        <span data-en="<span class='prog-badge prog-badge-teal'>Certified</span> in Collective Performance &amp; Transformation (RNCP title). A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="<span class='prog-badge prog-badge-teal'>Certifié</span> en Performance &amp; Transformation Collective (titre RNCP). Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps."><span class="prog-badge prog-badge-teal">Certifié</span> en Performance &amp; Transformation Collective (titre RNCP). Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps.</span>
+      </p>
+    </div>
+
+  </div><!-- /s2-parcours -->
+
+  <!-- Bloc 2 : Conviction centrée -->
+  <div class="s2-conviction fade">
+    <p class="s2-quote">
+      <span data-en="My work is not to give the answers. It is to create the conditions for better answers to emerge." data-fr="Mon travail n&#8217;est pas de donner les réponses. C&#8217;est de créer les conditions pour que de meilleures réponses émergent.">Mon travail n&#8217;est pas de donner les réponses. C&#8217;est de créer les conditions pour que de meilleures réponses émergent.</span>
+    </p>
+    <p class="s2-quote-sub">
+      <span data-en="This is not a method. It is what I have observed, in transformations and in coaching: good decisions rarely emerge from pressure or expertise alone. They emerge when the right conditions are in place." data-fr="Ce n&#8217;est pas une posture. C&#8217;est ce que j&#8217;ai observé, dans les transformations comme dans le coaching : les bonnes décisions émergent rarement de la pression ou de l&#8217;expertise seule. Elles émergent quand les conditions sont réunies.">Ce n&#8217;est pas une posture. C&#8217;est ce que j&#8217;ai observé, dans les transformations comme dans le coaching : les bonnes décisions émergent rarement de la pression ou de l&#8217;expertise seule. Elles émergent quand les conditions sont réunies.</span>
+    </p>
+    <blockquote class="s2-blockquote">
+      <p class="s2-blockquote-text" data-en="&ldquo;People who are questioned well find within themselves the right answers.&rdquo;" data-fr="&laquo;&nbsp;Les personnes interrogées, pourvu qu&#8217;on les interroge bien, trouvent en elles-mêmes les bonnes réponses.&nbsp;&raquo;">&laquo;&nbsp;Les personnes interrogées, pourvu qu&#8217;on les interroge bien, trouvent en elles-mêmes les bonnes réponses.&nbsp;&raquo;</p>
+      <cite class="s2-blockquote-attr" data-en="Socrates" data-fr="Socrate">Socrate</cite>
+    </blockquote>
   </div>
+
+  <!-- Bloc 3 : Où j'interviens -->
+  <div class="s2-interventions">
+
+    <!-- Carte Salesforce -->
+    <div class="s2-int-card fade">
+      <img src="salesforce-logo.svg" alt="Salesforce" class="s2-int-logo" />
+      <p class="s2-int-title" data-en="Sales Leaders Excellence Coach" data-fr="Sales Leaders Excellence Coach">Sales Leaders Excellence Coach</p>
+      <p class="s2-int-body">
+        <span data-en="I work with sales leaders and their teams at Salesforce France — on leadership posture, team dynamics, commercial performance and AI adoption. A role at the intersection of coaching and transformation." data-fr="J&#8217;accompagne les sales leaders et leurs équipes chez Salesforce France — sur la posture de leadership, la dynamique d&#8217;équipe, la performance commerciale et l&#8217;adoption de l&#8217;IA. Un rôle à l&#8217;intersection du coaching et de la transformation.">J&#8217;accompagne les sales leaders et leurs équipes chez Salesforce France — sur la posture de leadership, la dynamique d&#8217;équipe, la performance commerciale et l&#8217;adoption de l&#8217;IA. Un rôle à l&#8217;intersection du coaching et de la transformation.</span>
+      </p>
+    </div>
+
+    <!-- Carte Bivwak! -->
+    <div class="s2-int-card fade">
+      <img src="Assets/bivwak-logo.svg" alt="Bivwak!" class="s2-int-logo" />
+      <p class="s2-int-title" data-en="External Facilitator — BNP Paribas, Transfo/Orga division" data-fr="Facilitateur externe — BNP Paribas, division Transfo/Orga">Facilitateur externe — BNP Paribas, division Transfo/Orga</p>
+      <p class="s2-int-body">
+        <span data-en="I facilitate transformation workshops for BNP Paribas teams through the Bivwak! program. A practice that broadens my understanding of change dynamics beyond a single corporate context." data-fr="J&#8217;anime des ateliers de transformation pour les équipes BNP Paribas via le programme Bivwak!. Une pratique qui nourrit et élargit ma compréhension des dynamiques de changement, au-delà d&#8217;un seul contexte d&#8217;entreprise.">J&#8217;anime des ateliers de transformation pour les équipes BNP Paribas via le programme Bivwak!. Une pratique qui nourrit et élargit ma compréhension des dynamiques de changement, au-delà d&#8217;un seul contexte d&#8217;entreprise.</span>
+      </p>
+    </div>
+
+  </div><!-- /s2-interventions -->
+
 </section>
 
 <!-- ══ S3 — WHERE I WORK ═════════════════════════════════════════ -->
