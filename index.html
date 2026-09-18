@@ -666,10 +666,11 @@
       display: grid;
       grid-template-columns: 55fr 45fr;
       gap: 64px;
-      align-items: start;
+      align-items: stretch;
       overflow: visible;
     }
-    .p1-left { display: flex; flex-direction: column; }
+    .p1-eyebrow { color: var(--cb-68); }
+    .p1-left { display: flex; flex-direction: column; justify-content: space-between; }
     .p1-zones-title {
       font-family: var(--font-body); font-size: clamp(13px, 1.1vw, 18px); font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
@@ -1183,7 +1184,7 @@
 
   <!-- COL GAUCHE : tout le texte -->
   <div class="p1-left fade">
-    <span class="eyebrow accent-teal-light" data-en="01 — Leader" data-fr="01 — Leader">01 — Leader</span>
+    <span class="eyebrow p1-eyebrow" data-en="01 — Leader" data-fr="01 — Leader">01 — Leader</span>
     <h3 class="pb-h3" id="p1-heading" data-en="Create clarity." data-fr="Créer de la clarté.">Create clarity.</h3>
     <p class="pb-sub" data-en="When intelligence and answers become more accessible than ever, the leader&#8217;s value shifts." data-fr="Lorsque l&#8217;information et les réponses deviennent toujours plus accessibles, la valeur du leader se déplace.">Lorsque l&#8217;information et les réponses deviennent toujours plus accessibles, la valeur du leader se déplace.</p>
     <p class="pb-sub" data-en="It&#8217;s no longer just about knowing." data-fr="Il ne s&#8217;agit plus seulement de savoir.">Il ne s&#8217;agit plus seulement de savoir.</p>
@@ -1201,12 +1202,9 @@
       <li><span data-en="Navigate a role transition" data-fr="Traverser une transition de rôle"><strong>Traverser une transition de rôle</strong></span></li>
       <li><span data-en="Clarify professional trajectory" data-fr="Clarifier sa trajectoire professionnelle"><strong>Clarifier sa trajectoire professionnelle</strong></span></li>
     </ul>
-    <div class="pb-formats">
-      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> a decision made, a posture adjusted, a transition better navigated." data-fr="<strong>Résultat :</strong> une décision prise, une posture ajustée, une transition mieux vécue."><strong>Résultat :</strong> une décision prise, une posture ajustée, une transition mieux vécue.</p>
-    </div>
   </div>
 
-  <!-- COL DROITE : photo + badge + verbatim -->
+  <!-- COL DROITE : photo + badge + verbatim + résultat -->
   <div class="p1-right fade">
     <div class="p1-photo-wrap">
       <img src="assets/Individuel-Clarté.jpeg" alt="Coaching individuel — Créer de la clarté" />
@@ -1222,6 +1220,10 @@
       <p class="p1-quote-text" data-en="You ask unexpected questions that help me move forward — thank you." data-fr="Tu poses des questions inattendues qui m&rsquo;aident à avancer, merci.">Tu poses des questions inattendues qui m&#8217;aident à avancer, merci.</p>
       <cite class="p1-quote-attr" data-en="— A coachee" data-fr="— Un coaché">— Un coaché</cite>
     </blockquote>
+    <!-- Résultat -->
+    <div class="pb-formats p1-result">
+      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> a decision made, a posture adjusted, a transition better navigated." data-fr="<strong>Résultat :</strong> une décision prise, une posture ajustée, une transition mieux vécue."><strong>Résultat :</strong> une décision prise, une posture ajustée, une transition mieux vécue.</p>
+    </div>
   </div>
 
 </div>
