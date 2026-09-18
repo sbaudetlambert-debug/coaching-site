@@ -752,6 +752,59 @@
     }
     /* ── fin P1 layout ──────────────────────────────────────────── */
 
+    /* ── P2 layout ──────────────────────────────────────────────── */
+    .p2-layout {
+      padding: var(--section-pad-v) var(--section-pad-h);
+      display: grid; grid-template-columns: 45fr 55fr;
+      gap: 64px; align-items: stretch; overflow: visible;
+    }
+    /* White text overrides for P2 dark section */
+    #p2 .pb-sub                   { color: var(--white); }
+    #p2 .p2-zones-title           { color: var(--cb-68); }
+    #p2 .pb-moments li span       { color: var(--white); }
+    #p2 .pb-moments li strong     { color: var(--white); }
+    #p2 .pb-formats-text          { color: var(--white); }
+
+    .p2-left  { display: flex; flex-direction: column; gap: 20px; }
+    .p2-right { display: flex; flex-direction: column; justify-content: space-between; }
+
+    .p2-photo-wrap {
+      position: relative; border-radius: 14px;
+      overflow: visible; flex: 1;
+    }
+    .p2-photo-wrap img {
+      width: 100%; height: 100%; min-height: 340px;
+      object-fit: cover; object-position: center top;
+      border-radius: 14px; display: block;
+    }
+    .p2-badge {
+      position: absolute; top: -14px; right: -14px;
+      background: var(--eb-30);
+      border: 2px solid var(--cb-68);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex; flex-direction: column; align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.25);
+    }
+    .p2-badge-num {
+      font-family: var(--font-display); font-size: 28px; font-weight: 700;
+      color: var(--white); line-height: 1;
+    }
+    .p2-badge-num small { font-size: 14px; font-weight: 400; opacity: .85; }
+    .p2-badge-label {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--cb-80); margin-top: 4px; text-align: center;
+    }
+    .p2-quote { margin: 0; }
+
+    @media (max-width: 680px) {
+      .p2-layout { grid-template-columns: 1fr; gap: 40px; }
+      .p2-photo-wrap img { min-height: 260px; }
+      .p2-badge { top: -10px; right: -4px; }
+    }
+    /* ── fin P2 layout ──────────────────────────────────────────── */
+
     /* Accent label colors — verified WCAG AA */
     .accent-teal-light  { color: var(--teal-on-light); }
     .accent-sky-dark    { color: var(--text-on-dark-accent); }
@@ -1224,50 +1277,46 @@
 </div>
 
 <!-- ══ P2 — TEAM ══════════════════════════════════════════════════ -->
-<div class="practice-block dark-section" id="p2" aria-labelledby="p2-heading">
-  <div>
-    <div class="pb-accent-rule fade accent-sky-rule" aria-hidden="true"></div>
-    <span class="eyebrow fade accent-sky-dark" data-en="02 — Team" data-fr="02 — Équipe">02 — Team</span>
-    <h3 class="pb-h3 fade" id="p2-heading" data-en="Build collective intelligence." data-fr="Faire émerger l&#8217;intelligence collective.">Build collective intelligence.</h3>
-    <p class="pb-sub fade" data-en="A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group." data-fr="Un groupe de personnes compétentes n&#8217;est pas automatiquement une équipe performante. La performance collective dépend rarement des compétences individuelles. Elle dépend de la qualité des conversations, de la capacité à exprimer les désaccords, de la confiance — et de la façon dont l&#8217;intelligence circule dans le groupe.">A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group.</p>
-    <p class="pb-sub fade" data-en="These conditions are not imposed. They are built." data-fr="Ces conditions ne s&#8217;imposent pas. Elles se construisent.">These conditions are not imposed. They are built.</p>
-    <p class="pb-sub fade" data-en="I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation." data-fr="Je facilite des sessions de développement d&#8217;équipe et de communication du changement pour des équipes de direction — de la constellation systémique à la préparation de briefings hebdomadaires — pour aligner une équipe autour d&#8217;une transformation.">I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation.</p>
-    <!-- BEGIN: PROOF - P2 -->
-    <div class="proof-stat-wrap fade">
-      <div class="stat-card">
-        <span class="stat-card-number">9,2<small style="font-size:.5em">/10</small></span>
-        <span class="stat-card-label" data-en="Average CSAT — 5 sessions since May" data-fr="CSAT moyen — 5 sessions depuis mai">CSAT moyen — 5 sessions depuis mai</span>
+<div class="p2-layout dark-section" id="p2" aria-labelledby="p2-heading">
+
+  <!-- COL GAUCHE : photo + badge + verbatim -->
+  <div class="p2-left fade">
+    <div class="p2-photo-wrap">
+      <img src="assets/WHO2.JPG" alt="Session de cohésion d'équipe" />
+      <div class="p2-badge">
+        <span class="p2-badge-num">9,2<small>/10</small></span>
+        <span class="p2-badge-label" data-en="Average CSAT — 5 sessions since May" data-fr="CSAT MOYEN — 5 SESSIONS DEPUIS MAI">CSAT MOYEN — 5 SESSIONS DEPUIS MAI</span>
       </div>
     </div>
-    <blockquote class="proof-quote fade">
-      <p class="proof-quote-text" data-en="&ldquo;I wanted to thank you for yesterday&rsquo;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution.&rdquo;" data-fr="&laquo;&nbsp;Je voulais te remercier pour la session d&rsquo;hier&nbsp;! J&rsquo;ai adoré à la fois le format, les exercices, le fond, l&rsquo;ambiance et surtout je suis ressortie remplie d&rsquo;énergie. C&rsquo;était super, et franchement bravo pour l&rsquo;organisation et l&rsquo;exécution.&nbsp;&raquo;">&ldquo;I wanted to thank you for yesterday&rsquo;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution.&rdquo;</p>
-      <cite class="proof-quote-attr" data-en="— A leader, after a team cohesion session" data-fr="— Un leader, à l&rsquo;issue d&rsquo;une session de cohésion">— A leader, after a team cohesion session</cite>
+    <blockquote class="p1-quote p2-quote">
+      <span class="p1-quote-mark" aria-hidden="true">&ldquo;</span>
+      <p class="p1-quote-text" data-en="I wanted to thank you for yesterday&#8217;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution." data-fr="Je voulais te remercier pour la session d&#8217;hier&nbsp;! J&#8217;ai adoré à la fois le format, les exercices, le fond, l&#8217;ambiance et surtout je suis ressortie remplie d&#8217;énergie. C&#8217;était super, et franchement bravo pour l&#8217;organisation et l&#8217;exécution.">Je voulais te remercier pour la session d&#8217;hier&nbsp;! J&#8217;ai adoré à la fois le format, les exercices, le fond, l&#8217;ambiance et surtout je suis ressortie remplie d&#8217;énergie. C&#8217;était super, et franchement bravo pour l&#8217;organisation et l&#8217;exécution.</p>
+      <cite class="p1-quote-attr" data-en="— A leader, after a team cohesion session" data-fr="— Un leader, à l&#8217;issue d&#8217;une session de cohésion">— Un leader, à l&#8217;issue d&#8217;une session de cohésion</cite>
     </blockquote>
-    <!-- END: PROOF - P2 -->
   </div>
-  <div class="pb-right fade">
-    <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
-    <ul class="pb-moments">
-      <li>
-        <span data-en="Create alignment on what really matters" data-fr="Créer de l&#8217;alignement sur ce qui compte vraiment">Create alignment on what really matters</span>
-      </li>
-      <li>
-        <span data-en="Surface and work with productive tensions" data-fr="Faire émerger et travailler les tensions utiles">Surface and work with productive tensions</span>
-      </li>
-      <li>
-        <span data-en="Strengthen trust and psychological safety" data-fr="Renforcer la confiance et la sécurité dans le groupe">Strengthen trust and psychological safety</span>
-      </li>
-      <li>
-        <span data-en="Improve the quality of collective decisions" data-fr="Améliorer la qualité des décisions collectives">Improve the quality of collective decisions</span>
-      </li>
-      <li>
-        <span data-en="Evolve ways of working together" data-fr="Faire évoluer les modes de collaboration">Evolve ways of working together</span>
-      </li>
+
+  <!-- COL DROITE : texte -->
+  <div class="p2-right fade">
+    <div class="pb-accent-rule accent-sky-rule" aria-hidden="true"></div>
+    <span class="eyebrow accent-sky-dark" data-en="02 — Team" data-fr="02 — Équipe">02 — Équipe</span>
+    <h3 class="pb-h3" id="p2-heading" data-en="Build collective intelligence." data-fr="Faire émerger l&#8217;intelligence collective.">Faire émerger l&#8217;intelligence collective.</h3>
+    <p class="pb-sub" data-en="A team of skilled people is not automatically a high-performing team. Collective performance rarely depends on individual skills — it depends on the quality of conversations, the ability to voice disagreement, and how intelligence circulates in the group." data-fr="Un groupe de personnes compétentes n&#8217;est pas automatiquement une équipe performante. La performance collective dépend rarement des compétences individuelles. Elle dépend de la qualité des conversations, de la capacité à exprimer les désaccords, de la confiance — et de la façon dont l&#8217;intelligence circule dans le groupe.">Un groupe de personnes compétentes n&#8217;est pas automatiquement une équipe performante. La performance collective dépend rarement des compétences individuelles. Elle dépend de la qualité des conversations, de la capacité à exprimer les désaccords, de la confiance — et de la façon dont l&#8217;intelligence circule dans le groupe.</p>
+    <p class="pb-sub" data-en="These conditions are not imposed. They are built." data-fr="Ces conditions ne s&#8217;imposent pas. Elles se construisent.">Ces conditions ne s&#8217;imposent pas. Elles se construisent.</p>
+    <p class="pb-sub" data-en="I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation." data-fr="Je facilite des sessions de développement d&#8217;équipe et de communication du changement pour des équipes de direction — de la constellation systémique à la préparation de briefings hebdomadaires — pour aligner une équipe autour d&#8217;une transformation.">Je facilite des sessions de développement d&#8217;équipe et de communication du changement pour des équipes de direction — de la constellation systémique à la préparation de briefings hebdomadaires — pour aligner une équipe autour d&#8217;une transformation.</p>
+
+    <p class="p1-zones-title p2-zones-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Mes zones d&#8217;intervention</p>
+    <ul class="pb-moments p2-moments">
+      <li><span data-en="Create alignment on what really matters" data-fr="Créer de l&#8217;alignement sur ce qui compte vraiment">Créer de l&#8217;alignement sur ce qui compte vraiment</span></li>
+      <li><span data-en="Surface and work with productive tensions" data-fr="Faire émerger et travailler les tensions utiles">Faire émerger et travailler les tensions utiles</span></li>
+      <li><span data-en="Strengthen trust and psychological safety" data-fr="Renforcer la confiance et la sécurité dans le groupe">Renforcer la confiance et la sécurité dans le groupe</span></li>
+      <li><span data-en="Improve the quality of collective decisions" data-fr="Améliorer la qualité des décisions collectives">Améliorer la qualité des décisions collectives</span></li>
+      <li><span data-en="Evolve ways of working together" data-fr="Faire évoluer les modes de collaboration">Faire évoluer les modes de collaboration</span></li>
     </ul>
-    <div class="pb-formats">
-      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> Alignment" data-fr="<strong>Résultat :</strong> Alignement"><strong>Outcome:</strong> Alignment</p>
+    <div class="pb-formats" style="margin-top:32px">
+      <p class="pb-formats-text" data-en="<strong>Outcome:</strong> Alignment" data-fr="<strong>Résultat :</strong> Alignement"><strong>Résultat :</strong> Alignement</p>
     </div>
   </div>
+
 </div>
 
 <!-- ══ P3 — ORGANIZATION ══════════════════════════════════════════ -->
