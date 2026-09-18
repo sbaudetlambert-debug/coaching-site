@@ -145,30 +145,30 @@
     #site-header {
       position: fixed; top: 0; right: 0; left: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 56px;
-      background: rgba(0, 30, 91, .92);
+      padding: 0 40px; height: 64px;
+      background: #FFFFFF;
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-dark);
+      border-bottom: 1px solid rgba(0,30,91,.12);
       gap: 24px;
     }
-    .nav-logo img { height: 50px; display: block; flex-shrink: 0; }
+    .nav-logo img { height: 32px; display: block; flex-shrink: 0; }
     .nav-links {
       display: flex; align-items: center; gap: 0; list-style: none;
       flex: 1; justify-content: center;
     }
     .nav-links a {
       font-family: var(--font-body);
-      font-size: 12px; font-weight: 400;
-      color: var(--text-on-dark-secondary);
+      font-size: 14px; font-weight: 700;
+      color: #032D60;
       text-decoration: none;
       transition: color .15s;
-      padding: 6px 14px;
+      padding: 8px 16px;
       white-space: nowrap;
       border-bottom: 2px solid transparent;
     }
-    .nav-links a:hover { color: var(--text-on-dark); }
+    .nav-links a:hover { color: var(--eb-50); }
     .nav-links a.active {
-      color: var(--text-on-dark);
+      color: var(--eb-50);
       border-bottom-color: var(--eb-50);
     }
     .nav-links .sep-dot {
@@ -182,15 +182,15 @@
       font-size: 11px; font-weight: 700;
       letter-spacing: .08em;
       background: none;
-      border: 1px solid rgba(144,208,254,.3);
-      color: var(--text-on-dark-secondary);
+      border: 1px solid rgba(3,45,96,.25);
+      color: #032D60;
       border-radius: 4px; padding: 3px 10px;
       cursor: pointer; transition: color .15s, border-color .15s, background .15s;
       flex-shrink: 0;
     }
-    .lb:hover { color: var(--text-on-dark); border-color: var(--cb-80); }
+    .lb:hover { color: var(--eb-50); border-color: var(--eb-50); }
     .lb.on { background: var(--eb-50); color: var(--white); border-color: var(--eb-50); }
-    .lang-sep { color: var(--border-dark); margin: 0 4px; font-size: 12px; user-select: none; flex-shrink: 0; }
+    .lang-sep { color: rgba(3,45,96,.25); margin: 0 4px; font-size: 12px; user-select: none; flex-shrink: 0; }
     .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
     /* ─────────────────────────────────────────────────────────────
@@ -767,14 +767,15 @@
       display: inline-flex; align-items: center; gap: 8px;
       font-family: var(--font-body); font-size: 13px; font-weight: 700;
       letter-spacing: .02em;
-      color: var(--text-on-dark-secondary);
-      border: 1px solid rgba(144,208,254,.3);
+      color: var(--white);
+      background: var(--eb-50);
+      border: 1px solid var(--eb-50);
       border-radius: 4px; padding: 5px 14px;
       text-decoration: none;
       transition: color .15s, border-color .15s, background .15s;
       white-space: nowrap; flex-shrink: 0;
     }
-    .nav-slack:hover { color: var(--text-on-dark); border-color: var(--cb-80); }
+    .nav-slack:hover { background: var(--eb-30); border-color: var(--eb-30); color: var(--white); }
     .nav-slack:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
     .nav-slack img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
 
