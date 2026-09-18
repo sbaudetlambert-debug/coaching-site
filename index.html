@@ -790,25 +790,27 @@
     .p2-stat-card {
       background: #FFFFFF;
       border-radius: 16px;
-      padding: 20px 20px;
+      padding: 20px 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,.08), 0 0 0 1px rgba(0,30,91,.06);
-      align-self: stretch;
-      display: flex; flex-direction: column; justify-content: center;
+      align-self: start;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
     }
     .p2-stat-num {
-      font-family: var(--font-display); font-size: 48px; font-weight: 700;
+      font-family: var(--font-display); font-size: 40px; font-weight: 700;
       color: #001E5B; line-height: 1;
     }
     .p2-stat-num sup {
-      font-size: 20px; font-weight: 400;
+      font-size: 17px; font-weight: 400;
       color: #001E5B; vertical-align: super; line-height: 0;
     }
     .p2-stat-label {
-      font-family: var(--font-body); font-size: 13px; font-weight: 400;
-      color: #001E5B; margin-top: 10px; line-height: 1.4;
+      font-family: var(--font-body); font-size: 12px; font-weight: 500;
+      color: #001E5B; margin-top: 10px; line-height: 1.5;
     }
     @media (max-width: 680px) {
       .p2-zones-row { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+      .p2-stat-card { align-self: stretch; }
     }
     .p2-quote { margin: 0; }
 
@@ -1329,7 +1331,10 @@
       </div>
       <div class="p2-stat-card">
         <div class="p2-stat-num">9,2<sup>/10</sup></div>
-        <div class="p2-stat-label" data-en="Average CSAT — 5 sessions since May" data-fr="Csat moyen — 5 sessions depuis mai">Csat moyen — 5 sessions depuis mai</div>
+        <div class="p2-stat-label">
+          <span data-en="Average CSAT" data-fr="CSAT Moyen">CSAT Moyen</span><br>
+          <span data-en="5 sessions since May" data-fr="5 sessions depuis Mai">5 sessions depuis Mai</span>
+        </div>
       </div>
     </div>
 
