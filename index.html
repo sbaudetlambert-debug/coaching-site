@@ -527,22 +527,25 @@
       display: block;
       transition: background .2s, border-color .2s;
     }
-    .s3-level:hover { background: rgba(6,106,254,.1); border-color: rgba(6,106,254,.3); }
+    .s3-level:hover { border-color: rgba(255,255,255,.3); }
+    a.s3-level:nth-child(1):hover { background: rgba(144,80,233,.25); }
+    a.s3-level:nth-child(2):hover { background: rgba(2,42,192,.35); }
+    a.s3-level:nth-child(3):hover { background: rgba(221,122,1,.25); }
     .s3-level:focus-visible {
       outline: 2px solid var(--eb-50);
       outline-offset: -2px;
     }
     .s3-level-num {
       font-family: var(--font-body);
-      font-size: var(--type-eyebrow);
+      font-size: 18px;
       font-weight: 700; letter-spacing: .06em;
       color: var(--section-text-muted);
-      display: block; margin-bottom: 4px;
+      display: block; margin-bottom: 4px; text-align: left;
     }
     .s3-level-tag {
-      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      font-family: var(--font-body); font-size: 18px; font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
-      margin-bottom: 14px; display: block;
+      margin-bottom: 14px; display: block; text-align: left;
     }
     .tag-teal   { color: #00B3FF; }
     .tag-sky    { color: #00B3FF; }
@@ -560,11 +563,13 @@
     }
     .s3-level-out {
       font-family: var(--font-display); font-size: 18px; font-weight: 600;
+      display: block; text-align: left;
     }
     .s3-footnote {
-      font-family: var(--font-body); font-size: 13px; font-weight: 400;
-      color: var(--section-text-muted);
-      margin-top: 36px;
+      font-family: var(--font-display); font-size: clamp(18px, 2.6vw, 38px);
+      font-weight: 600; line-height: 1.15;
+      color: #022AC0;
+      margin-top: 36px; text-align: center;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -1226,7 +1231,7 @@
     <a class="s3-level" href="#p1" role="listitem">
       <span class="s3-level-num" aria-hidden="true">01</span>
       <span class="s3-level-tag tag-teal" data-en="Leader" data-fr="Leader">Leader</span>
-      <p class="s3-level-q" data-en="How do I evolve the way I lead?" data-fr="Comment est-ce que je fais évoluer ma façon de diriger ?">How do I evolve the way I lead?</p>
+      <p class="s3-level-q" data-en="How do I evolve the way I lead?" data-fr="Comment fais-je évoluer ma façon de diriger ?">How do I evolve the way I lead?</p>
       <p class="s3-level-from" data-en="From producing answers to creating clarity, judgment and direction." data-fr="Du leader qui produit les réponses à celui qui crée de la clarté, exerce son jugement et donne une direction.">From producing answers to creating clarity, judgment and direction.</p>
       <p class="s3-level-out tag-teal" data-en="Clarity" data-fr="Clarté">Clarity</p>
     </a>
