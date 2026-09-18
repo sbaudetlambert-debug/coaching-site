@@ -780,24 +780,25 @@
       object-fit: cover; object-position: center top;
       border-radius: 14px; display: block;
     }
-    .p2-badge {
-      position: absolute; top: -14px; right: -14px;
-      background: var(--eb-30);
-      border: 2px solid var(--cb-68);
-      border-radius: 12px;
-      padding: 10px 16px;
-      display: flex; flex-direction: column; align-items: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,.25);
+    /* Stat card CSAT — colonne droite P2 */
+    .p2-stat-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08), 0 0 0 1px rgba(0,30,91,.06);
+      margin-top: 24px;
     }
-    .p2-badge-num {
-      font-family: var(--font-display); font-size: 28px; font-weight: 700;
-      color: var(--white); line-height: 1;
+    .p2-stat-num {
+      font-family: var(--font-display); font-size: 48px; font-weight: 700;
+      color: #001E5B; line-height: 1;
     }
-    .p2-badge-num small { font-size: 14px; font-weight: 400; opacity: .85; }
-    .p2-badge-label {
-      font-family: var(--font-body); font-size: 10px; font-weight: 700;
-      letter-spacing: .06em; text-transform: uppercase;
-      color: var(--cb-80); margin-top: 4px; text-align: center;
+    .p2-stat-num sup {
+      font-size: 22px; font-weight: 400;
+      color: #001E5B; vertical-align: super; line-height: 0;
+    }
+    .p2-stat-label {
+      font-family: var(--font-body); font-size: 14px; font-weight: 400;
+      color: #001E5B; margin-top: 8px;
     }
     .p2-quote { margin: 0; }
 
@@ -1286,10 +1287,6 @@
   <div class="p2-left fade">
     <div class="p2-photo-wrap">
       <img src="assets/WHO2.JPG" alt="Session de cohésion d'équipe" />
-      <div class="p2-badge">
-        <span class="p2-badge-num">9,2<small>/10</small></span>
-        <span class="p2-badge-label" data-en="Average CSAT — 5 sessions since May" data-fr="CSAT MOYEN — 5 SESSIONS DEPUIS MAI">CSAT MOYEN — 5 SESSIONS DEPUIS MAI</span>
-      </div>
     </div>
     <blockquote class="p1-quote p2-quote">
       <span class="p1-quote-mark" aria-hidden="true">&ldquo;</span>
@@ -1316,7 +1313,13 @@
       <li><span data-en="<strong>Improve the quality of collective decisions</strong>" data-fr="<strong>Améliorer la qualité des décisions collectives</strong>"><strong>Améliorer la qualité des décisions collectives</strong></span></li>
       <li><span data-en="<strong>Evolve ways of working together</strong>" data-fr="<strong>Faire évoluer les modes de collaboration</strong>"><strong>Faire évoluer les modes de collaboration</strong></span></li>
     </ul>
-    <div class="pb-formats" style="margin-top:32px">
+    <!-- Stat card CSAT -->
+    <div class="p2-stat-card">
+      <div class="p2-stat-num">9,2<sup>/10</sup></div>
+      <div class="p2-stat-label" data-en="Average CSAT — 5 sessions since May" data-fr="Csat moyen — 5 sessions depuis mai">Csat moyen — 5 sessions depuis mai</div>
+    </div>
+
+    <div class="pb-formats" style="margin-top:0">
       <p class="pb-formats-text" data-en="<strong>OUTCOME:</strong> <strong>A collective that is aligned, capable of deciding and moving forward together.</strong>" data-fr="<strong>RÉSULTAT&nbsp;:</strong> <strong>Un collectif aligné, capable de décider et d&#8217;avancer ensemble.</strong>"><strong>RÉSULTAT&nbsp;:</strong> <strong>Un collectif aligné, capable de décider et d&#8217;avancer ensemble.</strong></p>
     </div>
   </div>
