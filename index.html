@@ -79,7 +79,7 @@
       --blue-on-light:    var(--eb-50); /* 4.8:1 on white */
 
       /* Typefaces */
-      --font-display: 'AG', 'Century Gothic', sans-serif;
+      --font-display: 'AG', 'Arial Narrow', Arial, sans-serif;
       --font-body:    'SF', Arial, sans-serif;
 
       /* ── TYPOGRAPHIC SCALE — one decision per level ──────────── */
@@ -151,7 +151,7 @@
       border-bottom: 1px solid var(--border-dark);
       gap: 24px;
     }
-    .nav-logo img { height: 32px; display: block; flex-shrink: 0; }
+    .nav-logo img { height: 50px; display: block; flex-shrink: 0; }
     .nav-links {
       display: flex; align-items: center; gap: 0; list-style: none;
       flex: 1; justify-content: center;
@@ -863,9 +863,9 @@
     <li><a href="#s5" data-en="The Common Thread" data-fr="Le fil conducteur">The Common Thread</a></li>
   </ul>
   <div class="nav-right">
-    <button class="lb" onclick="setLang('fr')" id="btn-fr" aria-pressed="false" aria-label="Passer en français">FR</button>
+    <button class="lb on" onclick="setLang('fr')" id="btn-fr" aria-pressed="true" aria-label="Passer en français">FR</button>
     <span class="lang-sep" aria-hidden="true">|</span>
-    <button class="lb on" onclick="setLang('en')" id="btn-en" aria-pressed="true" aria-label="Switch to English">EN</button>
+    <button class="lb" onclick="setLang('en')" id="btn-en" aria-pressed="false" aria-label="Switch to English">EN</button>
     <a class="nav-slack" href="https://salesforce.slack.com/team/U01GME5HDU1" target="_blank" rel="noopener">
       <img src="slack-logo.svg" width="14" height="14" alt="" aria-hidden="true" />
       <span data-en="Let&rsquo;s talk" data-fr="Parlons-en">Let&rsquo;s talk</span>
@@ -1205,7 +1205,7 @@
 </section>
 
 <script>
-  let lang = 'en';
+  let lang = 'fr';
 
   function setLang(l) {
     lang = l;
@@ -1230,6 +1230,8 @@
       }
     });
   }, { threshold: 0.08 });
+
+  setLang('fr');
 
   document.querySelectorAll('.fade').forEach(el => {
     const siblings = Array.from(el.parentElement.querySelectorAll(':scope > .fade'));
