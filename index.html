@@ -660,6 +660,97 @@
       border-radius: 8px; display: block;
     }
 
+    /* ── P1 nouveau layout 2 colonnes ─────────────────────────────── */
+    .p1-layout {
+      padding: var(--section-pad-v) var(--section-pad-h);
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 64px;
+      align-items: start;
+      overflow: visible;
+    }
+    .p1-left { display: flex; flex-direction: column; }
+    .p1-zones-title {
+      font-family: var(--font-body); font-size: clamp(13px, 1.1vw, 18px); font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--cb-68);
+      margin-top: 32px; margin-bottom: 16px;
+    }
+    .p1-moments { margin-bottom: 0; }
+
+    /* Colonne droite */
+    .p1-right { display: flex; flex-direction: column; gap: 20px; }
+
+    /* Photo */
+    .p1-photo-wrap {
+      position: relative;
+      border-radius: 14px;
+      overflow: visible;
+      flex: 1;
+    }
+    .p1-photo-wrap img {
+      width: 100%; height: 100%; min-height: 340px;
+      object-fit: cover; object-position: center top;
+      border-radius: 14px;
+      display: block;
+      background: var(--white);
+      padding: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.10), 0 0 0 1px rgba(0,30,91,.06);
+      box-sizing: border-box;
+    }
+
+    /* Badge "11" overlay */
+    .p1-badge {
+      position: absolute;
+      top: -16px; right: -16px;
+      background: var(--cb-95);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.14);
+      display: flex; flex-direction: column; align-items: center;
+      min-width: 100px;
+      z-index: 2;
+    }
+    .p1-badge-num {
+      font-family: var(--font-display); font-size: 32px; font-weight: 700;
+      color: var(--eb-15); line-height: 1;
+    }
+    .p1-badge-label {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--eb-30); text-align: center; margin-top: 4px;
+    }
+
+    /* Verbatim citation */
+    .p1-quote {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      padding: 24px 24px 20px;
+      margin: 0; position: relative;
+    }
+    .p1-quote-mark {
+      display: block;
+      font-family: var(--font-display); font-size: 56px; line-height: .8;
+      color: var(--cb-68); margin-bottom: 8px;
+    }
+    .p1-quote-text {
+      font-family: var(--font-body); font-size: 15px; font-weight: 700;
+      color: var(--eb-15); line-height: 1.55; margin: 0 0 12px;
+    }
+    .p1-quote-attr {
+      font-family: var(--font-body); font-size: 13px; font-weight: 400;
+      font-style: italic; color: var(--gray-60);
+    }
+
+    /* Responsive mobile */
+    @media (max-width: 680px) {
+      .p1-layout { grid-template-columns: 1fr; gap: 40px; }
+      .p1-photo-wrap img { min-height: 260px; }
+      .p1-badge { top: -12px; right: -4px; }
+    }
+    /* ── fin P1 layout ──────────────────────────────────────────── */
+
     /* Accent label colors — verified WCAG AA */
     .accent-teal-light  { color: var(--teal-on-light); }
     .accent-sky-dark    { color: var(--text-on-dark-accent); }
@@ -1088,59 +1179,51 @@
 <div id="practice-zone">
 
 <!-- ══ P1 — LEADER ════════════════════════════════════════════════ -->
-<div class="practice-block light-section" id="p1" aria-labelledby="p1-heading">
-  <div>
-    <div class="pb-accent-rule fade accent-teal-rule" aria-hidden="true"></div>
-    <span class="eyebrow fade accent-teal-light" data-en="01 — Leader" data-fr="01 — Leader">01 — Leader</span>
-    <h3 class="pb-h3 fade" id="p1-heading" data-en="Create clarity." data-fr="Créer de la clarté.">Create clarity.</h3>
-    <p class="pb-sub fade" data-en="When intelligence and answers become more accessible than ever, the leader&#8217;s value shifts." data-fr="Lorsque l&#8217;information et les réponses deviennent toujours plus accessibles, la valeur du leader se déplace.">Lorsque l&#8217;information et les réponses deviennent toujours plus accessibles, la valeur du leader se déplace.</p>
-    <p class="pb-sub fade" data-en="It&#8217;s no longer just about knowing." data-fr="Il ne s&#8217;agit plus seulement de savoir.">Il ne s&#8217;agit plus seulement de savoir.</p>
-    <p class="pb-sub fade" data-en="It&#8217;s about discerning what matters, giving direction, deciding and enabling the collective to move forward." data-fr="Il s&#8217;agit de discerner ce qui compte, donner une direction, décider et permettre au collectif d&#8217;avancer.">Il s&#8217;agit de discerner ce qui compte, donner une direction, décider et permettre au collectif d&#8217;avancer.</p>
-    <p class="pb-sub fade" data-en="This is the shift I support." data-fr="C&#8217;est ce déplacement que j&#8217;accompagne.">C&#8217;est ce déplacement que j&#8217;accompagne.</p>
-    <p class="pb-sub fade" data-en="In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with leaders on situations where the answer is not obvious: arbitrating, deciding, evolving their managerial posture in the agentic era, exercising leadership under uncertainty and clarifying their professional trajectory." data-fr="Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders sur des situations où la réponse n&#8217;est pas évidente : arbitrer, décider, faire évoluer leur posture managériale à l&#8217;ère agentique, exercer leur leadership dans l&#8217;incertitude et clarifier leur trajectoire professionnelle.">Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders sur des situations où la réponse n&#8217;est pas évidente : arbitrer, décider, faire évoluer leur posture managériale à l&#8217;ère agentique, exercer leur leadership dans l&#8217;incertitude et clarifier leur trajectoire professionnelle.</p>
-    <p class="pb-sub fade" data-en="I offer a confidential, caring but non-complacent space for self-reflection: a space to step back, question certainties, look at blind spots and, when necessary, be gently challenged in order to genuinely progress." data-fr="Je leur offre un cadre de réflexion sur soi, confidentiel, bienveillant mais non complaisant : un espace pour prendre du recul, questionner ses certitudes, regarder ses angles morts et, lorsque c&#8217;est nécessaire, être confronté avec bienveillance pour progresser réellement.">Je leur offre un cadre de réflexion sur soi, confidentiel, bienveillant mais non complaisant : un espace pour prendre du recul, questionner ses certitudes, regarder ses angles morts et, lorsque c&#8217;est nécessaire, être confronté avec bienveillance pour progresser réellement.</p>
-    <!-- BEGIN: PROOF - P1 -->
-    <div class="proof-facts fade">
-      <div class="stat-card">
-        <span class="stat-card-number">11</span>
-        <span class="stat-card-label" data-en="Leaders in coaching — FY26" data-fr="Leaders en coaching — FY26">Leaders in coaching — FY26</span>
-      </div>
-    </div>
-    <blockquote class="proof-quote fade">
-      <p class="proof-quote-text" data-en="&ldquo;You ask unexpected questions that help me move forward — thank you.&rdquo;" data-fr="&laquo;&nbsp;Tu poses des questions inattendues qui m&rsquo;aident à avancer, merci.&nbsp;&raquo;">&ldquo;You ask unexpected questions that help me move forward — thank you.&rdquo;</p>
-      <cite class="proof-quote-attr" data-en="— A coachee" data-fr="— Un coaché">— A coachee</cite>
-    </blockquote>
-    <!-- END: PROOF - P1 -->
-  </div>
-  <div class="pb-right fade">
-    <p class="pb-concept-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Areas of focus</p>
-    <ul class="pb-moments">
-      <li>
-        <span data-en="Step back and clarify thinking" data-fr="Prendre du recul et clarifier sa pensée"><strong>Prendre du recul et clarifier sa pensée</strong></span>
-      </li>
-      <li>
-        <span data-en="Evolve posture and presence" data-fr="Faire évoluer sa posture et sa présence"><strong>Faire évoluer sa posture et sa présence</strong></span>
-      </li>
-      <li>
-        <span data-en="Develop influence and positioning" data-fr="Développer son influence et son positionnement"><strong>Développer son influence et son positionnement</strong></span>
-      </li>
-      <li>
-        <span data-en="Decide under uncertainty" data-fr="Décider dans l&#8217;incertitude"><strong>Décider dans l&#8217;incertitude</strong></span>
-      </li>
-      <li>
-        <span data-en="Navigate a role transition" data-fr="Traverser une transition de rôle"><strong>Traverser une transition de rôle</strong></span>
-      </li>
-      <li>
-        <span data-en="Clarify professional trajectory" data-fr="Clarifier sa trajectoire professionnelle"><strong>Clarifier sa trajectoire professionnelle</strong></span>
-      </li>
+<div class="p1-layout light-section" id="p1" aria-labelledby="p1-heading">
+
+  <!-- COL GAUCHE : tout le texte -->
+  <div class="p1-left fade">
+    <span class="eyebrow accent-teal-light" data-en="01 — Leader" data-fr="01 — Leader">01 — Leader</span>
+    <h3 class="pb-h3" id="p1-heading" data-en="Create clarity." data-fr="Créer de la clarté.">Create clarity.</h3>
+    <p class="pb-sub" data-en="When intelligence and answers become more accessible than ever, the leader&#8217;s value shifts." data-fr="Lorsque l&#8217;information et les réponses deviennent toujours plus accessibles, la valeur du leader se déplace.">Lorsque l&#8217;information et les réponses deviennent toujours plus accessibles, la valeur du leader se déplace.</p>
+    <p class="pb-sub" data-en="It&#8217;s no longer just about knowing." data-fr="Il ne s&#8217;agit plus seulement de savoir.">Il ne s&#8217;agit plus seulement de savoir.</p>
+    <p class="pb-sub" data-en="It&#8217;s about discerning what matters, giving direction, deciding and enabling the collective to move forward." data-fr="Il s&#8217;agit de discerner ce qui compte, donner une direction, décider et permettre au collectif d&#8217;avancer.">Il s&#8217;agit de discerner ce qui compte, donner une direction, décider et permettre au collectif d&#8217;avancer.</p>
+    <p class="pb-sub" data-en="This is the shift I support." data-fr="C&#8217;est ce déplacement que j&#8217;accompagne.">C&#8217;est ce déplacement que j&#8217;accompagne.</p>
+    <p class="pb-sub" data-en="In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with leaders on situations where the answer is not obvious: arbitrating, deciding, evolving their managerial posture in the agentic era, exercising leadership under uncertainty and clarifying their professional trajectory." data-fr="Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders sur des situations où la réponse n&#8217;est pas évidente : arbitrer, décider, faire évoluer leur posture managériale à l&#8217;ère agentique, exercer leur leadership dans l&#8217;incertitude et clarifier leur trajectoire professionnelle.">Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders sur des situations où la réponse n&#8217;est pas évidente : arbitrer, décider, faire évoluer leur posture managériale à l&#8217;ère agentique, exercer leur leadership dans l&#8217;incertitude et clarifier leur trajectoire professionnelle.</p>
+    <p class="pb-sub" data-en="I offer a confidential, caring but non-complacent space for self-reflection: a space to step back, question certainties, look at blind spots and, when necessary, be gently challenged in order to genuinely progress." data-fr="Je leur offre un cadre de réflexion sur soi, confidentiel, bienveillant mais non complaisant : un espace pour prendre du recul, questionner ses certitudes, regarder ses angles morts et, lorsque c&#8217;est nécessaire, être confronté avec bienveillance pour progresser réellement.">Je leur offre un cadre de réflexion sur soi, confidentiel, bienveillant mais non complaisant : un espace pour prendre du recul, questionner ses certitudes, regarder ses angles morts et, lorsque c&#8217;est nécessaire, être confronté avec bienveillance pour progresser réellement.</p>
+
+    <p class="p1-zones-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Mes zones d&#8217;intervention</p>
+    <ul class="pb-moments p1-moments">
+      <li><span data-en="Step back and clarify thinking" data-fr="Prendre du recul et clarifier sa pensée"><strong>Prendre du recul et clarifier sa pensée</strong></span></li>
+      <li><span data-en="Evolve posture and presence" data-fr="Faire évoluer sa posture et sa présence"><strong>Faire évoluer sa posture et sa présence</strong></span></li>
+      <li><span data-en="Develop influence and positioning" data-fr="Développer son influence et son positionnement"><strong>Développer son influence et son positionnement</strong></span></li>
+      <li><span data-en="Decide under uncertainty" data-fr="Décider dans l&#8217;incertitude"><strong>Décider dans l&#8217;incertitude</strong></span></li>
+      <li><span data-en="Navigate a role transition" data-fr="Traverser une transition de rôle"><strong>Traverser une transition de rôle</strong></span></li>
+      <li><span data-en="Clarify professional trajectory" data-fr="Clarifier sa trajectoire professionnelle"><strong>Clarifier sa trajectoire professionnelle</strong></span></li>
     </ul>
     <div class="pb-formats">
       <p class="pb-formats-text" data-en="<strong>Outcome:</strong> a decision made, a posture adjusted, a transition better navigated." data-fr="<strong>Résultat :</strong> une décision prise, une posture ajustée, une transition mieux vécue."><strong>Résultat :</strong> une décision prise, une posture ajustée, une transition mieux vécue.</p>
     </div>
-    <div class="pb-section-photo">
-      <img src="assets/Individuel-Clarté.jpeg" alt="Coaching individuel — Créer de la clarté" />
-    </div>
   </div>
+
+  <!-- COL DROITE : photo + badge + verbatim -->
+  <div class="p1-right fade">
+    <div class="p1-photo-wrap">
+      <img src="assets/Individuel-Clarté.jpeg" alt="Coaching individuel — Créer de la clarté" />
+      <!-- Badge "11" en overlay -->
+      <div class="p1-badge">
+        <span class="p1-badge-num">11</span>
+        <span class="p1-badge-label" data-en="Leaders in coaching — FY26" data-fr="Leaders en coaching — FY26">Leaders en coaching — FY26</span>
+      </div>
+    </div>
+    <!-- Verbatim style citation -->
+    <blockquote class="p1-quote">
+      <span class="p1-quote-mark" aria-hidden="true">&ldquo;</span>
+      <p class="p1-quote-text" data-en="You ask unexpected questions that help me move forward — thank you." data-fr="Tu poses des questions inattendues qui m&rsquo;aident à avancer, merci.">Tu poses des questions inattendues qui m&#8217;aident à avancer, merci.</p>
+      <cite class="p1-quote-attr" data-en="— A coachee" data-fr="— Un coaché">— Un coaché</cite>
+    </blockquote>
+  </div>
+
 </div>
 
 <!-- ══ P2 — TEAM ══════════════════════════════════════════════════ -->
