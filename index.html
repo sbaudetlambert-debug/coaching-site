@@ -396,20 +396,12 @@
       padding: 24px; display: flex; flex-direction: column;
     }
     .s2-card-header {
-      display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
     }
-    .s2-card-badge-row { display: flex; align-items: center; gap: 10px; }
-    .s2-pillar-badge {
-      width: 32px; height: 32px; border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 12px; font-weight: 600; flex-shrink: 0;
-    }
-    .badge-biz { background: var(--eb-30); color: var(--white); }
-    .badge-tr  { background: var(--eb-15); color: var(--white); }
-    .badge-ppl { background: #032D60;      color: var(--white); }
     .s2-card-title {
-      font-family: var(--font-body); font-size: 13px; font-weight: 700;
-      color: var(--section-text-primary); text-transform: uppercase; letter-spacing: .05em;
+      font-family: var(--font-body); font-size: 14px; font-weight: 700;
+      color: var(--section-text-primary); text-transform: uppercase; letter-spacing: .06em;
+      text-align: center; flex: 1;
     }
     .s2-card-rncp {
       width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
@@ -918,7 +910,7 @@
       <span data-en="A transformation practitioner with a coaching mindset." data-fr="Un praticien de la transformation avec un état d&#8217;esprit de coach.">Un praticien de la transformation avec un état d&#8217;esprit de coach.</span>
     </h2>
     <p class="s2-intro">
-      <span data-en="Business experience, transformation delivery, coaching practice — three lenses that most practitioners keep separate. My path brought me to combine them, and this is what allows me to read organizations at several levels at once." data-fr="Expérience business, conduite de transformations, pratique du coaching — trois dimensions que la plupart des praticiens gardent séparées. Mon parcours m&#8217;a amené à les combiner, et c&#8217;est ce qui me permet de lire les organisations à plusieurs niveaux à la fois.">Expérience business, conduite de transformations, pratique du coaching — trois dimensions que la plupart des praticiens gardent séparées. Mon parcours m&#8217;a amené à les combiner, et c&#8217;est ce qui me permet de lire les organisations à plusieurs niveaux à la fois.</span>
+      <span data-en="I am Stéphane Baudet-Lambert, your Sales Leaders Excellence Coach. My path brought me to combine business experience, transformation delivery and coaching practice. This is what allows me to read organizations at several levels at once and to design tailored coaching formats." data-fr="Je suis Stéphane Baudet-Lambert, votre Sales Leaders Excellence Coach. Mon parcours m&#8217;a amené à combiner expérience business, conduite de transformations et pratique du coaching. C&#8217;est ce qui me permet de lire les organisations à plusieurs niveaux à la fois et de construire des formats d&#8217;accompagnement sur-mesure.">Je suis Stéphane Baudet-Lambert, votre Sales Leaders Excellence Coach. Mon parcours m&#8217;a amené à combiner expérience business, conduite de transformations et pratique du coaching. C&#8217;est ce qui me permet de lire les organisations à plusieurs niveaux à la fois et de construire des formats d&#8217;accompagnement sur-mesure.</span>
     </p>
   </div>
 
@@ -928,10 +920,7 @@
     <!-- Carte Business -->
     <div class="s2-card fade">
       <div class="s2-card-header">
-        <div class="s2-card-badge-row">
-          <div class="s2-pillar-badge badge-biz" aria-hidden="true">B</div>
-          <span class="s2-card-title" data-en="Business" data-fr="Business">Business</span>
-        </div>
+        <span class="s2-card-title" data-en="Business" data-fr="Business">Business</span>
       </div>
       <p class="s2-card-body">
         <span data-en="6+ years in Sales &amp; Marketing roles. I understand commercial reality, revenue pressure and what it means to be accountable for results — with Danone, Nutrixo, AXA and others." data-fr="6 ans dans des fonctions Sales &amp; Marketing. Je comprends la réalité commerciale, la pression du chiffre et ce que signifie être responsable d&#8217;un résultat — chez Danone, Nutrixo, AXA et d&#8217;autres.">6 ans dans des fonctions Sales &amp; Marketing. Je comprends la réalité commerciale, la pression du chiffre et ce que signifie être responsable d&#8217;un résultat — chez Danone, Nutrixo, AXA et d&#8217;autres.</span>
@@ -941,10 +930,7 @@
     <!-- Carte Transformation -->
     <div class="s2-card fade">
       <div class="s2-card-header">
-        <div class="s2-card-badge-row">
-          <div class="s2-pillar-badge badge-tr" aria-hidden="true">T</div>
-          <span class="s2-card-title" data-en="Transformation" data-fr="Transformation">Transformation</span>
-        </div>
+        <span class="s2-card-title" data-en="Transformation" data-fr="Transformation">Transformation</span>
       </div>
       <p class="s2-card-body">
         <span data-en="10+ years leading strategic transformation programs. I have seen what makes complex organizations move — and what makes them stall, often despite the best intentions." data-fr="10 ans à conduire des programmes de transformation stratégique. J&#8217;ai vu ce qui fait avancer les organisations complexes — et ce qui les fige, souvent malgré les meilleures intentions.">10 ans à conduire des programmes de transformation stratégique. J&#8217;ai vu ce qui fait avancer les organisations complexes — et ce qui les fige, souvent malgré les meilleures intentions.</span>
@@ -954,14 +940,11 @@
     <!-- Carte Personnes -->
     <div class="s2-card fade">
       <div class="s2-card-header">
-        <div class="s2-card-badge-row">
-          <div class="s2-pillar-badge badge-ppl" aria-hidden="true">P</div>
-          <span class="s2-card-title" data-en="People" data-fr="Personnes">Personnes</span>
-        </div>
-        <img src="Assets/titre-rncp.jpg" alt="Titre RNCP" class="s2-card-rncp" />
+        <span class="s2-card-title" data-en="People" data-fr="Personnes">Personnes</span>
+        <img src="assets/titre-rncp.jpg" alt="Titre RNCP" class="s2-card-rncp" />
       </div>
       <p class="s2-card-body">
-        <span data-en="<span class='prog-badge prog-badge-teal'>Certified</span> in Collective Performance &amp; Transformation (RNCP title). A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="<span class='prog-badge prog-badge-teal'>Certifié</span> en Performance &amp; Transformation Collective (titre RNCP). Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps."><span class="prog-badge prog-badge-teal">Certifié</span> en Performance &amp; Transformation Collective (titre RNCP). Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps.</span>
+        <span data-en="<strong>Certified</strong> in Collective Performance &amp; Transformation (RNCP title). A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="<strong>Certifié</strong> en Performance &amp; Transformation Collective (titre RNCP). Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps."><strong>Certifié</strong> en Performance &amp; Transformation Collective (titre RNCP). Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps.</span>
       </p>
     </div>
 
@@ -995,7 +978,7 @@
 
     <!-- Carte Bivwak! -->
     <div class="s2-int-card fade">
-      <img src="Assets/bivwak-logo.svg" alt="Bivwak!" class="s2-int-logo" />
+      <img src="assets/bivwak-logo.svg" alt="Bivwak!" class="s2-int-logo" />
       <p class="s2-int-title" data-en="External Facilitator — BNP Paribas, Transfo/Orga division" data-fr="Facilitateur externe — BNP Paribas, division Transfo/Orga">Facilitateur externe — BNP Paribas, division Transfo/Orga</p>
       <p class="s2-int-body">
         <span data-en="I facilitate transformation workshops for BNP Paribas teams through the Bivwak! program. A practice that broadens my understanding of change dynamics beyond a single corporate context." data-fr="J&#8217;anime des ateliers de transformation pour les équipes BNP Paribas via le programme Bivwak!. Une pratique qui nourrit et élargit ma compréhension des dynamiques de changement, au-delà d&#8217;un seul contexte d&#8217;entreprise.">J&#8217;anime des ateliers de transformation pour les équipes BNP Paribas via le programme Bivwak!. Une pratique qui nourrit et élargit ma compréhension des dynamiques de changement, au-delà d&#8217;un seul contexte d&#8217;entreprise.</span>
