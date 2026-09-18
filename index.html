@@ -49,7 +49,7 @@
 
       /* Semantic tokens — light surfaces */
       --bg-page:          var(--white);
-      --bg-canvas:        #F5F9FF;      /* near CB-95, reading sections */
+      --bg-canvas:        var(--cb-95); /* Cloud Blue 95 — sacred palette */
       --bg-hero:          var(--eb-15); /* dark hero */
       --bg-dark:          var(--eb-15); /* authoritative dark sections */
       --bg-mid:           var(--eb-30); /* deep marine accent section */
@@ -146,7 +146,8 @@
       position: fixed; top: 0; right: 0; left: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px; height: 56px;
-      background: rgba(0, 30, 91, .95);
+      background: rgba(0, 30, 91, .92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-dark);
       gap: 24px;
     }
@@ -242,7 +243,7 @@
       min-height: auto;
       display: flex; flex-direction: column; justify-content: center;
       padding: 100px var(--section-pad-h) 80px;
-      background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, #001640 100%);
+      background: linear-gradient(150deg, var(--eb-15) 0%, var(--eb-30) 70%, var(--eb-15) 100%);
       overflow: clip; /* clip sans BFC — permet position:sticky dans les enfants */
     }
 
@@ -278,6 +279,17 @@
       height: clamp(280px, 28vw, 460px);
       pointer-events: none;
     }
+    .s1-punchline {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.6vw, 28px);
+      font-weight: 600;
+      color: var(--cb-80);
+      line-height: 1.4;
+      max-width: min(680px, 48vw);
+      margin-bottom: 40px;
+      padding-left: 20px;
+      border-left: 3px solid var(--teal);
+    }
     /* CTA hero */
     .s1-cta {
       display: inline-flex; align-items: center; gap: 10px;
@@ -308,6 +320,33 @@
     }
     @keyframes cue { 0%,100%{transform:translateY(0)} 55%{transform:translateY(5px)} }
 
+    /* Stat cards — big number marketing style */
+    .stat-card {
+      display: inline-flex; flex-direction: column; align-items: flex-start;
+      padding: 20px 28px;
+      background: rgba(6,106,254,.08);
+      border: 1px solid rgba(6,106,254,.2);
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    #p2 .stat-card {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(144,208,254,.2);
+    }
+    .stat-card-number {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4vw, 64px);
+      font-weight: 600; line-height: 1;
+      letter-spacing: -.02em;
+      color: var(--section-text-primary);
+    }
+    .stat-card-label {
+      font-family: var(--font-body);
+      font-size: clamp(11px, 0.7vw, 13px); font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--section-text-muted);
+      margin-top: 6px;
+    }
     /* CTA inline dans les blocs pratique */
     .pb-cta {
       display: inline-flex; align-items: center; gap: 8px;
@@ -739,6 +778,42 @@
     .nav-slack:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
     .nav-slack img { width: 14px; height: 14px; flex-shrink: 0; display: block; }
 
+    /* Programme badges — pill tags */
+    .prog-badge {
+      display: inline-block;
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .prog-badge-blue {
+      background: rgba(6,106,254,.12);
+      color: var(--eb-50);
+      border: 1px solid rgba(6,106,254,.3);
+    }
+    #p2 .prog-badge-blue, #p3 .prog-badge-blue {
+      background: rgba(144,208,254,.12);
+      color: var(--cb-80);
+      border-color: rgba(144,208,254,.25);
+    }
+    .prog-badge-teal {
+      background: rgba(4,225,203,.1);
+      color: var(--teal);
+      border: 1px solid rgba(4,225,203,.25);
+    }
+    .prog-badge-ext {
+      background: rgba(107,47,160,.1);
+      color: var(--violet-on-light);
+      border: 1px solid rgba(107,47,160,.2);
+    }
+    #p3 .prog-badge-ext {
+      color: var(--violet);
+      background: rgba(209,125,254,.1);
+      border-color: rgba(209,125,254,.2);
+    }
+
     /* ─────────────────────────────────────────────────────────────
        FADE-IN ANIMATION
     ───────────────────────────────────────────────────────────── */
@@ -784,12 +859,8 @@
   <ul class="nav-links" role="list">
     <li><a href="#s1" data-en="The Shift" data-fr="Le constat">The Shift</a></li>
     <li><a href="#s2" data-en="Who I am" data-fr="Qui suis-je ?">Who I am</a></li>
-    <li class="sep-dot" aria-hidden="true"></li>
-    <li><a href="#p1" data-en="Your Leaders" data-fr="Vos Leaders">Your Leaders</a></li>
-    <li><a href="#p2" data-en="Your Teams" data-fr="Vos Équipes">Your Teams</a></li>
-    <li><a href="#p3" data-en="Our Organization" data-fr="Notre Organisation">Our Organization</a></li>
-    <li class="sep-dot" aria-hidden="true"></li>
     <li><a href="#s3" data-en="My Practice" data-fr="Ma pratique">My Practice</a></li>
+    <li><a href="#s5" data-en="The Common Thread" data-fr="Le fil conducteur">The Common Thread</a></li>
   </ul>
   <div class="nav-right">
     <button class="lb" onclick="setLang('fr')" id="btn-fr" aria-pressed="false" aria-label="Passer en français">FR</button>
@@ -805,7 +876,7 @@
 <!-- ══ S1 — THE SHIFT ════════════════════════════════════════════ -->
 <section id="s1" class="dark-section" aria-labelledby="s1-heading">
   <h1 class="s1-h1 fade" id="s1-heading">
-    <span data-en="The Salesforce AI Paradox." data-fr="The Salesforce AI Paradox.">
+    <span data-en="The Salesforce AI Paradox." data-fr="Le paradoxe IA de Salesforce.">
       The Salesforce AI Paradox.
     </span>
   </h1>
@@ -815,6 +886,11 @@
     </span>
   </p>
   <div class="s1-rule fade" aria-hidden="true"></div>
+  <p class="s1-punchline fade">
+    <span data-en="AI accelerates access to answers. It doesn&rsquo;t excuse you from judging which ones matter." data-fr="L&rsquo;IA accélère l&rsquo;accès aux réponses. Elle ne dispense pas de juger lesquelles retenir.">
+      AI accelerates access to answers. It doesn&rsquo;t excuse you from judging which ones matter.
+    </span>
+  </p>
   <p class="s1-belief fade">
     <span data-en="Your teams are absorbing a pace of change the market itself struggles to keep up with. The question is no longer competence. It&rsquo;s where to find the energy and the judgment — for you, for them." data-fr="Vos équipes absorbent un rythme de changement que le marché lui-même peine à suivre. La question n&rsquo;est plus la compétence. C&rsquo;est où trouver l&rsquo;énergie et le discernement — pour vous, pour eux.">
       Your teams are absorbing a pace of change the market itself struggles to keep up with. The question is no longer competence. It&rsquo;s where to find the energy and the judgment — for you, for them.
@@ -866,7 +942,7 @@
           <div class="s2-pillar-badge badge-ppl" aria-hidden="true">P</div>
           <div>
             <p class="s2-pillar-title" data-en="People" data-fr="Personnes">People</p>
-            <p class="s2-pillar-body" data-en="Certified in Collective Performance & Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="Certifié en Performance & Transformation Collective. Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps.">Certified in Collective Performance & Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance.</p>
+            <p class="s2-pillar-body" data-en="<span class='prog-badge prog-badge-teal'>Certified</span> in Collective Performance &amp; Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance." data-fr="<span class='prog-badge prog-badge-teal'>Certifié</span> en Performance &amp; Transformation Collective. Une pratique construite autour du leadership, de l&#8217;intelligence collective et des conditions d&#8217;une performance qui tient dans le temps."><span class="prog-badge prog-badge-teal">Certified</span> in Collective Performance &amp; Transformation. A coaching practice built on leadership, collective intelligence and the conditions for sustainable performance.</p>
           </div>
         </div>
       </div>
@@ -892,8 +968,8 @@
         </span>
       </p>
       <p class="s2-external fade">
-        <span data-en="Beyond my role at Salesforce, I also work as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division — a practice that broadens my understanding of transformation dynamics beyond a single corporate context." data-fr="Au-delà de mon rôle chez Salesforce, j&#8217;interviens également comme <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga Bivwak! — une pratique qui nourrit et élargit ma compréhension des dynamiques de transformation, au-delà d&#8217;un seul contexte d&#8217;entreprise.">
-          Beyond my role at Salesforce, I also work as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division — a practice that broadens my understanding of transformation dynamics beyond a single corporate context.
+        <span data-en="Beyond my role at Salesforce, I also work as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga <span class='prog-badge prog-badge-ext'>Bivwak!</span> division — a practice that broadens my understanding of transformation dynamics beyond a single corporate context." data-fr="Au-delà de mon rôle chez Salesforce, j&#8217;interviens également comme <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga <span class='prog-badge prog-badge-ext'>Bivwak!</span> — une pratique qui nourrit et élargit ma compréhension des dynamiques de transformation, au-delà d&#8217;un seul contexte d&#8217;entreprise.">
+          Beyond my role at Salesforce, I also work as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga <span class="prog-badge prog-badge-ext">Bivwak!</span> division — a practice that broadens my understanding of transformation dynamics beyond a single corporate context.
         </span>
       </p>
     </div>
@@ -951,7 +1027,10 @@
     <p class="pb-sub fade" data-en="In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with first-, second- and third-line leaders on pipeline inspection, deal coaching, clarity of judgment and decision-making under uncertainty." data-fr="Dans mon rôle de <strong>Sales Leaders Excellence Coach chez Salesforce</strong>, j&#8217;accompagne au quotidien des leaders de 1re, 2e et 3e ligne sur l&#8217;inspection de pipeline, le coaching de deals, la clarté de jugement et la prise de décision sous incertitude.">In my role as <strong>Sales Leaders Excellence Coach at Salesforce</strong>, I work daily with first-, second- and third-line leaders on pipeline inspection, deal coaching, clarity of judgment and decision-making under uncertainty.</p>
     <!-- BEGIN: PROOF - P1 -->
     <div class="proof-facts fade">
-      <p class="proof-fact" data-en="11 leaders currently in coaching — FY26." data-fr="Accompagnement en cours de 11 leaders sur FY26.">11 leaders currently in coaching — FY26.</p>
+      <div class="stat-card">
+        <span class="stat-card-number">11</span>
+        <span class="stat-card-label" data-en="Leaders in coaching — FY26" data-fr="Leaders en coaching — FY26">Leaders in coaching — FY26</span>
+      </div>
     </div>
     <blockquote class="proof-quote fade">
       <p class="proof-quote-text" data-en="&ldquo;You ask unexpected questions that help me move forward — thank you.&rdquo;" data-fr="&laquo;&nbsp;Tu poses des questions inattendues qui m&rsquo;aident à avancer, merci.&nbsp;&raquo;">&ldquo;You ask unexpected questions that help me move forward — thank you.&rdquo;</p>
@@ -995,8 +1074,10 @@
     <p class="pb-sub fade" data-en="I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation." data-fr="Je facilite des sessions de développement d&#8217;équipe et de communication du changement pour des équipes de direction — de la constellation systémique à la préparation de briefings hebdomadaires — pour aligner une équipe autour d&#8217;une transformation.">I facilitate team development and change communication sessions for leadership teams — from systemic constellation to weekly briefing preparation — to align a team around a transformation.</p>
     <!-- BEGIN: PROOF - P2 -->
     <div class="proof-stat-wrap fade">
-      <p class="proof-stat" data-en="9.2/10" data-fr="9,2/10">9.2/10</p>
-      <p class="proof-stat-label" data-en="Average CSAT — 5 sessions since May" data-fr="CSAT moyen — 5 sessions depuis mai">Average CSAT — 5 sessions since May</p>
+      <div class="stat-card">
+        <span class="stat-card-number">9,2<small style="font-size:.5em">/10</small></span>
+        <span class="stat-card-label" data-en="Average CSAT — 5 sessions since May" data-fr="CSAT moyen — 5 sessions depuis mai">CSAT moyen — 5 sessions depuis mai</span>
+      </div>
     </div>
     <blockquote class="proof-quote fade">
       <p class="proof-quote-text" data-en="&ldquo;I wanted to thank you for yesterday&rsquo;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution.&rdquo;" data-fr="&laquo;&nbsp;Je voulais te remercier pour la session d&rsquo;hier&nbsp;! J&rsquo;ai adoré à la fois le format, les exercices, le fond, l&rsquo;ambiance et surtout je suis ressortie remplie d&rsquo;énergie. C&rsquo;était super, et franchement bravo pour l&rsquo;organisation et l&rsquo;exécution.&nbsp;&raquo;">&ldquo;I wanted to thank you for yesterday&rsquo;s session! I loved the format, the exercises, the content, the atmosphere — and above all I left full of energy. It was great, and seriously, well done for the organisation and execution.&rdquo;</p>
@@ -1037,11 +1118,11 @@
     <h3 class="pb-h3 fade" id="p3-heading" data-en="Build the capacity to evolve." data-fr="Développer la capacité à évoluer.">Build the capacity to evolve.</h3>
     <p class="pb-sub fade" data-en="AI accelerates change. It doesn't create the capacity to change. Organizations that transform durably don't just evolve their plans — they develop their capacity to change at every level, not just at the top." data-fr="L&#8217;IA accélère le changement. Elle ne crée pas à elle seule la capacité à changer. Les organisations qui se transforment durablement ne font pas qu&#8217;évoluer leurs plans — elles développent leur capacité à changer, à chaque niveau, pas seulement au sommet.">AI accelerates change. It doesn't create the capacity to change. Organizations that transform durably don't just evolve their plans — they develop their capacity to change at every level, not just at the top.</p>
     <p class="pb-sub fade" data-en="The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally." data-fr="Le goulot d&#8217;étranglement n&#8217;est presque jamais la technologie. C&#8217;est le leadership, la culture et la façon dont le changement est porté localement.">The bottleneck is almost never the technology. It is leadership, culture, and how change is carried locally.</p>
-    <p class="pb-sub fade" data-en="I work on large-scale transformation topics, including AI skills development (LEAD AI programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division." data-fr="J&#8217;interviens sur des sujets de transformation à l&#8217;échelle organisationnelle, notamment sur l&#8217;évolution des compétences liées à l&#8217;IA (programme LEAD AI), en évaluant et en construisant des trajectoires de montée en compétence pour les leaders. Je suis par ailleurs <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga Bivwak!">I work on large-scale transformation topics, including AI skills development (LEAD AI programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga Bivwak! division.</p>
+    <p class="pb-sub fade" data-en="I work on large-scale transformation topics, including AI skills development (<span class='prog-badge prog-badge-blue'>LEAD AI</span> programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga <span class='prog-badge prog-badge-ext'>Bivwak!</span> division." data-fr="J&#8217;interviens sur des sujets de transformation à l&#8217;échelle organisationnelle, notamment sur l&#8217;évolution des compétences liées à l&#8217;IA (programme <span class='prog-badge prog-badge-blue'>LEAD AI</span>), en évaluant et en construisant des trajectoires de montée en compétence pour les leaders. Je suis par ailleurs <strong>facilitateur externe pour BNP Paribas</strong>, au sein de la division Transfo/Orga <span class='prog-badge prog-badge-ext'>Bivwak!</span>">I work on large-scale transformation topics, including AI skills development (<span class="prog-badge prog-badge-blue">LEAD AI</span> programme), assessing and building learning paths for leaders. I also serve as an <strong>external facilitator for BNP Paribas</strong>, within the Transfo/Orga <span class="prog-badge prog-badge-ext">Bivwak!</span> division.</p>
     <!-- BEGIN: PROOF - P3 -->
     <div class="proof-facts fade">
-      <p class="proof-fact" data-en="Support for the BDR of the Future strategic programme — recommendations validated by sponsor leaders." data-fr="Accompagnement du programme stratégique BDR of the Future, recommandations validées par les leaders sponsors.">Support for the BDR of the Future strategic programme — recommendations validated by sponsor leaders.</p>
-      <p class="proof-fact" data-en="Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era." data-fr="Contribution avec Sales Leaders &amp; Employee Services sur l&rsquo;app LEAD AI — pose les bases de l&rsquo;accompagnement des leaders à l&rsquo;ère de l&rsquo;IA.">Contribution with Sales Leaders &amp; Employee Services on the LEAD AI app — laying the groundwork for supporting leaders in the AI era.</p>
+      <p class="proof-fact" data-en="Support for the <span class='prog-badge prog-badge-blue'>BDR of the Future</span> strategic programme — recommendations validated by sponsor leaders." data-fr="Accompagnement du programme stratégique <span class='prog-badge prog-badge-blue'>BDR of the Future</span>, recommandations validées par les leaders sponsors.">Support for the <span class="prog-badge prog-badge-blue">BDR of the Future</span> strategic programme — recommendations validated by sponsor leaders.</p>
+      <p class="proof-fact" data-en="Contribution with Sales Leaders &amp; Employee Services on the <span class='prog-badge prog-badge-blue'>LEAD AI</span> app — laying the groundwork for supporting leaders in the AI era." data-fr="Contribution avec Sales Leaders &amp; Employee Services sur l&rsquo;app <span class='prog-badge prog-badge-blue'>LEAD AI</span> — pose les bases de l&rsquo;accompagnement des leaders à l&rsquo;ère de l&rsquo;IA.">Contribution with Sales Leaders &amp; Employee Services on the <span class="prog-badge prog-badge-blue">LEAD AI</span> app — laying the groundwork for supporting leaders in the AI era.</p>
     </div>
     <!-- END: PROOF - P3 -->
   </div>
