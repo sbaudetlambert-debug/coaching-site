@@ -780,25 +780,35 @@
       object-fit: cover; object-position: center top;
       border-radius: 14px; display: block;
     }
-    /* Stat card CSAT — colonne droite P2 */
+    /* Sous-grille liste + stat card P2 */
+    .p2-zones-row {
+      display: grid; grid-template-columns: 63fr 37fr;
+      gap: 20px; align-items: start; margin-top: 32px;
+    }
+    .p2-zones-col { display: flex; flex-direction: column; }
+    /* Stat card CSAT — à droite de la liste */
     .p2-stat-card {
       background: #FFFFFF;
       border-radius: 16px;
-      padding: 20px 24px;
+      padding: 20px 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,.08), 0 0 0 1px rgba(0,30,91,.06);
-      margin-top: 24px;
+      align-self: stretch;
+      display: flex; flex-direction: column; justify-content: center;
     }
     .p2-stat-num {
       font-family: var(--font-display); font-size: 48px; font-weight: 700;
       color: #001E5B; line-height: 1;
     }
     .p2-stat-num sup {
-      font-size: 22px; font-weight: 400;
+      font-size: 20px; font-weight: 400;
       color: #001E5B; vertical-align: super; line-height: 0;
     }
     .p2-stat-label {
-      font-family: var(--font-body); font-size: 14px; font-weight: 400;
-      color: #001E5B; margin-top: 8px;
+      font-family: var(--font-body); font-size: 13px; font-weight: 400;
+      color: #001E5B; margin-top: 10px; line-height: 1.4;
+    }
+    @media (max-width: 680px) {
+      .p2-zones-row { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
     }
     .p2-quote { margin: 0; }
 
@@ -1305,18 +1315,22 @@
     <p class="pb-sub" data-en="I work with teams when a transformation demands more than surface alignment: clarifying what matters, surfacing useful tensions, improving the quality of conversations and creating the conditions for genuinely collective decisions." data-fr="J&#8217;accompagne les équipes lorsqu&#8217;une transformation exige plus qu&#8217;un alignement de façade&nbsp;: clarifier ce qui compte, faire émerger les tensions utiles, améliorer la qualité des conversations et créer les conditions d&#8217;une décision réellement collective.">J&#8217;accompagne les équipes lorsqu&#8217;une transformation exige plus qu&#8217;un alignement de façade&nbsp;: clarifier ce qui compte, faire émerger les tensions utiles, améliorer la qualité des conversations et créer les conditions d&#8217;une décision réellement collective.</p>
     <p class="pb-sub" data-en="This can take the form of systemic work with the team, a collective development session, or support for leadership rituals — through to preparing briefings that maintain alignment over time." data-fr="Cela peut prendre la forme d&#8217;un travail systémique avec l&#8217;équipe, d&#8217;une session de développement collectif ou d&#8217;un accompagnement des rituels de leadership, jusqu&#8217;à la préparation de briefings permettant de maintenir l&#8217;alignement dans la durée.">Cela peut prendre la forme d&#8217;un travail systémique avec l&#8217;équipe, d&#8217;une session de développement collectif ou d&#8217;un accompagnement des rituels de leadership, jusqu&#8217;à la préparation de briefings permettant de maintenir l&#8217;alignement dans la durée.</p>
 
-    <p class="p1-zones-title p2-zones-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Mes zones d&#8217;intervention</p>
-    <ul class="pb-moments p2-moments">
-      <li><span data-en="<strong>Align the team on what truly matters</strong>" data-fr="<strong>Aligner l&#8217;équipe sur ce qui compte vraiment</strong>"><strong>Aligner l&#8217;équipe sur ce qui compte vraiment</strong></span></li>
-      <li><span data-en="<strong>Surface useful tensions</strong>" data-fr="<strong>Faire émerger les tensions utiles</strong>"><strong>Faire émerger les tensions utiles</strong></span></li>
-      <li><span data-en="<strong>Create conditions for authentic expression</strong>" data-fr="<strong>Créer les conditions d&#8217;une parole authentique</strong>"><strong>Créer les conditions d&#8217;une parole authentique</strong></span></li>
-      <li><span data-en="<strong>Improve the quality of collective decisions</strong>" data-fr="<strong>Améliorer la qualité des décisions collectives</strong>"><strong>Améliorer la qualité des décisions collectives</strong></span></li>
-      <li><span data-en="<strong>Evolve ways of working together</strong>" data-fr="<strong>Faire évoluer les modes de collaboration</strong>"><strong>Faire évoluer les modes de collaboration</strong></span></li>
-    </ul>
-    <!-- Stat card CSAT -->
-    <div class="p2-stat-card">
-      <div class="p2-stat-num">9,2<sup>/10</sup></div>
-      <div class="p2-stat-label" data-en="Average CSAT — 5 sessions since May" data-fr="Csat moyen — 5 sessions depuis mai">Csat moyen — 5 sessions depuis mai</div>
+    <!-- Sous-grille : liste + badge côte à côte -->
+    <div class="p2-zones-row">
+      <div class="p2-zones-col">
+        <p class="p1-zones-title p2-zones-title" data-en="Areas of focus" data-fr="Mes zones d&#8217;intervention">Mes zones d&#8217;intervention</p>
+        <ul class="pb-moments p2-moments">
+          <li><span data-en="<strong>Align the team on what truly matters</strong>" data-fr="<strong>Aligner l&#8217;équipe sur ce qui compte vraiment</strong>"><strong>Aligner l&#8217;équipe sur ce qui compte vraiment</strong></span></li>
+          <li><span data-en="<strong>Surface useful tensions</strong>" data-fr="<strong>Faire émerger les tensions utiles</strong>"><strong>Faire émerger les tensions utiles</strong></span></li>
+          <li><span data-en="<strong>Create conditions for authentic expression</strong>" data-fr="<strong>Créer les conditions d&#8217;une parole authentique</strong>"><strong>Créer les conditions d&#8217;une parole authentique</strong></span></li>
+          <li><span data-en="<strong>Improve the quality of collective decisions</strong>" data-fr="<strong>Améliorer la qualité des décisions collectives</strong>"><strong>Améliorer la qualité des décisions collectives</strong></span></li>
+          <li><span data-en="<strong>Evolve ways of working together</strong>" data-fr="<strong>Faire évoluer les modes de collaboration</strong>"><strong>Faire évoluer les modes de collaboration</strong></span></li>
+        </ul>
+      </div>
+      <div class="p2-stat-card">
+        <div class="p2-stat-num">9,2<sup>/10</sup></div>
+        <div class="p2-stat-label" data-en="Average CSAT — 5 sessions since May" data-fr="Csat moyen — 5 sessions depuis mai">Csat moyen — 5 sessions depuis mai</div>
+      </div>
     </div>
 
     <div class="pb-formats" style="margin-top:0">
