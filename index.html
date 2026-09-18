@@ -83,32 +83,32 @@
       --font-body:    'SF', Arial, sans-serif;
 
       /* ── TYPOGRAPHIC SCALE — one decision per level ──────────── */
-      /* H1  : page title — hero only                              */
-      --type-h1:      clamp(40px, 4.5vw, 96px);
+      /* H1  : page title — hero only — plafond libre à 2560px    */
+      --type-h1:      clamp(40px, 4.5vw, 120px);
       --type-h1-line: 1.06;
       --type-h1-ls:   -.022em;
       /* H2  : section title                                       */
-      --type-h2:      clamp(28px, 3vw, 64px);
+      --type-h2:      clamp(28px, 3.2vw, 80px);
       --type-h2-line: 1.1;
       --type-h2-ls:   -.018em;
       /* H3  : subsection / block title                            */
-      --type-h3:      clamp(22px, 2.2vw, 48px);
+      --type-h3:      clamp(22px, 2.4vw, 56px);
       --type-h3-line: 1.15;
       --type-h3-ls:   -.012em;
       /* Body large                                                */
-      --type-body-lg: clamp(15px, 1.2vw, 22px);
+      --type-body-lg: clamp(15px, 1.3vw, 26px);
       /* Body default                                              */
-      --type-body:    clamp(14px, 0.9vw, 18px);
+      --type-body:    clamp(14px, 1vw, 20px);
       /* Body small                                                */
-      --type-body-sm: clamp(13px, 0.75vw, 16px);
+      --type-body-sm: clamp(13px, 0.8vw, 17px);
       /* Label / metadata                                          */
-      --type-label:   clamp(12px, 0.65vw, 15px);
+      --type-label:   clamp(12px, 0.7vw, 16px);
       /* Eyebrow                                                   */
-      --type-eyebrow: clamp(10px, 0.6vw, 13px);
+      --type-eyebrow: clamp(10px, 0.6vw, 14px);
 
       /* Spacing */
-      --section-pad-v: clamp(80px, 9vw, 180px);
-      --section-pad-h: clamp(24px, 8vw, 180px);
+      --section-pad-v: clamp(80px, 9vw, 200px);
+      --section-pad-h: clamp(24px, 7vw, 160px);
 
       --ease: cubic-bezier(.16,1,.3,1);
     }
@@ -251,14 +251,14 @@
       font-size: var(--type-h1);
       font-weight: 600; line-height: var(--type-h1-line); letter-spacing: var(--type-h1-ls);
       color: var(--text-on-dark);
-      max-width: min(760px, 45vw); margin-bottom: 32px;
+      max-width: min(880px, 52vw); margin-bottom: 32px;
     }
     .s1-h1 em { font-style: normal; }
     .s1-thesis {
       font-family: var(--font-body);
-      font-size: clamp(16px, 1.3vw, 24px); font-weight: 400;
+      font-size: clamp(16px, 1.4vw, 28px); font-weight: 400;
       color: var(--text-on-dark-secondary);
-      line-height: 1.65; max-width: min(520px, 38vw); margin-bottom: 56px;
+      line-height: 1.65; max-width: min(640px, 42vw); margin-bottom: 56px;
     }
     .s1-thesis strong { color: var(--text-on-dark); font-weight: 700; }
     .s1-rule {
@@ -270,7 +270,7 @@
       font-family: var(--font-body);
       font-size: var(--type-body-lg);
       font-weight: 400; color: var(--text-on-dark-secondary);
-      line-height: 1.65; max-width: 520px;
+      line-height: 1.65; max-width: min(640px, 42vw);
     }
     .s1-astro {
       position: absolute; right: 5vw; top: 50%;
@@ -354,13 +354,13 @@
       font-size: var(--type-h2);
       font-weight: 600; line-height: var(--type-h2-line); letter-spacing: var(--type-h2-ls);
       color: var(--section-text-primary);
-      max-width: min(460px, 100%); margin-bottom: 24px;
+      max-width: min(600px, 100%); margin-bottom: 24px;
     }
     .s2-intro {
       font-family: var(--font-body);
-      font-size: clamp(15px, 1.1vw, 20px); font-weight: 400;
+      font-size: clamp(15px, 1.2vw, 22px); font-weight: 400;
       color: var(--section-text-secondary);
-      line-height: 1.7; max-width: min(440px, 100%); margin-bottom: 44px;
+      line-height: 1.7; max-width: min(560px, 100%); margin-bottom: 44px;
     }
     .s2-intro strong { color: var(--section-text-primary); font-weight: 700; }
 
@@ -663,21 +663,21 @@
       font-size: var(--type-h2);
       font-weight: 600; line-height: var(--type-h2-line); letter-spacing: var(--type-h2-ls);
       color: var(--section-text-primary);
-      max-width: min(900px, 60vw); margin-bottom: 20px;
+      max-width: min(1100px, 70vw); margin-bottom: 20px;
     }
     .s5-h2 em { font-style: normal; color: var(--text-teal-dark); }
     .s5-sub {
       font-family: var(--font-body);
       font-size: clamp(15px, 1.3vw, 22px); font-weight: 400;
       color: var(--section-text-secondary);
-      max-width: min(620px, 45vw); line-height: 1.7; margin-bottom: 64px;
+      max-width: min(780px, 52vw); line-height: 1.7; margin-bottom: 64px;
     }
     .s5-triad {
       display: flex; align-items: stretch;
       border: 1px solid var(--section-border);
       border-radius: 10px; overflow: hidden;
       margin-bottom: 64px;
-      min-width: min(600px, 50vw);
+      min-width: min(800px, 60vw);
     }
     .s5-node {
       padding: 28px clamp(44px, 3vw, 80px); text-align: center;
@@ -698,7 +698,7 @@
       font-family: var(--font-body);
       font-size: var(--type-body-lg);
       font-weight: 400; color: var(--section-text-secondary);
-      line-height: 1.65; max-width: 520px;
+      line-height: 1.65; max-width: min(680px, 48vw);
     }
     .s5-closing em { font-style: normal; color: var(--section-text-primary); font-weight: 700; }
 
