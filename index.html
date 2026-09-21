@@ -377,28 +377,33 @@
     /* Primary filled CTA button (section bottom, centered) */
     .pb-cta-primary {
       display: inline-flex; align-items: center;
-      margin-top: 24px;
       padding: 11px 28px;
-      background: var(--cb-68);
+      background: var(--eb-50);
       border: none;
       border-radius: 9999px;
       color: var(--white);
       font-family: var(--font-body); font-size: 14px; font-weight: 700;
       letter-spacing: .02em;
       text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,179,255,.25);
+      box-shadow: 0 2px 8px rgba(6,106,254,.25);
       transition: background .15s, box-shadow .15s, transform .15s;
       white-space: nowrap;
     }
     .pb-cta-primary:hover {
-      background: var(--eb-50);
-      box-shadow: 0 4px 16px rgba(0,179,255,.35);
+      background: var(--eb-30);
+      box-shadow: 0 4px 16px rgba(6,106,254,.35);
       transform: translateY(-1px);
     }
     .pb-cta-primary:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
     .pb-cta-primary-wrap {
       display: flex; justify-content: center;
       margin-top: 24px;
+    }
+    /* Full-width CTA spanning both columns of the P1 grid */
+    .p1-cta-full {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+      padding-bottom: 8px;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -1331,16 +1336,17 @@
     <div class="pb-formats p1-result">
       <p class="pb-formats-text" data-en="<strong>Outcome:</strong> a decision made, a posture adjusted, a transition better navigated." data-fr="<strong>RÉSULTAT :</strong> une décision prise, une posture ajustée, une transition mieux vécue."><strong>RÉSULTAT :</strong> une décision prise, une posture ajustée, une transition mieux vécue.</p>
     </div>
-    <!-- CTA "Pour aller plus loin" -->
-    <div class="pb-cta-primary-wrap">
-      <a href="https://docs.google.com/presentation/d/1onSMTaT7EXB6MCX_QuUtOGbxqOpbAlf0ZOPnDzM7BmU/present?slide=id.g3fbbc7ccfa9_1_1442"
-         class="pb-cta-primary"
-         target="_blank" rel="noopener"
-         data-en="Learn more"
-         data-fr="Pour aller plus loin"
-         data-href-fr="https://docs.google.com/presentation/d/1onSMTaT7EXB6MCX_QuUtOGbxqOpbAlf0ZOPnDzM7BmU/present?slide=id.g3fbbc7ccfa9_1_1442"
-         data-href-en="https://docs.google.com/presentation/d/13YSNHpWgcYi2DXQr0G-shhR508vMLVFxKBX9EGyuBus/present?slide=id.g3fbbc7ccfa9_1_1442">Pour aller plus loin</a>
-    </div>
+  </div>
+
+  <!-- CTA centré pleine largeur, hors des deux colonnes -->
+  <div class="pb-cta-primary-wrap p1-cta-full">
+    <a href="https://docs.google.com/presentation/d/1onSMTaT7EXB6MCX_QuUtOGbxqOpbAlf0ZOPnDzM7BmU/present?slide=id.g3fbbc7ccfa9_1_1442"
+       class="pb-cta-primary"
+       target="_blank" rel="noopener"
+       data-en="Learn more"
+       data-fr="Pour aller plus loin"
+       data-href-fr="https://docs.google.com/presentation/d/1onSMTaT7EXB6MCX_QuUtOGbxqOpbAlf0ZOPnDzM7BmU/present?slide=id.g3fbbc7ccfa9_1_1442"
+       data-href-en="https://docs.google.com/presentation/d/13YSNHpWgcYi2DXQr0G-shhR508vMLVFxKBX9EGyuBus/present?slide=id.g3fbbc7ccfa9_1_1442">Pour aller plus loin</a>
   </div>
 
 </div>
